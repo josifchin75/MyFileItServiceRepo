@@ -1,0 +1,2405 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MyFileItModel.Store" Provider="FirebirdSql.Data.FirebirdClient" ProviderManifestToken="2.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="APPUSER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="USERNAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="PASSWORD" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="PRIMARYAPPUSERID" Type="int" />
+          <Property Name="FIRSTNAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="LASTNAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="ADDRESS1" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="ADDRESS2" Type="varchar" MaxLength="60" Unicode="true" />
+          <Property Name="CITY" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="STATECODE" Type="varchar" MaxLength="2" Unicode="true" Nullable="false" />
+          <Property Name="ZIPCODE" Type="varchar" MaxLength="10" Unicode="true" Nullable="false" />
+          <Property Name="PHONE" Type="varchar" MaxLength="20" Unicode="true" />
+          <Property Name="MOBILEPHONENUMBER" Type="varchar" MaxLength="20" Unicode="true" />
+          <Property Name="EMAILADDRESS" Type="varchar" MaxLength="100" Unicode="true" />
+          <Property Name="EMAILADDRESS2" Type="varchar" MaxLength="100" Unicode="true" />
+          <Property Name="SEX" Type="varchar" MaxLength="1" Unicode="true" Nullable="false" />
+          <Property Name="BIRTHDATE" Type="date" />
+          <Property Name="COMMENT" Type="clob" Unicode="true" />
+          <Property Name="RELATIONSHIPTYPEID" Type="int" />
+          <Property Name="APPUSERTYPEID" Type="int" />
+          <Property Name="SHAREKEYID" Type="int" />
+          <Property Name="SHAREKEYEXPIREDATE" Type="date" />
+          <Property Name="APPUSERSTATUSID" Type="int" />
+          <Property Name="DATECREATED" Type="timestamp" />
+          <Property Name="CABINETID" Type="varchar" MaxLength="255" Unicode="true" />
+        </EntityType>
+        <EntityType Name="APPUSERORGANIZATION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ORGANIZATIONID" Type="int" Nullable="false" />
+          <Property Name="APPUSERID" Type="int" Nullable="false" />
+          <Property Name="STARTDATE" Type="date" />
+          <Property Name="EXPIRESDATE" Type="date" />
+          <Property Name="YEARCODE" Type="int" />
+          <Property Name="SPORTTYPEID" Type="int" Nullable="false" />
+          <Property Name="DATECREATED" Type="timestamp" />
+          <Property Name="APPUSERTYPEID" Type="int" />
+        </EntityType>
+        <EntityType Name="APPUSERSTATUS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="APPUSERTYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="PLAYERUSER" Type="varchar" MaxLength="1" Unicode="true" />
+          <Property Name="ISCOACH" Type="varchar" MaxLength="1" Unicode="true" />
+        </EntityType>
+        <EntityType Name="COACH">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="APPUSERID" Type="int" />
+          <Property Name="ADDRESS1" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="ADDRESS2" Type="varchar" MaxLength="60" Unicode="true" />
+          <Property Name="CITY" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="STATECODE" Type="varchar" MaxLength="2" Unicode="true" Nullable="false" />
+          <Property Name="ZIPCODE" Type="varchar" MaxLength="10" Unicode="true" Nullable="false" />
+          <Property Name="PHONE" Type="varchar" MaxLength="20" Unicode="true" />
+          <Property Name="EMAILADDRESS" Type="varchar" MaxLength="100" Unicode="true" />
+          <Property Name="SEX" Type="varchar" MaxLength="1" Unicode="true" Nullable="false" />
+          <Property Name="YEARCODE" Type="int" />
+          <Property Name="SPORTTYPEID" Type="int" />
+          <Property Name="RELATIONSHIPTYPEID" Type="int" />
+          <Property Name="COACHSTATUSID" Type="int" />
+          <Property Name="DATECREATED" Type="timestamp" />
+          <Property Name="FIRSTNAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="LASTNAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="ORGANIZATIONID" Type="int" />
+          <Property Name="TEAMEVENTID" Type="int" />
+        </EntityType>
+        <EntityType Name="COACHSTATUS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="ALLOWADDEVENT" Type="varchar" MaxLength="1" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DOCUMENTSTATUS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DOCUMENTTYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EMAILLOG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="TOEMAILADDRESS" Type="varchar" MaxLength="255" Unicode="true" Nullable="false" />
+          <Property Name="SUBJECTLINE" Type="clob" Unicode="true" />
+          <Property Name="MESSAGE" Type="clob" Unicode="true" />
+          <Property Name="DATECREATED" Type="timestamp" />
+        </EntityType>
+        <EntityType Name="FILECABINETDOCUMENT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="DOCUMENTID" Type="varchar" MaxLength="20" Unicode="true" Nullable="false" />
+          <Property Name="APPUSERID" Type="int" />
+          <Property Name="SCANDATE" Type="timestamp" />
+          <Property Name="FIRSTNAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="LASTNAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="COMMENT" Type="clob" Unicode="true" />
+          <Property Name="DOCUMENTDATE" Type="date" />
+          <Property Name="DOCUMENTLOCATION" Type="varchar" MaxLength="100" Unicode="true" />
+          <Property Name="DOCUMENTTYPEID" Type="int" Nullable="false" />
+          <Property Name="DOCUMENTSTATUSID" Type="int" Nullable="false" />
+          <Property Name="DATECREATED" Type="timestamp" />
+          <Property Name="CABINETID" Type="varchar" MaxLength="60" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ORGANIZATION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="255" Unicode="true" />
+          <Property Name="ADDRESS1" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="ADDRESS2" Type="varchar" MaxLength="60" Unicode="true" />
+          <Property Name="CITY" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="STATECODE" Type="varchar" MaxLength="2" Unicode="true" Nullable="false" />
+          <Property Name="ZIPCODE" Type="varchar" MaxLength="10" Unicode="true" Nullable="false" />
+          <Property Name="PHONE" Type="varchar" MaxLength="20" Unicode="true" />
+          <Property Name="CONTACTPERSON" Type="varchar" MaxLength="255" Unicode="true" />
+          <Property Name="EMAILADDRESS" Type="varchar" MaxLength="100" Unicode="true" />
+          <Property Name="LOGOIMAGE" Type="varchar" MaxLength="255" Unicode="true" />
+          <Property Name="COMMENT" Type="clob" Unicode="true" />
+          <Property Name="ORGANIZATIONTYPEID" Type="int" />
+          <Property Name="ORGANIZATIONSTATUSID" Type="int" />
+          <Property Name="SALESREPID" Type="int" />
+          <Property Name="DIRECTORNAME" Type="varchar" MaxLength="200" Unicode="true" />
+          <Property Name="DIRECTOREMAIL" Type="varchar" MaxLength="100" Unicode="true" />
+          <Property Name="DIRECTORPHONE" Type="varchar" MaxLength="20" Unicode="true" />
+          <Property Name="ALLOWCOACHTOCREATEEVENTS" Type="char" MaxLength="1" Unicode="false" />
+          <Property Name="CCALLEMAILTODIRECTOR" Type="char" MaxLength="1" Unicode="false" />
+          <Property Name="WHOSPAYING" Type="char" MaxLength="1" Unicode="false" />
+          <Property Name="CABINETID" Type="varchar" MaxLength="255" Unicode="true" />
+          <Property Name="DATECREATED" Type="timestamp" />
+          <Property Name="PROMOCODE" Type="varchar" MaxLength="100" Unicode="true" />
+          <Property Name="USERNAME" Type="varchar" MaxLength="60" Unicode="true" />
+          <Property Name="PASSWORD" Type="varchar" MaxLength="60" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ORGANIZATIONSTATUS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ORGANIZATIONTYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PAYMENTHISTORY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="PRIMARYAPPUSERID" Type="int" Nullable="false" />
+          <Property Name="DATEPURCHASED" Type="date" />
+          <Property Name="QUANTITY" Type="int" />
+          <Property Name="ITEM" Type="varchar" MaxLength="200" Unicode="true" />
+          <Property Name="AMOUNT" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="LAST4CC" Type="varchar" MaxLength="4" Unicode="true" />
+          <Property Name="PROMOCODE" Type="varchar" MaxLength="100" Unicode="true" />
+          <Property Name="AUTHORIZATIONNUMBER" Type="varchar" MaxLength="100" Unicode="true" />
+          <Property Name="NAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PAYMENTTYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RELATIONSHIPTYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SALESREP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="FIRSTNAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="LASTNAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="ADDRESS1" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="ADDRESS2" Type="varchar" MaxLength="60" Unicode="true" />
+          <Property Name="CITY" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="STATECODE" Type="varchar" MaxLength="2" Unicode="true" Nullable="false" />
+          <Property Name="ZIPCODE" Type="varchar" MaxLength="10" Unicode="true" Nullable="false" />
+          <Property Name="PHONE" Type="varchar" MaxLength="20" Unicode="true" />
+          <Property Name="CONTACTPERSON" Type="varchar" MaxLength="200" Unicode="true" />
+          <Property Name="EMAILADDRESS" Type="varchar" MaxLength="100" Unicode="true" />
+          <Property Name="SALESREPSTATUSID" Type="int" />
+          <Property Name="COMMENT" Type="clob" Unicode="true" />
+          <Property Name="DATECREATED" Type="timestamp" />
+          <Property Name="DEACTIVATEDATE" Type="date" />
+          <Property Name="PASSWORD" Type="varchar" MaxLength="60" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SALESREPLEADAREA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="SALESREPID" Type="int" Nullable="false" />
+          <Property Name="CITY" Type="varchar" MaxLength="60" Unicode="true" />
+          <Property Name="STATECODE" Type="varchar" MaxLength="2" Unicode="true" />
+          <Property Name="ZIPCODE" Type="varchar" MaxLength="10" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SALESREPSTATUS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SHAREDOCUMENT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="DOCUMENTID" Type="varchar" MaxLength="20" Unicode="true" Nullable="false" />
+          <Property Name="TEAMEVENTDOCUMENTID" Type="int" />
+          <Property Name="APPUSERID" Type="int" />
+          <Property Name="SCANDATE" Type="date" />
+          <Property Name="COMMENT" Type="clob" Unicode="true" />
+          <Property Name="LOCATION" Type="varchar" MaxLength="100" Unicode="true" />
+          <Property Name="DOCUMENTTYPEID" Type="int" Nullable="false" />
+          <Property Name="DOCUMENTSTATUSID" Type="int" Nullable="false" />
+          <Property Name="EMERGENCY" Type="char" MaxLength="1" Unicode="false" />
+          <Property Name="CABINETID" Type="varchar" MaxLength="100" Unicode="true" />
+          <Property Name="DOCUMENTDATE" Type="date" />
+          <Property Name="DATECREATED" Type="timestamp" />
+          <Property Name="FILECABINETDOCUMENTID" Type="int" />
+          <Property Name="VERIFIEDDATE" Type="date" />
+          <Property Name="VERIFIEDAPPUSERID" Type="int" />
+          <Property Name="EMERGENCYEMAILADDRESS" Type="varchar" MaxLength="100" Unicode="true" />
+          <Property Name="VIEWDOCUMENTKEY" Type="varchar" MaxLength="100" Unicode="true" />
+          <Property Name="VIEWED" Type="char" MaxLength="1" Unicode="false" />
+          <Property Name="VIEWDATE" Type="timestamp" />
+          <Property Name="ISACTIVE" Type="char" MaxLength="1" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SHAREKEY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="APPUSERID" Type="int" />
+          <Property Name="PURCHASEDATE" Type="date" />
+          <Property Name="PROMOCODE" Type="varchar" MaxLength="200" Unicode="true" />
+          <Property Name="LAST4CC" Type="varchar" MaxLength="4" Unicode="true" />
+          <Property Name="AMOUNT" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="SALESREPID" Type="int" />
+          <Property Name="DATECREATED" Type="timestamp" />
+          <Property Name="PAYMENTTYPEID" Type="int" />
+          <Property Name="PRIMARYAPPUSERID" Type="int" />
+          <Property Name="SHAREKEYCODE" Type="varchar" MaxLength="100" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SPORTTYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TEAMEVENT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ORGANIZATIONID" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="YEARCODE" Type="int" />
+          <Property Name="STARTDATE" Type="date" />
+          <Property Name="EXPIRESDATE" Type="date" />
+          <Property Name="DATECREATED" Type="timestamp" />
+          <Property Name="ISDELETED" Type="varchar" MaxLength="1" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TEAMEVENTDOCUMENT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="TEAMEVENTID" Type="int" Nullable="false" />
+          <Property Name="DOCUMENTNAME" Type="varchar" MaxLength="200" Unicode="true" />
+          <Property Name="ENTERWHOSCANNED" Type="char" MaxLength="1" Unicode="false" />
+          <Property Name="SCANNAME" Type="varchar" MaxLength="100" Unicode="true" />
+          <Property Name="MUSTBEVERIFIED" Type="char" MaxLength="1" Unicode="false" />
+          <Property Name="TEAMEVENTDOCUMENTSTATUSID" Type="int" />
+          <Property Name="VERIFIERNAME" Type="varchar" MaxLength="100" Unicode="true" />
+          <Property Name="PLAYERENTEREXPIRATION" Type="date" />
+          <Property Name="PLAYERENTERDOCUMENTDATE" Type="date" />
+          <Property Name="ISCOACHDOCUMENT" Type="char" MaxLength="1" Unicode="false" />
+          <Property Name="ROSTERCLOSEDATE" Type="date" />
+        </EntityType>
+        <EntityType Name="TEAMEVENTDOCUMENTSTATUS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TEAMEVENTPLAYERROSTER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="TEAMEVENTID" Type="int" Nullable="false" />
+          <Property Name="APPUSERID" Type="int" />
+          <Property Name="PLAYERPOSITION" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="JERSEYNUMBER" Type="int" />
+          <Property Name="DATECREATED" Type="timestamp" />
+          <Property Name="USERSTAGETYPEID" Type="int" />
+        </EntityType>
+        <EntityType Name="USERSTAGETYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+        </EntityType>
+        <Association Name="INTEG_138">
+          <End Role="RELATIONSHIPTYPE" Type="Self.RELATIONSHIPTYPE" Multiplicity="0..1" />
+          <End Role="APPUSER" Type="Self.APPUSER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RELATIONSHIPTYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="APPUSER">
+              <PropertyRef Name="RELATIONSHIPTYPEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_139">
+          <End Role="APPUSERTYPE" Type="Self.APPUSERTYPE" Multiplicity="0..1" />
+          <End Role="APPUSER" Type="Self.APPUSER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APPUSERTYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="APPUSER">
+              <PropertyRef Name="APPUSERTYPEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_140">
+          <End Role="APPUSERSTATUS" Type="Self.APPUSERSTATUS" Multiplicity="0..1" />
+          <End Role="APPUSER" Type="Self.APPUSER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APPUSERSTATUS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="APPUSER">
+              <PropertyRef Name="APPUSERSTATUSID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_152">
+          <End Role="SALESREPSTATUS" Type="Self.SALESREPSTATUS" Multiplicity="0..1" />
+          <End Role="SALESREP" Type="Self.SALESREP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SALESREPSTATUS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SALESREP">
+              <PropertyRef Name="SALESREPSTATUSID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_160">
+          <End Role="SALESREP" Type="Self.SALESREP" Multiplicity="0..1" />
+          <End Role="SHAREKEY" Type="Self.SHAREKEY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SALESREP">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SHAREKEY">
+              <PropertyRef Name="SALESREPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_188">
+          <End Role="ORGANIZATIONTYPE" Type="Self.ORGANIZATIONTYPE" Multiplicity="0..1" />
+          <End Role="ORGANIZATION" Type="Self.ORGANIZATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORGANIZATIONTYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ORGANIZATION">
+              <PropertyRef Name="ORGANIZATIONTYPEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_189">
+          <End Role="ORGANIZATIONSTATUS" Type="Self.ORGANIZATIONSTATUS" Multiplicity="0..1" />
+          <End Role="ORGANIZATION" Type="Self.ORGANIZATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORGANIZATIONSTATUS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ORGANIZATION">
+              <PropertyRef Name="ORGANIZATIONSTATUSID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_190">
+          <End Role="ORGANIZATION" Type="Self.ORGANIZATION" Multiplicity="1" />
+          <End Role="APPUSERORGANIZATION" Type="Self.APPUSERORGANIZATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORGANIZATION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="APPUSERORGANIZATION">
+              <PropertyRef Name="ORGANIZATIONID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_191">
+          <End Role="APPUSER" Type="Self.APPUSER" Multiplicity="1" />
+          <End Role="APPUSERORGANIZATION" Type="Self.APPUSERORGANIZATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APPUSER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="APPUSERORGANIZATION">
+              <PropertyRef Name="APPUSERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_192">
+          <End Role="SPORTTYPE" Type="Self.SPORTTYPE" Multiplicity="1" />
+          <End Role="APPUSERORGANIZATION" Type="Self.APPUSERORGANIZATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SPORTTYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="APPUSERORGANIZATION">
+              <PropertyRef Name="SPORTTYPEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_206">
+          <End Role="DOCUMENTTYPE" Type="Self.DOCUMENTTYPE" Multiplicity="1" />
+          <End Role="FILECABINETDOCUMENT" Type="Self.FILECABINETDOCUMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOCUMENTTYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FILECABINETDOCUMENT">
+              <PropertyRef Name="DOCUMENTTYPEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_207">
+          <End Role="DOCUMENTSTATUS" Type="Self.DOCUMENTSTATUS" Multiplicity="1" />
+          <End Role="FILECABINETDOCUMENT" Type="Self.FILECABINETDOCUMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOCUMENTSTATUS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FILECABINETDOCUMENT">
+              <PropertyRef Name="DOCUMENTSTATUSID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_208">
+          <End Role="APPUSER" Type="Self.APPUSER" Multiplicity="0..1" />
+          <End Role="FILECABINETDOCUMENT" Type="Self.FILECABINETDOCUMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APPUSER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FILECABINETDOCUMENT">
+              <PropertyRef Name="APPUSERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_225">
+          <End Role="ORGANIZATION" Type="Self.ORGANIZATION" Multiplicity="1" />
+          <End Role="TEAMEVENT" Type="Self.TEAMEVENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORGANIZATION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TEAMEVENT">
+              <PropertyRef Name="ORGANIZATIONID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_230">
+          <End Role="TEAMEVENT" Type="Self.TEAMEVENT" Multiplicity="1" />
+          <End Role="TEAMEVENTPLAYERROSTER" Type="Self.TEAMEVENTPLAYERROSTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEAMEVENT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TEAMEVENTPLAYERROSTER">
+              <PropertyRef Name="TEAMEVENTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_231">
+          <End Role="APPUSER" Type="Self.APPUSER" Multiplicity="0..1" />
+          <End Role="TEAMEVENTPLAYERROSTER" Type="Self.TEAMEVENTPLAYERROSTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APPUSER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TEAMEVENTPLAYERROSTER">
+              <PropertyRef Name="APPUSERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_241">
+          <End Role="TEAMEVENTDOCUMENT" Type="Self.TEAMEVENTDOCUMENT" Multiplicity="0..1" />
+          <End Role="SHAREDOCUMENT" Type="Self.SHAREDOCUMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEAMEVENTDOCUMENT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SHAREDOCUMENT">
+              <PropertyRef Name="TEAMEVENTDOCUMENTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_242">
+          <End Role="APPUSER" Type="Self.APPUSER" Multiplicity="0..1" />
+          <End Role="SHAREDOCUMENT" Type="Self.SHAREDOCUMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APPUSER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SHAREDOCUMENT">
+              <PropertyRef Name="APPUSERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_243">
+          <End Role="DOCUMENTSTATUS" Type="Self.DOCUMENTSTATUS" Multiplicity="1" />
+          <End Role="SHAREDOCUMENT" Type="Self.SHAREDOCUMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOCUMENTSTATUS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SHAREDOCUMENT">
+              <PropertyRef Name="DOCUMENTSTATUSID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_244">
+          <End Role="DOCUMENTTYPE" Type="Self.DOCUMENTTYPE" Multiplicity="1" />
+          <End Role="SHAREDOCUMENT" Type="Self.SHAREDOCUMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOCUMENTTYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SHAREDOCUMENT">
+              <PropertyRef Name="DOCUMENTTYPEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_251">
+          <End Role="PAYMENTTYPE" Type="Self.PAYMENTTYPE" Multiplicity="0..1" />
+          <End Role="SHAREKEY" Type="Self.SHAREKEY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PAYMENTTYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SHAREKEY">
+              <PropertyRef Name="PAYMENTTYPEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_252">
+          <End Role="SALESREP" Type="Self.SALESREP" Multiplicity="1" />
+          <End Role="SALESREPLEADAREA" Type="Self.SALESREPLEADAREA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SALESREP">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SALESREPLEADAREA">
+              <PropertyRef Name="SALESREPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_256">
+          <End Role="APPUSER" Type="Self.APPUSER" Multiplicity="0..1" />
+          <End Role="SHAREKEY" Type="Self.SHAREKEY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APPUSER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SHAREKEY">
+              <PropertyRef Name="PRIMARYAPPUSERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_257">
+          <End Role="FILECABINETDOCUMENT" Type="Self.FILECABINETDOCUMENT" Multiplicity="0..1" />
+          <End Role="SHAREDOCUMENT" Type="Self.SHAREDOCUMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FILECABINETDOCUMENT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SHAREDOCUMENT">
+              <PropertyRef Name="FILECABINETDOCUMENTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_261">
+          <End Role="USERSTAGETYPE" Type="Self.USERSTAGETYPE" Multiplicity="0..1" />
+          <End Role="TEAMEVENTPLAYERROSTER" Type="Self.TEAMEVENTPLAYERROSTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERSTAGETYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TEAMEVENTPLAYERROSTER">
+              <PropertyRef Name="USERSTAGETYPEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_262">
+          <End Role="APPUSER" Type="Self.APPUSER" Multiplicity="1" />
+          <End Role="APPUSERORGANIZATION" Type="Self.APPUSERORGANIZATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APPUSER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="APPUSERORGANIZATION">
+              <PropertyRef Name="APPUSERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_267">
+          <End Role="APPUSER" Type="Self.APPUSER" Multiplicity="1" />
+          <End Role="PAYMENTHISTORY" Type="Self.PAYMENTHISTORY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APPUSER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PAYMENTHISTORY">
+              <PropertyRef Name="PRIMARYAPPUSERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_269">
+          <End Role="APPUSER" Type="Self.APPUSER" Multiplicity="0..1" />
+          <End Role="SHAREDOCUMENT" Type="Self.SHAREDOCUMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APPUSER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SHAREDOCUMENT">
+              <PropertyRef Name="VERIFIEDAPPUSERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_279">
+          <End Role="SPORTTYPE" Type="Self.SPORTTYPE" Multiplicity="0..1" />
+          <End Role="COACH" Type="Self.COACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SPORTTYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="COACH">
+              <PropertyRef Name="SPORTTYPEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_280">
+          <End Role="RELATIONSHIPTYPE" Type="Self.RELATIONSHIPTYPE" Multiplicity="0..1" />
+          <End Role="COACH" Type="Self.COACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RELATIONSHIPTYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="COACH">
+              <PropertyRef Name="RELATIONSHIPTYPEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_281">
+          <End Role="COACHSTATUS" Type="Self.COACHSTATUS" Multiplicity="0..1" />
+          <End Role="COACH" Type="Self.COACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COACHSTATUS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="COACH">
+              <PropertyRef Name="COACHSTATUSID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_282">
+          <End Role="ORGANIZATION" Type="Self.ORGANIZATION" Multiplicity="0..1" />
+          <End Role="COACH" Type="Self.COACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORGANIZATION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="COACH">
+              <PropertyRef Name="ORGANIZATIONID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_283">
+          <End Role="TEAMEVENT" Type="Self.TEAMEVENT" Multiplicity="0..1" />
+          <End Role="COACH" Type="Self.COACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEAMEVENT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="COACH">
+              <PropertyRef Name="TEAMEVENTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_284">
+          <End Role="TEAMEVENTDOCUMENTSTATUS" Type="Self.TEAMEVENTDOCUMENTSTATUS" Multiplicity="0..1" />
+          <End Role="TEAMEVENTDOCUMENT" Type="Self.TEAMEVENTDOCUMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEAMEVENTDOCUMENTSTATUS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TEAMEVENTDOCUMENT">
+              <PropertyRef Name="TEAMEVENTDOCUMENTSTATUSID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_285">
+          <End Role="TEAMEVENT" Type="Self.TEAMEVENT" Multiplicity="1" />
+          <End Role="TEAMEVENTDOCUMENT" Type="Self.TEAMEVENTDOCUMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEAMEVENT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TEAMEVENTDOCUMENT">
+              <PropertyRef Name="TEAMEVENTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MyFileItModelStoreContainer">
+          <EntitySet Name="APPUSER" EntityType="Self.APPUSER" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="APPUSERORGANIZATION" EntityType="Self.APPUSERORGANIZATION" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="APPUSERSTATUS" EntityType="Self.APPUSERSTATUS" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="APPUSERTYPE" EntityType="Self.APPUSERTYPE" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="COACH" EntityType="Self.COACH" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="COACHSTATUS" EntityType="Self.COACHSTATUS" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="DOCUMENTSTATUS" EntityType="Self.DOCUMENTSTATUS" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="DOCUMENTTYPE" EntityType="Self.DOCUMENTTYPE" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="EMAILLOG" EntityType="Self.EMAILLOG" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="FILECABINETDOCUMENT" EntityType="Self.FILECABINETDOCUMENT" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="ORGANIZATION" EntityType="Self.ORGANIZATION" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="ORGANIZATIONSTATUS" EntityType="Self.ORGANIZATIONSTATUS" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="ORGANIZATIONTYPE" EntityType="Self.ORGANIZATIONTYPE" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="PAYMENTHISTORY" EntityType="Self.PAYMENTHISTORY" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="PAYMENTTYPE" EntityType="Self.PAYMENTTYPE" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="RELATIONSHIPTYPE" EntityType="Self.RELATIONSHIPTYPE" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="SALESREP" EntityType="Self.SALESREP" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="SALESREPLEADAREA" EntityType="Self.SALESREPLEADAREA" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="SALESREPSTATUS" EntityType="Self.SALESREPSTATUS" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="SHAREDOCUMENT" EntityType="Self.SHAREDOCUMENT" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="SHAREKEY" EntityType="Self.SHAREKEY" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="SPORTTYPE" EntityType="Self.SPORTTYPE" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="TEAMEVENT" EntityType="Self.TEAMEVENT" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="TEAMEVENTDOCUMENT" EntityType="Self.TEAMEVENTDOCUMENT" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="TEAMEVENTDOCUMENTSTATUS" EntityType="Self.TEAMEVENTDOCUMENTSTATUS" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="TEAMEVENTPLAYERROSTER" EntityType="Self.TEAMEVENTPLAYERROSTER" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="USERSTAGETYPE" EntityType="Self.USERSTAGETYPE" Schema="Firebird" store:Type="Tables" />
+          <AssociationSet Name="INTEG_138" Association="Self.INTEG_138">
+            <End Role="RELATIONSHIPTYPE" EntitySet="RELATIONSHIPTYPE" />
+            <End Role="APPUSER" EntitySet="APPUSER" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_139" Association="Self.INTEG_139">
+            <End Role="APPUSERTYPE" EntitySet="APPUSERTYPE" />
+            <End Role="APPUSER" EntitySet="APPUSER" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_140" Association="Self.INTEG_140">
+            <End Role="APPUSERSTATUS" EntitySet="APPUSERSTATUS" />
+            <End Role="APPUSER" EntitySet="APPUSER" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_152" Association="Self.INTEG_152">
+            <End Role="SALESREPSTATUS" EntitySet="SALESREPSTATUS" />
+            <End Role="SALESREP" EntitySet="SALESREP" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_160" Association="Self.INTEG_160">
+            <End Role="SALESREP" EntitySet="SALESREP" />
+            <End Role="SHAREKEY" EntitySet="SHAREKEY" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_188" Association="Self.INTEG_188">
+            <End Role="ORGANIZATIONTYPE" EntitySet="ORGANIZATIONTYPE" />
+            <End Role="ORGANIZATION" EntitySet="ORGANIZATION" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_189" Association="Self.INTEG_189">
+            <End Role="ORGANIZATIONSTATUS" EntitySet="ORGANIZATIONSTATUS" />
+            <End Role="ORGANIZATION" EntitySet="ORGANIZATION" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_190" Association="Self.INTEG_190">
+            <End Role="ORGANIZATION" EntitySet="ORGANIZATION" />
+            <End Role="APPUSERORGANIZATION" EntitySet="APPUSERORGANIZATION" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_191" Association="Self.INTEG_191">
+            <End Role="APPUSER" EntitySet="APPUSER" />
+            <End Role="APPUSERORGANIZATION" EntitySet="APPUSERORGANIZATION" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_192" Association="Self.INTEG_192">
+            <End Role="SPORTTYPE" EntitySet="SPORTTYPE" />
+            <End Role="APPUSERORGANIZATION" EntitySet="APPUSERORGANIZATION" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_206" Association="Self.INTEG_206">
+            <End Role="DOCUMENTTYPE" EntitySet="DOCUMENTTYPE" />
+            <End Role="FILECABINETDOCUMENT" EntitySet="FILECABINETDOCUMENT" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_207" Association="Self.INTEG_207">
+            <End Role="DOCUMENTSTATUS" EntitySet="DOCUMENTSTATUS" />
+            <End Role="FILECABINETDOCUMENT" EntitySet="FILECABINETDOCUMENT" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_208" Association="Self.INTEG_208">
+            <End Role="APPUSER" EntitySet="APPUSER" />
+            <End Role="FILECABINETDOCUMENT" EntitySet="FILECABINETDOCUMENT" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_225" Association="Self.INTEG_225">
+            <End Role="ORGANIZATION" EntitySet="ORGANIZATION" />
+            <End Role="TEAMEVENT" EntitySet="TEAMEVENT" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_230" Association="Self.INTEG_230">
+            <End Role="TEAMEVENT" EntitySet="TEAMEVENT" />
+            <End Role="TEAMEVENTPLAYERROSTER" EntitySet="TEAMEVENTPLAYERROSTER" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_231" Association="Self.INTEG_231">
+            <End Role="APPUSER" EntitySet="APPUSER" />
+            <End Role="TEAMEVENTPLAYERROSTER" EntitySet="TEAMEVENTPLAYERROSTER" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_241" Association="Self.INTEG_241">
+            <End Role="TEAMEVENTDOCUMENT" EntitySet="TEAMEVENTDOCUMENT" />
+            <End Role="SHAREDOCUMENT" EntitySet="SHAREDOCUMENT" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_242" Association="Self.INTEG_242">
+            <End Role="APPUSER" EntitySet="APPUSER" />
+            <End Role="SHAREDOCUMENT" EntitySet="SHAREDOCUMENT" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_243" Association="Self.INTEG_243">
+            <End Role="DOCUMENTSTATUS" EntitySet="DOCUMENTSTATUS" />
+            <End Role="SHAREDOCUMENT" EntitySet="SHAREDOCUMENT" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_244" Association="Self.INTEG_244">
+            <End Role="DOCUMENTTYPE" EntitySet="DOCUMENTTYPE" />
+            <End Role="SHAREDOCUMENT" EntitySet="SHAREDOCUMENT" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_251" Association="Self.INTEG_251">
+            <End Role="PAYMENTTYPE" EntitySet="PAYMENTTYPE" />
+            <End Role="SHAREKEY" EntitySet="SHAREKEY" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_252" Association="Self.INTEG_252">
+            <End Role="SALESREP" EntitySet="SALESREP" />
+            <End Role="SALESREPLEADAREA" EntitySet="SALESREPLEADAREA" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_256" Association="Self.INTEG_256">
+            <End Role="APPUSER" EntitySet="APPUSER" />
+            <End Role="SHAREKEY" EntitySet="SHAREKEY" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_257" Association="Self.INTEG_257">
+            <End Role="FILECABINETDOCUMENT" EntitySet="FILECABINETDOCUMENT" />
+            <End Role="SHAREDOCUMENT" EntitySet="SHAREDOCUMENT" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_261" Association="Self.INTEG_261">
+            <End Role="USERSTAGETYPE" EntitySet="USERSTAGETYPE" />
+            <End Role="TEAMEVENTPLAYERROSTER" EntitySet="TEAMEVENTPLAYERROSTER" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_262" Association="Self.INTEG_262">
+            <End Role="APPUSER" EntitySet="APPUSER" />
+            <End Role="APPUSERORGANIZATION" EntitySet="APPUSERORGANIZATION" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_267" Association="Self.INTEG_267">
+            <End Role="APPUSER" EntitySet="APPUSER" />
+            <End Role="PAYMENTHISTORY" EntitySet="PAYMENTHISTORY" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_269" Association="Self.INTEG_269">
+            <End Role="APPUSER" EntitySet="APPUSER" />
+            <End Role="SHAREDOCUMENT" EntitySet="SHAREDOCUMENT" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_279" Association="Self.INTEG_279">
+            <End Role="SPORTTYPE" EntitySet="SPORTTYPE" />
+            <End Role="COACH" EntitySet="COACH" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_280" Association="Self.INTEG_280">
+            <End Role="RELATIONSHIPTYPE" EntitySet="RELATIONSHIPTYPE" />
+            <End Role="COACH" EntitySet="COACH" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_281" Association="Self.INTEG_281">
+            <End Role="COACHSTATUS" EntitySet="COACHSTATUS" />
+            <End Role="COACH" EntitySet="COACH" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_282" Association="Self.INTEG_282">
+            <End Role="ORGANIZATION" EntitySet="ORGANIZATION" />
+            <End Role="COACH" EntitySet="COACH" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_283" Association="Self.INTEG_283">
+            <End Role="TEAMEVENT" EntitySet="TEAMEVENT" />
+            <End Role="COACH" EntitySet="COACH" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_284" Association="Self.INTEG_284">
+            <End Role="TEAMEVENTDOCUMENTSTATUS" EntitySet="TEAMEVENTDOCUMENTSTATUS" />
+            <End Role="TEAMEVENTDOCUMENT" EntitySet="TEAMEVENTDOCUMENT" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_285" Association="Self.INTEG_285">
+            <End Role="TEAMEVENT" EntitySet="TEAMEVENT" />
+            <End Role="TEAMEVENTDOCUMENT" EntitySet="TEAMEVENTDOCUMENT" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MyFileItModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="APPUSERSTATU">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="APPUSERs" Relationship="MyFileItModel.INTEG_140" FromRole="APPUSERSTATU" ToRole="APPUSER" />
+        </EntityType>
+        <EntityType Name="DOCUMENTSTATU">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="FILECABINETDOCUMENTs" Relationship="MyFileItModel.INTEG_207" FromRole="DOCUMENTSTATU" ToRole="FILECABINETDOCUMENT" />
+          <NavigationProperty Name="SHAREDOCUMENTs" Relationship="MyFileItModel.INTEG_243" FromRole="DOCUMENTSTATU" ToRole="SHAREDOCUMENT" />
+        </EntityType>
+        <EntityType Name="DOCUMENTTYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="FILECABINETDOCUMENTs" Relationship="MyFileItModel.INTEG_206" FromRole="DOCUMENTTYPE" ToRole="FILECABINETDOCUMENT" />
+          <NavigationProperty Name="SHAREDOCUMENTs" Relationship="MyFileItModel.INTEG_244" FromRole="DOCUMENTTYPE" ToRole="SHAREDOCUMENT" />
+        </EntityType>
+        <EntityType Name="ORGANIZATIONSTATU">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ORGANIZATIONs" Relationship="MyFileItModel.INTEG_189" FromRole="ORGANIZATIONSTATU" ToRole="ORGANIZATION" />
+        </EntityType>
+        <EntityType Name="ORGANIZATIONTYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ORGANIZATIONs" Relationship="MyFileItModel.INTEG_188" FromRole="ORGANIZATIONTYPE" ToRole="ORGANIZATION" />
+        </EntityType>
+        <EntityType Name="RELATIONSHIPTYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="APPUSERs" Relationship="MyFileItModel.INTEG_138" FromRole="RELATIONSHIPTYPE" ToRole="APPUSER" />
+          <NavigationProperty Name="COACHes" Relationship="MyFileItModel.INTEG_120" FromRole="RELATIONSHIPTYPE" ToRole="COACH" />
+        </EntityType>
+        <EntityType Name="SALESREPSTATU">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="SALESREPs" Relationship="MyFileItModel.INTEG_152" FromRole="SALESREPSTATU" ToRole="SALESREP" />
+        </EntityType>
+        <EntityType Name="SPORTTYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="APPUSERORGANIZATIONs" Relationship="MyFileItModel.INTEG_192" FromRole="SPORTTYPE" ToRole="APPUSERORGANIZATION" />
+          <NavigationProperty Name="COACHes" Relationship="MyFileItModel.INTEG_119" FromRole="SPORTTYPE" ToRole="COACH" />
+        </EntityType>
+        <EntityType Name="TEAMEVENTDOCUMENTSTATU">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TEAMEVENTDOCUMENTs" Relationship="MyFileItModel.INTEG_284" FromRole="TEAMEVENTDOCUMENTSTATU" ToRole="TEAMEVENTDOCUMENT" />
+        </EntityType>
+        <EntityContainer Name="MyFileItEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="APPUSERSTATUS" EntityType="Self.APPUSERSTATU" />
+          <EntitySet Name="DOCUMENTSTATUS" EntityType="Self.DOCUMENTSTATU" />
+          <EntitySet Name="DOCUMENTTYPEs" EntityType="Self.DOCUMENTTYPE" />
+          <EntitySet Name="ORGANIZATIONSTATUS" EntityType="Self.ORGANIZATIONSTATU" />
+          <EntitySet Name="ORGANIZATIONTYPEs" EntityType="Self.ORGANIZATIONTYPE" />
+          <EntitySet Name="RELATIONSHIPTYPEs" EntityType="Self.RELATIONSHIPTYPE" />
+          <EntitySet Name="SALESREPSTATUS" EntityType="Self.SALESREPSTATU" />
+          <EntitySet Name="SPORTTYPEs" EntityType="Self.SPORTTYPE" />
+          <EntitySet Name="TEAMEVENTDOCUMENTSTATUS" EntityType="Self.TEAMEVENTDOCUMENTSTATU" />
+          <EntitySet Name="PAYMENTTYPEs" EntityType="MyFileItModel.PAYMENTTYPE" />
+          <EntitySet Name="SALESREPLEADAREAs" EntityType="MyFileItModel.SALESREPLEADAREA" />
+          <EntitySet Name="SHAREKEYs" EntityType="MyFileItModel.SHAREKEY" />
+          <AssociationSet Name="INTEG_251" Association="MyFileItModel.INTEG_251">
+            <End Role="PAYMENTTYPE" EntitySet="PAYMENTTYPEs" />
+            <End Role="SHAREKEY" EntitySet="SHAREKEYs" />
+          </AssociationSet>
+          <EntitySet Name="TEAMEVENTPLAYERROSTERs" EntityType="MyFileItModel.TEAMEVENTPLAYERROSTER" />
+          <EntitySet Name="USERSTAGETYPEs" EntityType="MyFileItModel.USERSTAGETYPE" />
+          <AssociationSet Name="INTEG_265" Association="MyFileItModel.INTEG_265">
+            <End Role="USERSTAGETYPE" EntitySet="USERSTAGETYPEs" />
+            <End Role="TEAMEVENTPLAYERROSTER" EntitySet="TEAMEVENTPLAYERROSTERs" />
+          </AssociationSet>
+          <EntitySet Name="APPUSERORGANIZATIONs" EntityType="MyFileItModel.APPUSERORGANIZATION" />
+          <AssociationSet Name="INTEG_192" Association="MyFileItModel.INTEG_192">
+            <End Role="SPORTTYPE" EntitySet="SPORTTYPEs" />
+            <End Role="APPUSERORGANIZATION" EntitySet="APPUSERORGANIZATIONs" />
+          </AssociationSet>
+          <EntitySet Name="PAYMENTHISTORies" EntityType="MyFileItModel.PAYMENTHISTORY" />
+          <EntitySet Name="ORGANIZATIONs" EntityType="MyFileItModel.ORGANIZATION" />
+          <AssociationSet Name="INTEG_190" Association="MyFileItModel.INTEG_190">
+            <End Role="ORGANIZATION" EntitySet="ORGANIZATIONs" />
+            <End Role="APPUSERORGANIZATION" EntitySet="APPUSERORGANIZATIONs" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_188" Association="MyFileItModel.INTEG_188">
+            <End Role="ORGANIZATIONTYPE" EntitySet="ORGANIZATIONTYPEs" />
+            <End Role="ORGANIZATION" EntitySet="ORGANIZATIONs" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_189" Association="MyFileItModel.INTEG_189">
+            <End Role="ORGANIZATIONSTATU" EntitySet="ORGANIZATIONSTATUS" />
+            <End Role="ORGANIZATION" EntitySet="ORGANIZATIONs" />
+          </AssociationSet>
+          <EntitySet Name="APPUSERs" EntityType="MyFileItModel.APPUSER" />
+          <AssociationSet Name="INTEG_138" Association="MyFileItModel.INTEG_138">
+            <End Role="RELATIONSHIPTYPE" EntitySet="RELATIONSHIPTYPEs" />
+            <End Role="APPUSER" EntitySet="APPUSERs" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_140" Association="MyFileItModel.INTEG_140">
+            <End Role="APPUSERSTATU" EntitySet="APPUSERSTATUS" />
+            <End Role="APPUSER" EntitySet="APPUSERs" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_191" Association="MyFileItModel.INTEG_191">
+            <End Role="APPUSER" EntitySet="APPUSERs" />
+            <End Role="APPUSERORGANIZATION" EntitySet="APPUSERORGANIZATIONs" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_231" Association="MyFileItModel.INTEG_231">
+            <End Role="APPUSER" EntitySet="APPUSERs" />
+            <End Role="TEAMEVENTPLAYERROSTER" EntitySet="TEAMEVENTPLAYERROSTERs" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_256" Association="MyFileItModel.INTEG_256">
+            <End Role="APPUSER" EntitySet="APPUSERs" />
+            <End Role="SHAREKEY" EntitySet="SHAREKEYs" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_266" Association="MyFileItModel.INTEG_266">
+            <End Role="APPUSER" EntitySet="APPUSERs" />
+            <End Role="APPUSERORGANIZATION" EntitySet="APPUSERORGANIZATIONs" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_271" Association="MyFileItModel.INTEG_271">
+            <End Role="APPUSER" EntitySet="APPUSERs" />
+            <End Role="PAYMENTHISTORY" EntitySet="PAYMENTHISTORies" />
+          </AssociationSet>
+          <EntitySet Name="COACHes" EntityType="MyFileItModel.COACH" />
+          <AssociationSet Name="INTEG_119" Association="MyFileItModel.INTEG_119">
+            <End Role="SPORTTYPE" EntitySet="SPORTTYPEs" />
+            <End Role="COACH" EntitySet="COACHes" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_120" Association="MyFileItModel.INTEG_120">
+            <End Role="RELATIONSHIPTYPE" EntitySet="RELATIONSHIPTYPEs" />
+            <End Role="COACH" EntitySet="COACHes" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_255" Association="MyFileItModel.INTEG_255">
+            <End Role="ORGANIZATION" EntitySet="ORGANIZATIONs" />
+            <End Role="COACH" EntitySet="COACHes" />
+          </AssociationSet>
+          <EntitySet Name="COACHSTATUS" EntityType="MyFileItModel.COACHSTATU" />
+          <AssociationSet Name="INTEG_121" Association="MyFileItModel.INTEG_121">
+            <End Role="COACHSTATU" EntitySet="COACHSTATUS" />
+            <End Role="COACH" EntitySet="COACHes" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_272" Association="MyFileItModel.INTEG_272">
+            <End Role="COACHSTATU" EntitySet="COACHSTATUS" />
+            <End Role="COACH" EntitySet="COACHes" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_273" Association="MyFileItModel.INTEG_273">
+            <End Role="COACHSTATU" EntitySet="COACHSTATUS" />
+            <End Role="COACH" EntitySet="COACHes" />
+          </AssociationSet>
+          <EntitySet Name="FILECABINETDOCUMENTs" EntityType="MyFileItModel.FILECABINETDOCUMENT" />
+          <AssociationSet Name="INTEG_208" Association="MyFileItModel.INTEG_208">
+            <End Role="APPUSER" EntitySet="APPUSERs" />
+            <End Role="FILECABINETDOCUMENT" EntitySet="FILECABINETDOCUMENTs" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_207" Association="MyFileItModel.INTEG_207">
+            <End Role="DOCUMENTSTATU" EntitySet="DOCUMENTSTATUS" />
+            <End Role="FILECABINETDOCUMENT" EntitySet="FILECABINETDOCUMENTs" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_206" Association="MyFileItModel.INTEG_206">
+            <End Role="DOCUMENTTYPE" EntitySet="DOCUMENTTYPEs" />
+            <End Role="FILECABINETDOCUMENT" EntitySet="FILECABINETDOCUMENTs" />
+          </AssociationSet>
+          <EntitySet Name="SHAREDOCUMENTs" EntityType="MyFileItModel.SHAREDOCUMENT" />
+          <AssociationSet Name="INTEG_242" Association="MyFileItModel.INTEG_242">
+            <End Role="APPUSER" EntitySet="APPUSERs" />
+            <End Role="SHAREDOCUMENT" EntitySet="SHAREDOCUMENTs" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_274" Association="MyFileItModel.INTEG_274">
+            <End Role="APPUSER" EntitySet="APPUSERs" />
+            <End Role="SHAREDOCUMENT" EntitySet="SHAREDOCUMENTs" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_243" Association="MyFileItModel.INTEG_243">
+            <End Role="DOCUMENTSTATU" EntitySet="DOCUMENTSTATUS" />
+            <End Role="SHAREDOCUMENT" EntitySet="SHAREDOCUMENTs" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_244" Association="MyFileItModel.INTEG_244">
+            <End Role="DOCUMENTTYPE" EntitySet="DOCUMENTTYPEs" />
+            <End Role="SHAREDOCUMENT" EntitySet="SHAREDOCUMENTs" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_261" Association="MyFileItModel.INTEG_261">
+            <End Role="FILECABINETDOCUMENT" EntitySet="FILECABINETDOCUMENTs" />
+            <End Role="SHAREDOCUMENT" EntitySet="SHAREDOCUMENTs" />
+          </AssociationSet>
+          <EntitySet Name="EMAILLOGs" EntityType="MyFileItModel.EMAILLOG" />
+          <EntitySet Name="APPUSERTYPEs" EntityType="MyFileItModel.APPUSERTYPE" />
+          <AssociationSet Name="INTEG_139" Association="MyFileItModel.INTEG_139">
+            <End Role="APPUSERTYPE" EntitySet="APPUSERTYPEs" />
+            <End Role="APPUSER" EntitySet="APPUSERs" />
+          </AssociationSet>
+          <EntitySet Name="TEAMEVENTDOCUMENTs" EntityType="MyFileItModel.TEAMEVENTDOCUMENT" />
+          <AssociationSet Name="INTEG_241" Association="MyFileItModel.INTEG_241">
+            <End Role="TEAMEVENTDOCUMENT" EntitySet="TEAMEVENTDOCUMENTs" />
+            <End Role="SHAREDOCUMENT" EntitySet="SHAREDOCUMENTs" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_284" Association="MyFileItModel.INTEG_284">
+            <End Role="TEAMEVENTDOCUMENTSTATU" EntitySet="TEAMEVENTDOCUMENTSTATUS" />
+            <End Role="TEAMEVENTDOCUMENT" EntitySet="TEAMEVENTDOCUMENTs" />
+          </AssociationSet>
+          <EntitySet Name="SALESREPs" EntityType="MyFileItModel.SALESREP" />
+          <EntitySet Name="TEAMEVENTs" EntityType="MyFileItModel.TEAMEVENT" />
+          <AssociationSet Name="INTEG_283" Association="MyFileItModel.INTEG_283">
+            <End Role="TEAMEVENT" EntitySet="TEAMEVENTs" />
+            <End Role="COACH" EntitySet="COACHes" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_225" Association="MyFileItModel.INTEG_225">
+            <End Role="ORGANIZATION" EntitySet="ORGANIZATIONs" />
+            <End Role="TEAMEVENT" EntitySet="TEAMEVENTs" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_152" Association="MyFileItModel.INTEG_152">
+            <End Role="SALESREPSTATU" EntitySet="SALESREPSTATUS" />
+            <End Role="SALESREP" EntitySet="SALESREPs" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_160" Association="MyFileItModel.INTEG_160">
+            <End Role="SALESREP" EntitySet="SALESREPs" />
+            <End Role="SHAREKEY" EntitySet="SHAREKEYs" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_252" Association="MyFileItModel.INTEG_252">
+            <End Role="SALESREP" EntitySet="SALESREPs" />
+            <End Role="SALESREPLEADAREA" EntitySet="SALESREPLEADAREAs" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_230" Association="MyFileItModel.INTEG_230">
+            <End Role="TEAMEVENT" EntitySet="TEAMEVENTs" />
+            <End Role="TEAMEVENTPLAYERROSTER" EntitySet="TEAMEVENTPLAYERROSTERs" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_285" Association="MyFileItModel.INTEG_285">
+            <End Role="TEAMEVENT" EntitySet="TEAMEVENTs" />
+            <End Role="TEAMEVENTDOCUMENT" EntitySet="TEAMEVENTDOCUMENTs" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="PAYMENTTYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SHAREKEYs" Relationship="MyFileItModel.INTEG_251" FromRole="PAYMENTTYPE" ToRole="SHAREKEY" />
+        </EntityType>
+        <EntityType Name="SALESREPLEADAREA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="SALESREPID" Type="Int32" Nullable="false" />
+          <Property Name="CITY" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="STATECODE" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="ZIPCODE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SALESREP" Relationship="MyFileItModel.INTEG_252" FromRole="SALESREPLEADAREA" ToRole="SALESREP" />
+        </EntityType>
+        <EntityType Name="SHAREKEY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="APPUSERID" Type="Int32" />
+          <Property Name="PURCHASEDATE" Type="DateTime" />
+          <Property Name="PROMOCODE" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="LAST4CC" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="AMOUNT" Type="Decimal" Precision="9" Scale="0" />
+          <Property Name="SALESREPID" Type="Int32" />
+          <Property Name="DATECREATED" Type="DateTime" />
+          <Property Name="PAYMENTTYPEID" Type="Int32" />
+          <Property Name="PRIMARYAPPUSERID" Type="Int32" />
+          <Property Name="SHAREKEYCODE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PAYMENTTYPE" Relationship="MyFileItModel.INTEG_251" FromRole="SHAREKEY" ToRole="PAYMENTTYPE" />
+          <NavigationProperty Name="APPUSER" Relationship="MyFileItModel.INTEG_256" FromRole="SHAREKEY" ToRole="APPUSER" />
+          <NavigationProperty Name="SALESREP" Relationship="MyFileItModel.INTEG_160" FromRole="SHAREKEY" ToRole="SALESREP" />
+        </EntityType>
+        <Association Name="INTEG_251">
+          <End Type="MyFileItModel.PAYMENTTYPE" Role="PAYMENTTYPE" Multiplicity="0..1" />
+          <End Type="MyFileItModel.SHAREKEY" Role="SHAREKEY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PAYMENTTYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SHAREKEY">
+              <PropertyRef Name="PAYMENTTYPEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TEAMEVENTPLAYERROSTER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="TEAMEVENTID" Type="Int32" Nullable="false" />
+          <Property Name="APPUSERID" Type="Int32" />
+          <Property Name="PLAYERPOSITION" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="JERSEYNUMBER" Type="Int32" />
+          <Property Name="DATECREATED" Type="DateTime" />
+          <Property Name="USERSTAGETYPEID" Type="Int32" />
+          <NavigationProperty Name="USERSTAGETYPE" Relationship="MyFileItModel.INTEG_265" FromRole="TEAMEVENTPLAYERROSTER" ToRole="USERSTAGETYPE" />
+          <NavigationProperty Name="APPUSER" Relationship="MyFileItModel.INTEG_231" FromRole="TEAMEVENTPLAYERROSTER" ToRole="APPUSER" />
+          <NavigationProperty Name="TEAMEVENT" Relationship="MyFileItModel.INTEG_230" FromRole="TEAMEVENTPLAYERROSTER" ToRole="TEAMEVENT" />
+        </EntityType>
+        <EntityType Name="USERSTAGETYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TEAMEVENTPLAYERROSTERs" Relationship="MyFileItModel.INTEG_265" FromRole="USERSTAGETYPE" ToRole="TEAMEVENTPLAYERROSTER" />
+        </EntityType>
+        <Association Name="INTEG_265">
+          <End Type="MyFileItModel.USERSTAGETYPE" Role="USERSTAGETYPE" Multiplicity="0..1" />
+          <End Type="MyFileItModel.TEAMEVENTPLAYERROSTER" Role="TEAMEVENTPLAYERROSTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERSTAGETYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TEAMEVENTPLAYERROSTER">
+              <PropertyRef Name="USERSTAGETYPEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="APPUSERORGANIZATION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ORGANIZATIONID" Type="Int32" Nullable="false" />
+          <Property Name="APPUSERID" Type="Int32" Nullable="false" />
+          <Property Name="STARTDATE" Type="DateTime" />
+          <Property Name="EXPIRESDATE" Type="DateTime" />
+          <Property Name="YEARCODE" Type="Int32" />
+          <Property Name="SPORTTYPEID" Type="Int32" Nullable="false" />
+          <Property Name="DATECREATED" Type="DateTime" />
+          <Property Name="APPUSERTYPEID" Type="Int32" />
+          <NavigationProperty Name="SPORTTYPE" Relationship="MyFileItModel.INTEG_192" FromRole="APPUSERORGANIZATION" ToRole="SPORTTYPE" />
+          <NavigationProperty Name="ORGANIZATION" Relationship="MyFileItModel.INTEG_190" FromRole="APPUSERORGANIZATION" ToRole="ORGANIZATION" />
+          <NavigationProperty Name="APPUSER" Relationship="MyFileItModel.INTEG_191" FromRole="APPUSERORGANIZATION" ToRole="APPUSER" />
+          <NavigationProperty Name="APPUSER1" Relationship="MyFileItModel.INTEG_266" FromRole="APPUSERORGANIZATION" ToRole="APPUSER" />
+          </EntityType>
+        <Association Name="INTEG_192">
+          <End Type="MyFileItModel.SPORTTYPE" Role="SPORTTYPE" Multiplicity="1" />
+          <End Type="MyFileItModel.APPUSERORGANIZATION" Role="APPUSERORGANIZATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SPORTTYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="APPUSERORGANIZATION">
+              <PropertyRef Name="SPORTTYPEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PAYMENTHISTORY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="PRIMARYAPPUSERID" Type="Int32" Nullable="false" />
+          <Property Name="DATEPURCHASED" Type="DateTime" />
+          <Property Name="QUANTITY" Type="Int32" />
+          <Property Name="ITEM" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="AMOUNT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="LAST4CC" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="PROMOCODE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AUTHORIZATIONNUMBER" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NAME" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="APPUSER" Relationship="MyFileItModel.INTEG_271" FromRole="PAYMENTHISTORY" ToRole="APPUSER" />
+        </EntityType>
+        <EntityType Name="ORGANIZATION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ADDRESS1" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="ADDRESS2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="CITY" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="STATECODE" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="ZIPCODE" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PHONE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CONTACTPERSON" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="EMAILADDRESS" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LOGOIMAGE" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="COMMENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ORGANIZATIONTYPEID" Type="Int32" />
+          <Property Name="ORGANIZATIONSTATUSID" Type="Int32" />
+          <Property Name="SALESREPID" Type="Int32" />
+          <Property Name="DIRECTORNAME" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="DIRECTOREMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DIRECTORPHONE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ALLOWCOACHTOCREATEEVENTS" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="CCALLEMAILTODIRECTOR" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="WHOSPAYING" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="CABINETID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DATECREATED" Type="DateTime" />
+          <Property Name="PROMOCODE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="USERNAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="PASSWORD" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="APPUSERORGANIZATIONs" Relationship="MyFileItModel.INTEG_190" FromRole="ORGANIZATION" ToRole="APPUSERORGANIZATION" />
+          <NavigationProperty Name="ORGANIZATIONTYPE" Relationship="MyFileItModel.INTEG_188" FromRole="ORGANIZATION" ToRole="ORGANIZATIONTYPE" />
+          <NavigationProperty Name="ORGANIZATIONSTATU" Relationship="MyFileItModel.INTEG_189" FromRole="ORGANIZATION" ToRole="ORGANIZATIONSTATU" />
+          <NavigationProperty Name="COACHes" Relationship="MyFileItModel.INTEG_255" FromRole="ORGANIZATION" ToRole="COACH" />
+          <NavigationProperty Name="TEAMEVENTs" Relationship="MyFileItModel.INTEG_225" FromRole="ORGANIZATION" ToRole="TEAMEVENT" />
+        </EntityType>
+        <Association Name="INTEG_190">
+          <End Type="MyFileItModel.ORGANIZATION" Role="ORGANIZATION" Multiplicity="1" />
+          <End Type="MyFileItModel.APPUSERORGANIZATION" Role="APPUSERORGANIZATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORGANIZATION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="APPUSERORGANIZATION">
+              <PropertyRef Name="ORGANIZATIONID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_188">
+          <End Type="MyFileItModel.ORGANIZATIONTYPE" Role="ORGANIZATIONTYPE" Multiplicity="0..1" />
+          <End Type="MyFileItModel.ORGANIZATION" Role="ORGANIZATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORGANIZATIONTYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ORGANIZATION">
+              <PropertyRef Name="ORGANIZATIONTYPEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_189">
+          <End Type="MyFileItModel.ORGANIZATIONSTATU" Role="ORGANIZATIONSTATU" Multiplicity="0..1" />
+          <End Type="MyFileItModel.ORGANIZATION" Role="ORGANIZATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORGANIZATIONSTATU">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ORGANIZATION">
+              <PropertyRef Name="ORGANIZATIONSTATUSID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="APPUSER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="USERNAME" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="PASSWORD" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="PRIMARYAPPUSERID" Type="Int32" />
+          <Property Name="FIRSTNAME" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="LASTNAME" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="ADDRESS1" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="ADDRESS2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="CITY" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="STATECODE" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="ZIPCODE" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PHONE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MOBILEPHONENUMBER" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="EMAILADDRESS" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EMAILADDRESS2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SEX" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="BIRTHDATE" Type="DateTime" />
+          <Property Name="COMMENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RELATIONSHIPTYPEID" Type="Int32" />
+          <Property Name="APPUSERTYPEID" Type="Int32" />
+          <Property Name="SHAREKEYID" Type="Int32" />
+          <Property Name="SHAREKEYEXPIREDATE" Type="DateTime" />
+          <Property Name="APPUSERSTATUSID" Type="Int32" />
+          <Property Name="CABINETID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DATECREATED" Type="DateTime" />
+          <NavigationProperty Name="RELATIONSHIPTYPE" Relationship="MyFileItModel.INTEG_138" FromRole="APPUSER" ToRole="RELATIONSHIPTYPE" />
+          <NavigationProperty Name="APPUSERSTATU" Relationship="MyFileItModel.INTEG_140" FromRole="APPUSER" ToRole="APPUSERSTATU" />
+          <NavigationProperty Name="APPUSERORGANIZATIONs" Relationship="MyFileItModel.INTEG_191" FromRole="APPUSER" ToRole="APPUSERORGANIZATION" />
+          <NavigationProperty Name="TEAMEVENTPLAYERROSTERs" Relationship="MyFileItModel.INTEG_231" FromRole="APPUSER" ToRole="TEAMEVENTPLAYERROSTER" />
+          <NavigationProperty Name="SHAREKEYs" Relationship="MyFileItModel.INTEG_256" FromRole="APPUSER" ToRole="SHAREKEY" />
+          <NavigationProperty Name="APPUSERORGANIZATIONs1" Relationship="MyFileItModel.INTEG_266" FromRole="APPUSER" ToRole="APPUSERORGANIZATION" />
+          <NavigationProperty Name="PAYMENTHISTORies" Relationship="MyFileItModel.INTEG_271" FromRole="APPUSER" ToRole="PAYMENTHISTORY" />
+          <NavigationProperty Name="FILECABINETDOCUMENTs" Relationship="MyFileItModel.INTEG_208" FromRole="APPUSER" ToRole="FILECABINETDOCUMENT" />
+          <NavigationProperty Name="SHAREDOCUMENTs" Relationship="MyFileItModel.INTEG_242" FromRole="APPUSER" ToRole="SHAREDOCUMENT" />
+          <NavigationProperty Name="SHAREDOCUMENTs1" Relationship="MyFileItModel.INTEG_274" FromRole="APPUSER" ToRole="SHAREDOCUMENT" />
+          <NavigationProperty Name="APPUSERTYPE" Relationship="MyFileItModel.INTEG_139" FromRole="APPUSER" ToRole="APPUSERTYPE" />
+          </EntityType>
+        <Association Name="INTEG_138">
+          <End Type="MyFileItModel.RELATIONSHIPTYPE" Role="RELATIONSHIPTYPE" Multiplicity="0..1" />
+          <End Type="MyFileItModel.APPUSER" Role="APPUSER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RELATIONSHIPTYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="APPUSER">
+              <PropertyRef Name="RELATIONSHIPTYPEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_140">
+          <End Type="MyFileItModel.APPUSERSTATU" Role="APPUSERSTATU" Multiplicity="0..1" />
+          <End Type="MyFileItModel.APPUSER" Role="APPUSER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APPUSERSTATU">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="APPUSER">
+              <PropertyRef Name="APPUSERSTATUSID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_191">
+          <End Type="MyFileItModel.APPUSER" Role="APPUSER" Multiplicity="1" />
+          <End Type="MyFileItModel.APPUSERORGANIZATION" Role="APPUSERORGANIZATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APPUSER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="APPUSERORGANIZATION">
+              <PropertyRef Name="APPUSERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_231">
+          <End Type="MyFileItModel.APPUSER" Role="APPUSER" Multiplicity="0..1" />
+          <End Type="MyFileItModel.TEAMEVENTPLAYERROSTER" Role="TEAMEVENTPLAYERROSTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APPUSER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TEAMEVENTPLAYERROSTER">
+              <PropertyRef Name="APPUSERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_256">
+          <End Type="MyFileItModel.APPUSER" Role="APPUSER" Multiplicity="0..1" />
+          <End Type="MyFileItModel.SHAREKEY" Role="SHAREKEY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APPUSER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SHAREKEY">
+              <PropertyRef Name="PRIMARYAPPUSERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_266">
+          <End Type="MyFileItModel.APPUSER" Role="APPUSER" Multiplicity="1" />
+          <End Type="MyFileItModel.APPUSERORGANIZATION" Role="APPUSERORGANIZATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APPUSER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="APPUSERORGANIZATION">
+              <PropertyRef Name="APPUSERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_271">
+          <End Type="MyFileItModel.APPUSER" Role="APPUSER" Multiplicity="1" />
+          <End Type="MyFileItModel.PAYMENTHISTORY" Role="PAYMENTHISTORY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APPUSER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PAYMENTHISTORY">
+              <PropertyRef Name="PRIMARYAPPUSERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="COACH">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="APPUSERID" Type="Int32" />
+          <Property Name="ADDRESS1" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="ADDRESS2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="CITY" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="STATECODE" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="ZIPCODE" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PHONE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="EMAILADDRESS" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SEX" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="YEARCODE" Type="Int32" />
+          <Property Name="SPORTTYPEID" Type="Int32" />
+          <Property Name="RELATIONSHIPTYPEID" Type="Int32" />
+          <Property Name="COACHSTATUSID" Type="Int32" />
+          <Property Name="DATECREATED" Type="DateTime" />
+          <Property Name="FIRSTNAME" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="LASTNAME" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="ORGANIZATIONID" Type="Int32" />
+          <Property Name="TEAMEVENTID" Type="Int32" />
+          <NavigationProperty Name="SPORTTYPE" Relationship="MyFileItModel.INTEG_119" FromRole="COACH" ToRole="SPORTTYPE" />
+          <NavigationProperty Name="RELATIONSHIPTYPE" Relationship="MyFileItModel.INTEG_120" FromRole="COACH" ToRole="RELATIONSHIPTYPE" />
+          <NavigationProperty Name="ORGANIZATION" Relationship="MyFileItModel.INTEG_255" FromRole="COACH" ToRole="ORGANIZATION" />
+          <NavigationProperty Name="COACHSTATU" Relationship="MyFileItModel.INTEG_121" FromRole="COACH" ToRole="COACHSTATU" />
+          <NavigationProperty Name="COACHSTATU1" Relationship="MyFileItModel.INTEG_272" FromRole="COACH" ToRole="COACHSTATU" />
+          <NavigationProperty Name="COACHSTATU2" Relationship="MyFileItModel.INTEG_273" FromRole="COACH" ToRole="COACHSTATU" />
+          <NavigationProperty Name="TEAMEVENT" Relationship="MyFileItModel.INTEG_283" FromRole="COACH" ToRole="TEAMEVENT" />
+          </EntityType>
+        <Association Name="INTEG_119">
+          <End Type="MyFileItModel.SPORTTYPE" Role="SPORTTYPE" Multiplicity="0..1" />
+          <End Type="MyFileItModel.COACH" Role="COACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SPORTTYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="COACH">
+              <PropertyRef Name="SPORTTYPEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_120">
+          <End Type="MyFileItModel.RELATIONSHIPTYPE" Role="RELATIONSHIPTYPE" Multiplicity="0..1" />
+          <End Type="MyFileItModel.COACH" Role="COACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RELATIONSHIPTYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="COACH">
+              <PropertyRef Name="RELATIONSHIPTYPEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_255">
+          <End Type="MyFileItModel.ORGANIZATION" Role="ORGANIZATION" Multiplicity="0..1" />
+          <End Type="MyFileItModel.COACH" Role="COACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORGANIZATION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="COACH">
+              <PropertyRef Name="ORGANIZATIONID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="COACHSTATU">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="ALLOWADDEVENT" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="COACHes" Relationship="MyFileItModel.INTEG_121" FromRole="COACHSTATU" ToRole="COACH" />
+          <NavigationProperty Name="COACHes1" Relationship="MyFileItModel.INTEG_272" FromRole="COACHSTATU" ToRole="COACH" />
+          <NavigationProperty Name="COACHes2" Relationship="MyFileItModel.INTEG_273" FromRole="COACHSTATU" ToRole="COACH" />
+        </EntityType>
+        <Association Name="INTEG_121">
+          <End Type="MyFileItModel.COACHSTATU" Role="COACHSTATU" Multiplicity="0..1" />
+          <End Type="MyFileItModel.COACH" Role="COACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COACHSTATU">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="COACH">
+              <PropertyRef Name="COACHSTATUSID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_272">
+          <End Type="MyFileItModel.COACHSTATU" Role="COACHSTATU" Multiplicity="0..1" />
+          <End Type="MyFileItModel.COACH" Role="COACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COACHSTATU">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="COACH">
+              <PropertyRef Name="TEAMEVENTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_273">
+          <End Type="MyFileItModel.COACHSTATU" Role="COACHSTATU" Multiplicity="0..1" />
+          <End Type="MyFileItModel.COACH" Role="COACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COACHSTATU">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="COACH">
+              <PropertyRef Name="TEAMEVENTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="FILECABINETDOCUMENT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="DOCUMENTID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="APPUSERID" Type="Int32" />
+          <Property Name="SCANDATE" Type="DateTime" />
+          <Property Name="FIRSTNAME" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="LASTNAME" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="COMMENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DOCUMENTDATE" Type="DateTime" />
+          <Property Name="DOCUMENTLOCATION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DOCUMENTTYPEID" Type="Int32" Nullable="false" />
+          <Property Name="DOCUMENTSTATUSID" Type="Int32" Nullable="false" />
+          <Property Name="DATECREATED" Type="DateTime" />
+          <Property Name="CABINETID" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="APPUSER" Relationship="MyFileItModel.INTEG_208" FromRole="FILECABINETDOCUMENT" ToRole="APPUSER" />
+          <NavigationProperty Name="DOCUMENTSTATU" Relationship="MyFileItModel.INTEG_207" FromRole="FILECABINETDOCUMENT" ToRole="DOCUMENTSTATU" />
+          <NavigationProperty Name="DOCUMENTTYPE" Relationship="MyFileItModel.INTEG_206" FromRole="FILECABINETDOCUMENT" ToRole="DOCUMENTTYPE" />
+          <NavigationProperty Name="SHAREDOCUMENTs" Relationship="MyFileItModel.INTEG_261" FromRole="FILECABINETDOCUMENT" ToRole="SHAREDOCUMENT" />
+        </EntityType>
+        <Association Name="INTEG_208">
+          <End Type="MyFileItModel.APPUSER" Role="APPUSER" Multiplicity="0..1" />
+          <End Type="MyFileItModel.FILECABINETDOCUMENT" Role="FILECABINETDOCUMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APPUSER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FILECABINETDOCUMENT">
+              <PropertyRef Name="APPUSERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_207">
+          <End Type="MyFileItModel.DOCUMENTSTATU" Role="DOCUMENTSTATU" Multiplicity="1" />
+          <End Type="MyFileItModel.FILECABINETDOCUMENT" Role="FILECABINETDOCUMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOCUMENTSTATU">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FILECABINETDOCUMENT">
+              <PropertyRef Name="DOCUMENTSTATUSID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_206">
+          <End Type="MyFileItModel.DOCUMENTTYPE" Role="DOCUMENTTYPE" Multiplicity="1" />
+          <End Type="MyFileItModel.FILECABINETDOCUMENT" Role="FILECABINETDOCUMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOCUMENTTYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FILECABINETDOCUMENT">
+              <PropertyRef Name="DOCUMENTTYPEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SHAREDOCUMENT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="DOCUMENTID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TEAMEVENTDOCUMENTID" Type="Int32" />
+          <Property Name="APPUSERID" Type="Int32" />
+          <Property Name="SCANDATE" Type="DateTime" />
+          <Property Name="COMMENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LOCATION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DOCUMENTTYPEID" Type="Int32" Nullable="false" />
+          <Property Name="DOCUMENTSTATUSID" Type="Int32" Nullable="false" />
+          <Property Name="EMERGENCY" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="CABINETID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DOCUMENTDATE" Type="DateTime" />
+          <Property Name="DATECREATED" Type="DateTime" />
+          <Property Name="FILECABINETDOCUMENTID" Type="Int32" />
+          <Property Name="VERIFIEDDATE" Type="DateTime" />
+          <Property Name="VERIFIEDAPPUSERID" Type="Int32" />
+          <Property Name="EMERGENCYEMAILADDRESS" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="VIEWDOCUMENTKEY" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="VIEWED" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="VIEWDATE" Type="DateTime" />
+          <Property Name="ISACTIVE" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="APPUSER" Relationship="MyFileItModel.INTEG_242" FromRole="SHAREDOCUMENT" ToRole="APPUSER" />
+          <NavigationProperty Name="APPUSER1" Relationship="MyFileItModel.INTEG_274" FromRole="SHAREDOCUMENT" ToRole="APPUSER" />
+          <NavigationProperty Name="DOCUMENTSTATU" Relationship="MyFileItModel.INTEG_243" FromRole="SHAREDOCUMENT" ToRole="DOCUMENTSTATU" />
+          <NavigationProperty Name="DOCUMENTTYPE" Relationship="MyFileItModel.INTEG_244" FromRole="SHAREDOCUMENT" ToRole="DOCUMENTTYPE" />
+          <NavigationProperty Name="FILECABINETDOCUMENT" Relationship="MyFileItModel.INTEG_261" FromRole="SHAREDOCUMENT" ToRole="FILECABINETDOCUMENT" />
+          <NavigationProperty Name="TEAMEVENTDOCUMENT" Relationship="MyFileItModel.INTEG_241" FromRole="SHAREDOCUMENT" ToRole="TEAMEVENTDOCUMENT" />
+        </EntityType>
+        <Association Name="INTEG_242">
+          <End Type="MyFileItModel.APPUSER" Role="APPUSER" Multiplicity="0..1" />
+          <End Type="MyFileItModel.SHAREDOCUMENT" Role="SHAREDOCUMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APPUSER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SHAREDOCUMENT">
+              <PropertyRef Name="APPUSERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_274">
+          <End Type="MyFileItModel.APPUSER" Role="APPUSER" Multiplicity="0..1" />
+          <End Type="MyFileItModel.SHAREDOCUMENT" Role="SHAREDOCUMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APPUSER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SHAREDOCUMENT">
+              <PropertyRef Name="VERIFIEDAPPUSERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_243">
+          <End Type="MyFileItModel.DOCUMENTSTATU" Role="DOCUMENTSTATU" Multiplicity="1" />
+          <End Type="MyFileItModel.SHAREDOCUMENT" Role="SHAREDOCUMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOCUMENTSTATU">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SHAREDOCUMENT">
+              <PropertyRef Name="DOCUMENTSTATUSID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_244">
+          <End Type="MyFileItModel.DOCUMENTTYPE" Role="DOCUMENTTYPE" Multiplicity="1" />
+          <End Type="MyFileItModel.SHAREDOCUMENT" Role="SHAREDOCUMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOCUMENTTYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SHAREDOCUMENT">
+              <PropertyRef Name="DOCUMENTTYPEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_261">
+          <End Type="MyFileItModel.FILECABINETDOCUMENT" Role="FILECABINETDOCUMENT" Multiplicity="0..1" />
+          <End Type="MyFileItModel.SHAREDOCUMENT" Role="SHAREDOCUMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FILECABINETDOCUMENT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SHAREDOCUMENT">
+              <PropertyRef Name="FILECABINETDOCUMENTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="EMAILLOG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="TOEMAILADDRESS" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SUBJECTLINE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MESSAGE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DATECREATED" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="APPUSERTYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="PLAYERUSER" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="ISCOACH" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="APPUSERs" Relationship="MyFileItModel.INTEG_139" FromRole="APPUSERTYPE" ToRole="APPUSER" />
+        </EntityType>
+        <Association Name="INTEG_139">
+          <End Type="MyFileItModel.APPUSERTYPE" Role="APPUSERTYPE" Multiplicity="0..1" />
+          <End Type="MyFileItModel.APPUSER" Role="APPUSER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APPUSERTYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="APPUSER">
+              <PropertyRef Name="APPUSERTYPEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TEAMEVENTDOCUMENT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="TEAMEVENTID" Type="Int32" Nullable="false" />
+          <Property Name="DOCUMENTNAME" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ENTERWHOSCANNED" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="SCANNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MUSTBEVERIFIED" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="TEAMEVENTDOCUMENTSTATUSID" Type="Int32" />
+          <Property Name="VERIFIERNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PLAYERENTEREXPIRATION" Type="DateTime" />
+          <Property Name="PLAYERENTERDOCUMENTDATE" Type="DateTime" />
+          <Property Name="ISCOACHDOCUMENT" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="ROSTERCLOSEDATE" Type="DateTime" />
+          <NavigationProperty Name="SHAREDOCUMENTs" Relationship="MyFileItModel.INTEG_241" FromRole="TEAMEVENTDOCUMENT" ToRole="SHAREDOCUMENT" />
+          <NavigationProperty Name="TEAMEVENTDOCUMENTSTATU" Relationship="MyFileItModel.INTEG_284" FromRole="TEAMEVENTDOCUMENT" ToRole="TEAMEVENTDOCUMENTSTATU" />
+          <NavigationProperty Name="TEAMEVENT" Relationship="MyFileItModel.INTEG_285" FromRole="TEAMEVENTDOCUMENT" ToRole="TEAMEVENT" />
+        </EntityType>
+        <Association Name="INTEG_241">
+          <End Type="MyFileItModel.TEAMEVENTDOCUMENT" Role="TEAMEVENTDOCUMENT" Multiplicity="0..1" />
+          <End Type="MyFileItModel.SHAREDOCUMENT" Role="SHAREDOCUMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEAMEVENTDOCUMENT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SHAREDOCUMENT">
+              <PropertyRef Name="TEAMEVENTDOCUMENTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_284">
+          <End Type="MyFileItModel.TEAMEVENTDOCUMENTSTATU" Role="TEAMEVENTDOCUMENTSTATU" Multiplicity="0..1" />
+          <End Type="MyFileItModel.TEAMEVENTDOCUMENT" Role="TEAMEVENTDOCUMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEAMEVENTDOCUMENTSTATU">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TEAMEVENTDOCUMENT">
+              <PropertyRef Name="TEAMEVENTDOCUMENTSTATUSID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SALESREP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="FIRSTNAME" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="LASTNAME" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="ADDRESS1" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="ADDRESS2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="CITY" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="STATECODE" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="ZIPCODE" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PHONE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CONTACTPERSON" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="EMAILADDRESS" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SALESREPSTATUSID" Type="Int32" />
+          <Property Name="COMMENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DATECREATED" Type="DateTime" />
+          <Property Name="DEACTIVATEDATE" Type="DateTime" />
+          <Property Name="PASSWORD" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SALESREPSTATU" Relationship="MyFileItModel.INTEG_152" FromRole="SALESREP" ToRole="SALESREPSTATU" />
+          <NavigationProperty Name="SHAREKEYs" Relationship="MyFileItModel.INTEG_160" FromRole="SALESREP" ToRole="SHAREKEY" />
+          <NavigationProperty Name="SALESREPLEADAREAs" Relationship="MyFileItModel.INTEG_252" FromRole="SALESREP" ToRole="SALESREPLEADAREA" />
+        </EntityType>
+        <EntityType Name="TEAMEVENT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ORGANIZATIONID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="YEARCODE" Type="Int32" />
+          <Property Name="STARTDATE" Type="DateTime" />
+          <Property Name="EXPIRESDATE" Type="DateTime" />
+          <Property Name="DATECREATED" Type="DateTime" />
+          <Property Name="ISDELETED" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="COACHes" Relationship="MyFileItModel.INTEG_283" FromRole="TEAMEVENT" ToRole="COACH" />
+          <NavigationProperty Name="ORGANIZATION" Relationship="MyFileItModel.INTEG_225" FromRole="TEAMEVENT" ToRole="ORGANIZATION" />
+          <NavigationProperty Name="TEAMEVENTPLAYERROSTERs" Relationship="MyFileItModel.INTEG_230" FromRole="TEAMEVENT" ToRole="TEAMEVENTPLAYERROSTER" />
+          <NavigationProperty Name="TEAMEVENTDOCUMENTs" Relationship="MyFileItModel.INTEG_285" FromRole="TEAMEVENT" ToRole="TEAMEVENTDOCUMENT" />
+        </EntityType>
+        <Association Name="INTEG_283">
+          <End Type="MyFileItModel.TEAMEVENT" Role="TEAMEVENT" Multiplicity="0..1" />
+          <End Type="MyFileItModel.COACH" Role="COACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEAMEVENT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="COACH">
+              <PropertyRef Name="TEAMEVENTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_225">
+          <End Type="MyFileItModel.ORGANIZATION" Role="ORGANIZATION" Multiplicity="1" />
+          <End Type="MyFileItModel.TEAMEVENT" Role="TEAMEVENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORGANIZATION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TEAMEVENT">
+              <PropertyRef Name="ORGANIZATIONID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_152">
+          <End Type="MyFileItModel.SALESREPSTATU" Role="SALESREPSTATU" Multiplicity="0..1" />
+          <End Type="MyFileItModel.SALESREP" Role="SALESREP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SALESREPSTATU">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SALESREP">
+              <PropertyRef Name="SALESREPSTATUSID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_160">
+          <End Type="MyFileItModel.SALESREP" Role="SALESREP" Multiplicity="0..1" />
+          <End Type="MyFileItModel.SHAREKEY" Role="SHAREKEY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SALESREP">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SHAREKEY">
+              <PropertyRef Name="SALESREPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_252">
+          <End Type="MyFileItModel.SALESREP" Role="SALESREP" Multiplicity="1" />
+          <End Type="MyFileItModel.SALESREPLEADAREA" Role="SALESREPLEADAREA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SALESREP">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SALESREPLEADAREA">
+              <PropertyRef Name="SALESREPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_230">
+          <End Type="MyFileItModel.TEAMEVENT" Role="TEAMEVENT" Multiplicity="1" />
+          <End Type="MyFileItModel.TEAMEVENTPLAYERROSTER" Role="TEAMEVENTPLAYERROSTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEAMEVENT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TEAMEVENTPLAYERROSTER">
+              <PropertyRef Name="TEAMEVENTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_285">
+          <End Type="MyFileItModel.TEAMEVENT" Role="TEAMEVENT" Multiplicity="1" />
+          <End Type="MyFileItModel.TEAMEVENTDOCUMENT" Role="TEAMEVENTDOCUMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEAMEVENT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TEAMEVENTDOCUMENT">
+              <PropertyRef Name="TEAMEVENTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MyFileItModelStoreContainer" CdmEntityContainer="MyFileItEntities">
+          <EntitySetMapping Name="APPUSERSTATUS">
+            <EntityTypeMapping TypeName="MyFileItModel.APPUSERSTATU">
+              <MappingFragment StoreEntitySet="APPUSERSTATUS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DOCUMENTSTATUS">
+            <EntityTypeMapping TypeName="MyFileItModel.DOCUMENTSTATU">
+              <MappingFragment StoreEntitySet="DOCUMENTSTATUS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DOCUMENTTYPEs">
+            <EntityTypeMapping TypeName="MyFileItModel.DOCUMENTTYPE">
+              <MappingFragment StoreEntitySet="DOCUMENTTYPE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORGANIZATIONSTATUS">
+            <EntityTypeMapping TypeName="MyFileItModel.ORGANIZATIONSTATU">
+              <MappingFragment StoreEntitySet="ORGANIZATIONSTATUS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORGANIZATIONTYPEs">
+            <EntityTypeMapping TypeName="MyFileItModel.ORGANIZATIONTYPE">
+              <MappingFragment StoreEntitySet="ORGANIZATIONTYPE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RELATIONSHIPTYPEs">
+            <EntityTypeMapping TypeName="MyFileItModel.RELATIONSHIPTYPE">
+              <MappingFragment StoreEntitySet="RELATIONSHIPTYPE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SALESREPSTATUS">
+            <EntityTypeMapping TypeName="MyFileItModel.SALESREPSTATU">
+              <MappingFragment StoreEntitySet="SALESREPSTATUS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SPORTTYPEs">
+            <EntityTypeMapping TypeName="MyFileItModel.SPORTTYPE">
+              <MappingFragment StoreEntitySet="SPORTTYPE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TEAMEVENTDOCUMENTSTATUS">
+            <EntityTypeMapping TypeName="MyFileItModel.TEAMEVENTDOCUMENTSTATU">
+              <MappingFragment StoreEntitySet="TEAMEVENTDOCUMENTSTATUS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PAYMENTTYPEs">
+            <EntityTypeMapping TypeName="MyFileItModel.PAYMENTTYPE">
+              <MappingFragment StoreEntitySet="PAYMENTTYPE">
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SALESREPLEADAREAs">
+            <EntityTypeMapping TypeName="MyFileItModel.SALESREPLEADAREA">
+              <MappingFragment StoreEntitySet="SALESREPLEADAREA">
+                <ScalarProperty Name="ZIPCODE" ColumnName="ZIPCODE" />
+                <ScalarProperty Name="STATECODE" ColumnName="STATECODE" />
+                <ScalarProperty Name="CITY" ColumnName="CITY" />
+                <ScalarProperty Name="SALESREPID" ColumnName="SALESREPID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SHAREKEYs">
+            <EntityTypeMapping TypeName="MyFileItModel.SHAREKEY">
+              <MappingFragment StoreEntitySet="SHAREKEY">
+                <ScalarProperty Name="SHAREKEYCODE" ColumnName="SHAREKEYCODE" />
+                <ScalarProperty Name="PRIMARYAPPUSERID" ColumnName="PRIMARYAPPUSERID" />
+                <ScalarProperty Name="PAYMENTTYPEID" ColumnName="PAYMENTTYPEID" />
+                <ScalarProperty Name="DATECREATED" ColumnName="DATECREATED" />
+                <ScalarProperty Name="SALESREPID" ColumnName="SALESREPID" />
+                <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+                <ScalarProperty Name="LAST4CC" ColumnName="LAST4CC" />
+                <ScalarProperty Name="PROMOCODE" ColumnName="PROMOCODE" />
+                <ScalarProperty Name="PURCHASEDATE" ColumnName="PURCHASEDATE" />
+                <ScalarProperty Name="APPUSERID" ColumnName="APPUSERID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TEAMEVENTPLAYERROSTERs">
+            <EntityTypeMapping TypeName="MyFileItModel.TEAMEVENTPLAYERROSTER">
+              <MappingFragment StoreEntitySet="TEAMEVENTPLAYERROSTER">
+                <ScalarProperty Name="USERSTAGETYPEID" ColumnName="USERSTAGETYPEID" />
+                <ScalarProperty Name="DATECREATED" ColumnName="DATECREATED" />
+                <ScalarProperty Name="JERSEYNUMBER" ColumnName="JERSEYNUMBER" />
+                <ScalarProperty Name="PLAYERPOSITION" ColumnName="PLAYERPOSITION" />
+                <ScalarProperty Name="APPUSERID" ColumnName="APPUSERID" />
+                <ScalarProperty Name="TEAMEVENTID" ColumnName="TEAMEVENTID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USERSTAGETYPEs">
+            <EntityTypeMapping TypeName="MyFileItModel.USERSTAGETYPE">
+              <MappingFragment StoreEntitySet="USERSTAGETYPE">
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="APPUSERORGANIZATIONs">
+            <EntityTypeMapping TypeName="MyFileItModel.APPUSERORGANIZATION">
+              <MappingFragment StoreEntitySet="APPUSERORGANIZATION">
+                <ScalarProperty Name="APPUSERTYPEID" ColumnName="APPUSERTYPEID" />
+                <ScalarProperty Name="DATECREATED" ColumnName="DATECREATED" />
+                <ScalarProperty Name="SPORTTYPEID" ColumnName="SPORTTYPEID" />
+                <ScalarProperty Name="YEARCODE" ColumnName="YEARCODE" />
+                <ScalarProperty Name="EXPIRESDATE" ColumnName="EXPIRESDATE" />
+                <ScalarProperty Name="STARTDATE" ColumnName="STARTDATE" />
+                <ScalarProperty Name="APPUSERID" ColumnName="APPUSERID" />
+                <ScalarProperty Name="ORGANIZATIONID" ColumnName="ORGANIZATIONID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PAYMENTHISTORies">
+            <EntityTypeMapping TypeName="MyFileItModel.PAYMENTHISTORY">
+              <MappingFragment StoreEntitySet="PAYMENTHISTORY">
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="AUTHORIZATIONNUMBER" ColumnName="AUTHORIZATIONNUMBER" />
+                <ScalarProperty Name="PROMOCODE" ColumnName="PROMOCODE" />
+                <ScalarProperty Name="LAST4CC" ColumnName="LAST4CC" />
+                <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+                <ScalarProperty Name="ITEM" ColumnName="ITEM" />
+                <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+                <ScalarProperty Name="DATEPURCHASED" ColumnName="DATEPURCHASED" />
+                <ScalarProperty Name="PRIMARYAPPUSERID" ColumnName="PRIMARYAPPUSERID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORGANIZATIONs">
+            <EntityTypeMapping TypeName="MyFileItModel.ORGANIZATION">
+              <MappingFragment StoreEntitySet="ORGANIZATION">
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="PROMOCODE" ColumnName="PROMOCODE" />
+                <ScalarProperty Name="DATECREATED" ColumnName="DATECREATED" />
+                <ScalarProperty Name="CABINETID" ColumnName="CABINETID" />
+                <ScalarProperty Name="WHOSPAYING" ColumnName="WHOSPAYING" />
+                <ScalarProperty Name="CCALLEMAILTODIRECTOR" ColumnName="CCALLEMAILTODIRECTOR" />
+                <ScalarProperty Name="ALLOWCOACHTOCREATEEVENTS" ColumnName="ALLOWCOACHTOCREATEEVENTS" />
+                <ScalarProperty Name="DIRECTORPHONE" ColumnName="DIRECTORPHONE" />
+                <ScalarProperty Name="DIRECTOREMAIL" ColumnName="DIRECTOREMAIL" />
+                <ScalarProperty Name="DIRECTORNAME" ColumnName="DIRECTORNAME" />
+                <ScalarProperty Name="SALESREPID" ColumnName="SALESREPID" />
+                <ScalarProperty Name="ORGANIZATIONSTATUSID" ColumnName="ORGANIZATIONSTATUSID" />
+                <ScalarProperty Name="ORGANIZATIONTYPEID" ColumnName="ORGANIZATIONTYPEID" />
+                <ScalarProperty Name="COMMENT" ColumnName="COMMENT" />
+                <ScalarProperty Name="LOGOIMAGE" ColumnName="LOGOIMAGE" />
+                <ScalarProperty Name="EMAILADDRESS" ColumnName="EMAILADDRESS" />
+                <ScalarProperty Name="CONTACTPERSON" ColumnName="CONTACTPERSON" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="ZIPCODE" ColumnName="ZIPCODE" />
+                <ScalarProperty Name="STATECODE" ColumnName="STATECODE" />
+                <ScalarProperty Name="CITY" ColumnName="CITY" />
+                <ScalarProperty Name="ADDRESS2" ColumnName="ADDRESS2" />
+                <ScalarProperty Name="ADDRESS1" ColumnName="ADDRESS1" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="APPUSERs">
+            <EntityTypeMapping TypeName="MyFileItModel.APPUSER">
+              <MappingFragment StoreEntitySet="APPUSER">
+                <ScalarProperty Name="DATECREATED" ColumnName="DATECREATED" />
+                <ScalarProperty Name="CABINETID" ColumnName="CABINETID" />
+                <ScalarProperty Name="APPUSERSTATUSID" ColumnName="APPUSERSTATUSID" />
+                <ScalarProperty Name="SHAREKEYEXPIREDATE" ColumnName="SHAREKEYEXPIREDATE" />
+                <ScalarProperty Name="SHAREKEYID" ColumnName="SHAREKEYID" />
+                <ScalarProperty Name="APPUSERTYPEID" ColumnName="APPUSERTYPEID" />
+                <ScalarProperty Name="RELATIONSHIPTYPEID" ColumnName="RELATIONSHIPTYPEID" />
+                <ScalarProperty Name="COMMENT" ColumnName="COMMENT" />
+                <ScalarProperty Name="BIRTHDATE" ColumnName="BIRTHDATE" />
+                <ScalarProperty Name="SEX" ColumnName="SEX" />
+                <ScalarProperty Name="EMAILADDRESS2" ColumnName="EMAILADDRESS2" />
+                <ScalarProperty Name="EMAILADDRESS" ColumnName="EMAILADDRESS" />
+                <ScalarProperty Name="MOBILEPHONENUMBER" ColumnName="MOBILEPHONENUMBER" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="ZIPCODE" ColumnName="ZIPCODE" />
+                <ScalarProperty Name="STATECODE" ColumnName="STATECODE" />
+                <ScalarProperty Name="CITY" ColumnName="CITY" />
+                <ScalarProperty Name="ADDRESS2" ColumnName="ADDRESS2" />
+                <ScalarProperty Name="ADDRESS1" ColumnName="ADDRESS1" />
+                <ScalarProperty Name="LASTNAME" ColumnName="LASTNAME" />
+                <ScalarProperty Name="FIRSTNAME" ColumnName="FIRSTNAME" />
+                <ScalarProperty Name="PRIMARYAPPUSERID" ColumnName="PRIMARYAPPUSERID" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COACHes">
+            <EntityTypeMapping TypeName="MyFileItModel.COACH">
+              <MappingFragment StoreEntitySet="COACH">
+                <ScalarProperty Name="TEAMEVENTID" ColumnName="TEAMEVENTID" />
+                <ScalarProperty Name="ORGANIZATIONID" ColumnName="ORGANIZATIONID" />
+                <ScalarProperty Name="LASTNAME" ColumnName="LASTNAME" />
+                <ScalarProperty Name="FIRSTNAME" ColumnName="FIRSTNAME" />
+                <ScalarProperty Name="DATECREATED" ColumnName="DATECREATED" />
+                <ScalarProperty Name="COACHSTATUSID" ColumnName="COACHSTATUSID" />
+                <ScalarProperty Name="RELATIONSHIPTYPEID" ColumnName="RELATIONSHIPTYPEID" />
+                <ScalarProperty Name="SPORTTYPEID" ColumnName="SPORTTYPEID" />
+                <ScalarProperty Name="YEARCODE" ColumnName="YEARCODE" />
+                <ScalarProperty Name="SEX" ColumnName="SEX" />
+                <ScalarProperty Name="EMAILADDRESS" ColumnName="EMAILADDRESS" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="ZIPCODE" ColumnName="ZIPCODE" />
+                <ScalarProperty Name="STATECODE" ColumnName="STATECODE" />
+                <ScalarProperty Name="CITY" ColumnName="CITY" />
+                <ScalarProperty Name="ADDRESS2" ColumnName="ADDRESS2" />
+                <ScalarProperty Name="ADDRESS1" ColumnName="ADDRESS1" />
+                <ScalarProperty Name="APPUSERID" ColumnName="APPUSERID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COACHSTATUS">
+            <EntityTypeMapping TypeName="MyFileItModel.COACHSTATU">
+              <MappingFragment StoreEntitySet="COACHSTATUS">
+                <ScalarProperty Name="ALLOWADDEVENT" ColumnName="ALLOWADDEVENT" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FILECABINETDOCUMENTs">
+            <EntityTypeMapping TypeName="MyFileItModel.FILECABINETDOCUMENT">
+              <MappingFragment StoreEntitySet="FILECABINETDOCUMENT">
+                <ScalarProperty Name="CABINETID" ColumnName="CABINETID" />
+                <ScalarProperty Name="DATECREATED" ColumnName="DATECREATED" />
+                <ScalarProperty Name="DOCUMENTSTATUSID" ColumnName="DOCUMENTSTATUSID" />
+                <ScalarProperty Name="DOCUMENTTYPEID" ColumnName="DOCUMENTTYPEID" />
+                <ScalarProperty Name="DOCUMENTLOCATION" ColumnName="DOCUMENTLOCATION" />
+                <ScalarProperty Name="DOCUMENTDATE" ColumnName="DOCUMENTDATE" />
+                <ScalarProperty Name="COMMENT" ColumnName="COMMENT" />
+                <ScalarProperty Name="LASTNAME" ColumnName="LASTNAME" />
+                <ScalarProperty Name="FIRSTNAME" ColumnName="FIRSTNAME" />
+                <ScalarProperty Name="SCANDATE" ColumnName="SCANDATE" />
+                <ScalarProperty Name="APPUSERID" ColumnName="APPUSERID" />
+                <ScalarProperty Name="DOCUMENTID" ColumnName="DOCUMENTID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SHAREDOCUMENTs">
+            <EntityTypeMapping TypeName="MyFileItModel.SHAREDOCUMENT">
+              <MappingFragment StoreEntitySet="SHAREDOCUMENT">
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+                <ScalarProperty Name="VIEWDATE" ColumnName="VIEWDATE" />
+                <ScalarProperty Name="VIEWED" ColumnName="VIEWED" />
+                <ScalarProperty Name="VIEWDOCUMENTKEY" ColumnName="VIEWDOCUMENTKEY" />
+                <ScalarProperty Name="EMERGENCYEMAILADDRESS" ColumnName="EMERGENCYEMAILADDRESS" />
+                <ScalarProperty Name="VERIFIEDAPPUSERID" ColumnName="VERIFIEDAPPUSERID" />
+                <ScalarProperty Name="VERIFIEDDATE" ColumnName="VERIFIEDDATE" />
+                <ScalarProperty Name="FILECABINETDOCUMENTID" ColumnName="FILECABINETDOCUMENTID" />
+                <ScalarProperty Name="DATECREATED" ColumnName="DATECREATED" />
+                <ScalarProperty Name="DOCUMENTDATE" ColumnName="DOCUMENTDATE" />
+                <ScalarProperty Name="CABINETID" ColumnName="CABINETID" />
+                <ScalarProperty Name="EMERGENCY" ColumnName="EMERGENCY" />
+                <ScalarProperty Name="DOCUMENTSTATUSID" ColumnName="DOCUMENTSTATUSID" />
+                <ScalarProperty Name="DOCUMENTTYPEID" ColumnName="DOCUMENTTYPEID" />
+                <ScalarProperty Name="LOCATION" ColumnName="LOCATION" />
+                <ScalarProperty Name="COMMENT" ColumnName="COMMENT" />
+                <ScalarProperty Name="SCANDATE" ColumnName="SCANDATE" />
+                <ScalarProperty Name="APPUSERID" ColumnName="APPUSERID" />
+                <ScalarProperty Name="TEAMEVENTDOCUMENTID" ColumnName="TEAMEVENTDOCUMENTID" />
+                <ScalarProperty Name="DOCUMENTID" ColumnName="DOCUMENTID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMAILLOGs">
+            <EntityTypeMapping TypeName="MyFileItModel.EMAILLOG">
+              <MappingFragment StoreEntitySet="EMAILLOG">
+                <ScalarProperty Name="DATECREATED" ColumnName="DATECREATED" />
+                <ScalarProperty Name="MESSAGE" ColumnName="MESSAGE" />
+                <ScalarProperty Name="SUBJECTLINE" ColumnName="SUBJECTLINE" />
+                <ScalarProperty Name="TOEMAILADDRESS" ColumnName="TOEMAILADDRESS" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="APPUSERTYPEs">
+            <EntityTypeMapping TypeName="MyFileItModel.APPUSERTYPE">
+              <MappingFragment StoreEntitySet="APPUSERTYPE">
+                <ScalarProperty Name="ISCOACH" ColumnName="ISCOACH" />
+                <ScalarProperty Name="PLAYERUSER" ColumnName="PLAYERUSER" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TEAMEVENTDOCUMENTs">
+            <EntityTypeMapping TypeName="MyFileItModel.TEAMEVENTDOCUMENT">
+              <MappingFragment StoreEntitySet="TEAMEVENTDOCUMENT">
+                <ScalarProperty Name="ROSTERCLOSEDATE" ColumnName="ROSTERCLOSEDATE" />
+                <ScalarProperty Name="ISCOACHDOCUMENT" ColumnName="ISCOACHDOCUMENT" />
+                <ScalarProperty Name="PLAYERENTERDOCUMENTDATE" ColumnName="PLAYERENTERDOCUMENTDATE" />
+                <ScalarProperty Name="PLAYERENTEREXPIRATION" ColumnName="PLAYERENTEREXPIRATION" />
+                <ScalarProperty Name="VERIFIERNAME" ColumnName="VERIFIERNAME" />
+                <ScalarProperty Name="TEAMEVENTDOCUMENTSTATUSID" ColumnName="TEAMEVENTDOCUMENTSTATUSID" />
+                <ScalarProperty Name="MUSTBEVERIFIED" ColumnName="MUSTBEVERIFIED" />
+                <ScalarProperty Name="SCANNAME" ColumnName="SCANNAME" />
+                <ScalarProperty Name="ENTERWHOSCANNED" ColumnName="ENTERWHOSCANNED" />
+                <ScalarProperty Name="DOCUMENTNAME" ColumnName="DOCUMENTNAME" />
+                <ScalarProperty Name="TEAMEVENTID" ColumnName="TEAMEVENTID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SALESREPs">
+            <EntityTypeMapping TypeName="MyFileItModel.SALESREP">
+              <MappingFragment StoreEntitySet="SALESREP">
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="DEACTIVATEDATE" ColumnName="DEACTIVATEDATE" />
+                <ScalarProperty Name="DATECREATED" ColumnName="DATECREATED" />
+                <ScalarProperty Name="COMMENT" ColumnName="COMMENT" />
+                <ScalarProperty Name="SALESREPSTATUSID" ColumnName="SALESREPSTATUSID" />
+                <ScalarProperty Name="EMAILADDRESS" ColumnName="EMAILADDRESS" />
+                <ScalarProperty Name="CONTACTPERSON" ColumnName="CONTACTPERSON" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="ZIPCODE" ColumnName="ZIPCODE" />
+                <ScalarProperty Name="STATECODE" ColumnName="STATECODE" />
+                <ScalarProperty Name="CITY" ColumnName="CITY" />
+                <ScalarProperty Name="ADDRESS2" ColumnName="ADDRESS2" />
+                <ScalarProperty Name="ADDRESS1" ColumnName="ADDRESS1" />
+                <ScalarProperty Name="LASTNAME" ColumnName="LASTNAME" />
+                <ScalarProperty Name="FIRSTNAME" ColumnName="FIRSTNAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TEAMEVENTs">
+            <EntityTypeMapping TypeName="MyFileItModel.TEAMEVENT">
+              <MappingFragment StoreEntitySet="TEAMEVENT">
+                <ScalarProperty Name="ISDELETED" ColumnName="ISDELETED" />
+                <ScalarProperty Name="DATECREATED" ColumnName="DATECREATED" />
+                <ScalarProperty Name="EXPIRESDATE" ColumnName="EXPIRESDATE" />
+                <ScalarProperty Name="STARTDATE" ColumnName="STARTDATE" />
+                <ScalarProperty Name="YEARCODE" ColumnName="YEARCODE" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ORGANIZATIONID" ColumnName="ORGANIZATIONID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

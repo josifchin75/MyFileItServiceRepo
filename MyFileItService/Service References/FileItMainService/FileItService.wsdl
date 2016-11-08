@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="FileItService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:31427/FileItService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:31427/FileItService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:31427/FileItService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/FileItService.DTOs" />
+      <xsd:import schemaLocation="http://localhost:31427/FileItService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IFileItService_InitService_InputMessage">
+    <wsdl:part name="parameters" element="tns:InitService" />
+  </wsdl:message>
+  <wsdl:message name="IFileItService_InitService_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InitServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFileItService_Authenticate_InputMessage">
+    <wsdl:part name="parameters" element="tns:Authenticate" />
+  </wsdl:message>
+  <wsdl:message name="IFileItService_Authenticate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFileItService_SetCabinetAccess_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetCabinetAccess" />
+  </wsdl:message>
+  <wsdl:message name="IFileItService_SetCabinetAccess_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetCabinetAccessResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFileItService_AddUpdateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUpdateUser" />
+  </wsdl:message>
+  <wsdl:message name="IFileItService_AddUpdateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFileItService_SetUserActive_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserActive" />
+  </wsdl:message>
+  <wsdl:message name="IFileItService_SetUserActive_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserActiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFileItService_SetUserPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserPassword" />
+  </wsdl:message>
+  <wsdl:message name="IFileItService_SetUserPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFileItService_GetCabinets_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCabinets" />
+  </wsdl:message>
+  <wsdl:message name="IFileItService_GetCabinets_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCabinetsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFileItService_GetCabinet_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCabinet" />
+  </wsdl:message>
+  <wsdl:message name="IFileItService_GetCabinet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCabinetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFileItService_CreateCabinet_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCabinet" />
+  </wsdl:message>
+  <wsdl:message name="IFileItService_CreateCabinet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCabinetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFileItService_DeleteDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDocument" />
+  </wsdl:message>
+  <wsdl:message name="IFileItService_DeleteDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFileItService_GetDocuments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocuments" />
+  </wsdl:message>
+  <wsdl:message name="IFileItService_GetDocuments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFileItService_GetDocumentsById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentsById" />
+  </wsdl:message>
+  <wsdl:message name="IFileItService_GetDocumentsById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentsByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFileItService_UploadDocuments_InputMessage">
+    <wsdl:part name="parameters" element="tns:UploadDocuments" />
+  </wsdl:message>
+  <wsdl:message name="IFileItService_UploadDocuments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UploadDocumentsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IFileItService">
+    <wsdl:operation name="InitService">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFileItService/InitService" message="tns:IFileItService_InitService_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFileItService/InitServiceResponse" message="tns:IFileItService_InitService_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Authenticate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFileItService/Authenticate" message="tns:IFileItService_Authenticate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFileItService/AuthenticateResponse" message="tns:IFileItService_Authenticate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCabinetAccess">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFileItService/SetCabinetAccess" message="tns:IFileItService_SetCabinetAccess_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFileItService/SetCabinetAccessResponse" message="tns:IFileItService_SetCabinetAccess_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUpdateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFileItService/AddUpdateUser" message="tns:IFileItService_AddUpdateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFileItService/AddUpdateUserResponse" message="tns:IFileItService_AddUpdateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetUserActive">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFileItService/SetUserActive" message="tns:IFileItService_SetUserActive_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFileItService/SetUserActiveResponse" message="tns:IFileItService_SetUserActive_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetUserPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFileItService/SetUserPassword" message="tns:IFileItService_SetUserPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFileItService/SetUserPasswordResponse" message="tns:IFileItService_SetUserPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCabinets">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFileItService/GetCabinets" message="tns:IFileItService_GetCabinets_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFileItService/GetCabinetsResponse" message="tns:IFileItService_GetCabinets_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCabinet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFileItService/GetCabinet" message="tns:IFileItService_GetCabinet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFileItService/GetCabinetResponse" message="tns:IFileItService_GetCabinet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCabinet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFileItService/CreateCabinet" message="tns:IFileItService_CreateCabinet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFileItService/CreateCabinetResponse" message="tns:IFileItService_CreateCabinet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDocument">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFileItService/DeleteDocument" message="tns:IFileItService_DeleteDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFileItService/DeleteDocumentResponse" message="tns:IFileItService_DeleteDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocuments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFileItService/GetDocuments" message="tns:IFileItService_GetDocuments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFileItService/GetDocumentsResponse" message="tns:IFileItService_GetDocuments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentsById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFileItService/GetDocumentsById" message="tns:IFileItService_GetDocumentsById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFileItService/GetDocumentsByIdResponse" message="tns:IFileItService_GetDocumentsById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocuments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFileItService/UploadDocuments" message="tns:IFileItService_UploadDocuments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFileItService/UploadDocumentsResponse" message="tns:IFileItService_UploadDocuments_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IFileItService" type="tns:IFileItService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InitService">
+      <soap:operation soapAction="http://tempuri.org/IFileItService/InitService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticate">
+      <soap:operation soapAction="http://tempuri.org/IFileItService/Authenticate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCabinetAccess">
+      <soap:operation soapAction="http://tempuri.org/IFileItService/SetCabinetAccess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUpdateUser">
+      <soap:operation soapAction="http://tempuri.org/IFileItService/AddUpdateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetUserActive">
+      <soap:operation soapAction="http://tempuri.org/IFileItService/SetUserActive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetUserPassword">
+      <soap:operation soapAction="http://tempuri.org/IFileItService/SetUserPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCabinets">
+      <soap:operation soapAction="http://tempuri.org/IFileItService/GetCabinets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCabinet">
+      <soap:operation soapAction="http://tempuri.org/IFileItService/GetCabinet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCabinet">
+      <soap:operation soapAction="http://tempuri.org/IFileItService/CreateCabinet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDocument">
+      <soap:operation soapAction="http://tempuri.org/IFileItService/DeleteDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocuments">
+      <soap:operation soapAction="http://tempuri.org/IFileItService/GetDocuments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentsById">
+      <soap:operation soapAction="http://tempuri.org/IFileItService/GetDocumentsById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocuments">
+      <soap:operation soapAction="http://tempuri.org/IFileItService/UploadDocuments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FileItService">
+    <wsdl:port name="BasicHttpBinding_IFileItService" binding="tns:BasicHttpBinding_IFileItService">
+      <soap:address location="http://localhost:31427/FileItService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

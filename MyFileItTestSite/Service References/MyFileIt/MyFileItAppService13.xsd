@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MyFileItService.DTOs" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MyFileItService.DTOs" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://fileit.cloudapp.net/MyFileItService-TESTING/MyFileItAppService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="MyFileItResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AppUsers" nillable="true" type="tns:ArrayOfAppUserDTO" />
+      <xs:element minOccurs="0" name="Coaches" nillable="true" type="tns:ArrayOfCoachDTO" />
+      <xs:element minOccurs="0" name="Documents" nillable="true" type="tns:ArrayOfFileCabinetDocumentDTO" />
+      <xs:element minOccurs="0" name="EmailLogs" nillable="true" type="tns:ArrayOfEmailLogDTO" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="KeyValueData" nillable="true" type="q1:ArrayOfKeyValueOfintstring" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Organizations" nillable="true" type="tns:ArrayOfOrganizationDTO" />
+      <xs:element minOccurs="0" name="PaymentHistories" nillable="true" type="tns:ArrayOfPaymentHistoryDTO" />
+      <xs:element minOccurs="0" name="SalesReps" nillable="true" type="tns:ArrayOfSalesRepDTO" />
+      <xs:element minOccurs="0" name="ShareKeys" nillable="true" type="tns:ArrayOfShareKeyDTO" />
+      <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TeamEventDocuments" nillable="true" type="tns:ArrayOfTeamEventDocumentDTO" />
+      <xs:element minOccurs="0" name="TeamEventPlayerRosters" nillable="true" type="tns:ArrayOfTeamEventPlayerRosterDTO" />
+      <xs:element minOccurs="0" name="TeamEvents" nillable="true" type="tns:ArrayOfTeamEventDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MyFileItResult" nillable="true" type="tns:MyFileItResult" />
+  <xs:complexType name="ArrayOfAppUserDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AppUserDTO" nillable="true" type="tns:AppUserDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAppUserDTO" nillable="true" type="tns:ArrayOfAppUserDTO" />
+  <xs:complexType name="AppUserDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ADDRESS1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ADDRESS2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="APPUSERID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="APPUSERSTATUSID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="APPUSERTYPEID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="AppUserStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BIRTHDATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CABINETID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CITY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="COMMENT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Coaches" nillable="true" type="tns:ArrayOfCoachDTO" />
+      <xs:element minOccurs="0" name="DATECREATED" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EMAILADDRESS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMAILADDRESS2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FIRSTNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="IsCoach" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LASTNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MOBILEPHONENUMBER" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumberOfPurchasedShareKeys" type="xs:int" />
+      <xs:element minOccurs="0" name="Organizations" nillable="true" type="tns:ArrayOfOrganizationDTO" />
+      <xs:element minOccurs="0" name="PASSWORD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PHONE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PRIMARYAPPUSERID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RELATIONSHIPTYPEID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RelationShipType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RemindUserForSignUp" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SALESREPID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="SEX" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SHAREKEYEXPIREDATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SHAREKEYID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="STATECODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShareKeys" nillable="true" type="tns:ArrayOfShareKeyDTO" />
+      <xs:element minOccurs="0" name="ShowAds" type="xs:boolean" />
+      <xs:element minOccurs="0" name="USERNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZIPCODE" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AppUserDTO" nillable="true" type="tns:AppUserDTO" />
+  <xs:complexType name="ArrayOfCoachDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CoachDTO" nillable="true" type="tns:CoachDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCoachDTO" nillable="true" type="tns:ArrayOfCoachDTO" />
+  <xs:complexType name="CoachDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ADDRESS1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ADDRESS2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="APPUSERID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CITY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="COACHSTATUSID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DATECREATED" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EMAILADDRESS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FIRSTNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="LASTNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ORGANIZATIONID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PHONE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RELATIONSHIPTYPEID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="SEX" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SPORTTYPEID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="STATECODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TEAMEVENTID" type="xs:int" />
+      <xs:element minOccurs="0" name="YEARCODE" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ZIPCODE" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CoachDTO" nillable="true" type="tns:CoachDTO" />
+  <xs:complexType name="ArrayOfOrganizationDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrganizationDTO" nillable="true" type="tns:OrganizationDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrganizationDTO" nillable="true" type="tns:ArrayOfOrganizationDTO" />
+  <xs:complexType name="OrganizationDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ADDRESS1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ADDRESS2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ALLOWCOACHTOCREATEEVENTS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="APPUSERTYPEID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CABINETID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CCALLEMAILTODIRECTOR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CITY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="COMMENT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CONTACTPERSON" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DATECREATED" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DIRECTOREMAIL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DIRECTORNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DIRECTORPHONE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMAILADDRESS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="LOGOIMAGE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ORGANIZATIONSTATUSID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ORGANIZATIONTYPEID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PASSWORD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PHONE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SALESREPID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="STATECODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="USERNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WHOSPAYING" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZIPCODE" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrganizationDTO" nillable="true" type="tns:OrganizationDTO" />
+  <xs:complexType name="ArrayOfShareKeyDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ShareKeyDTO" nillable="true" type="tns:ShareKeyDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfShareKeyDTO" nillable="true" type="tns:ArrayOfShareKeyDTO" />
+  <xs:complexType name="ShareKeyDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AMOUNT" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="APPUSERID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ApplicationUser" nillable="true" type="tns:AppUserDTO" />
+      <xs:element minOccurs="0" name="DATECREATED" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="LAST4CC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PAYMENTTYPEID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PRIMARYAPPUSERID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PROMOCODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PURCHASEDATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SALESREPID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="SHAREKEYCODE" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ShareKeyDTO" nillable="true" type="tns:ShareKeyDTO" />
+  <xs:complexType name="ArrayOfFileCabinetDocumentDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FileCabinetDocumentDTO" nillable="true" type="tns:FileCabinetDocumentDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFileCabinetDocumentDTO" nillable="true" type="tns:ArrayOfFileCabinetDocumentDTO" />
+  <xs:complexType name="FileCabinetDocumentDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="APPUSERID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Base64Image" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Base64ImageThumb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CABINETID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="COMMENT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CanDelete" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DATECREATED" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DOCUMENTDATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DOCUMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DOCUMENTLOCATION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DOCUMENTSTATUSID" type="xs:int" />
+      <xs:element minOccurs="0" name="DOCUMENTTYPEID" type="xs:int" />
+      <xs:element minOccurs="0" name="DocumentTypeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FIRSTNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="LASTNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SCANDATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TeamEventDocumentId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="VerifiedAppUserId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="VerifiedAppUserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FileCabinetDocumentDTO" nillable="true" type="tns:FileCabinetDocumentDTO" />
+  <xs:complexType name="ArrayOfEmailLogDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EmailLogDTO" nillable="true" type="tns:EmailLogDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEmailLogDTO" nillable="true" type="tns:ArrayOfEmailLogDTO" />
+  <xs:complexType name="EmailLogDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DATECREATED" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="MESSAGE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SUBJECTLINE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TOEMAILADDRESS" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EmailLogDTO" nillable="true" type="tns:EmailLogDTO" />
+  <xs:complexType name="ArrayOfPaymentHistoryDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PaymentHistoryDTO" nillable="true" type="tns:PaymentHistoryDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPaymentHistoryDTO" nillable="true" type="tns:ArrayOfPaymentHistoryDTO" />
+  <xs:complexType name="PaymentHistoryDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AMOUNT" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="AUTHORIZATIONNUMBER" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DATEPURCHASED" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="ITEM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LAST4CC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PRIMARYAPPUSERID" type="xs:int" />
+      <xs:element minOccurs="0" name="PROMOCODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QUANTITY" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PaymentHistoryDTO" nillable="true" type="tns:PaymentHistoryDTO" />
+  <xs:complexType name="ArrayOfSalesRepDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SalesRepDTO" nillable="true" type="tns:SalesRepDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSalesRepDTO" nillable="true" type="tns:ArrayOfSalesRepDTO" />
+  <xs:complexType name="SalesRepDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ADDRESS1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ADDRESS2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CITY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="COMMENT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CONTACTPERSON" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DATECREATED" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DEACTIVATEDATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EMAILADDRESS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FIRSTNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="LASTNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PASSWORD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PHONE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SALESREPSTATUSID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="STATECODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZIPCODE" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SalesRepDTO" nillable="true" type="tns:SalesRepDTO" />
+  <xs:complexType name="ArrayOfTeamEventDocumentDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TeamEventDocumentDTO" nillable="true" type="tns:TeamEventDocumentDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTeamEventDocumentDTO" nillable="true" type="tns:ArrayOfTeamEventDocumentDTO" />
+  <xs:complexType name="TeamEventDocumentDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DOCUMENTNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocumentId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ENTERWHOSCANNED" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="ISCOACHDOCUMENT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MUSTBEVERIFIED" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PLAYERENTERDOCUMENTDATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PLAYERENTEREXPIRATION" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ROSTERCLOSEDATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SCANNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TEAMEVENTDOCUMENTSTATUSID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TEAMEVENTID" type="xs:int" />
+      <xs:element minOccurs="0" name="VERIFIERNAME" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TeamEventDocumentDTO" nillable="true" type="tns:TeamEventDocumentDTO" />
+  <xs:complexType name="ArrayOfTeamEventPlayerRosterDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TeamEventPlayerRosterDTO" nillable="true" type="tns:TeamEventPlayerRosterDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTeamEventPlayerRosterDTO" nillable="true" type="tns:ArrayOfTeamEventPlayerRosterDTO" />
+  <xs:complexType name="TeamEventPlayerRosterDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="APPUSERID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DATECREATED" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="JERSEYNUMBER" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PLAYERPOSITION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PlayerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequiresVerification" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Sex" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TEAMEVENTID" type="xs:int" />
+      <xs:element minOccurs="0" name="USERSTAGETYPEID" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TeamEventPlayerRosterDTO" nillable="true" type="tns:TeamEventPlayerRosterDTO" />
+  <xs:complexType name="ArrayOfTeamEventDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TeamEventDTO" nillable="true" type="tns:TeamEventDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTeamEventDTO" nillable="true" type="tns:ArrayOfTeamEventDTO" />
+  <xs:complexType name="TeamEventDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DATECREATED" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EXPIRESDATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="ISDELETED" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ORGANIZATIONID" type="xs:int" />
+      <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="STARTDATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="YEARCODE" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TeamEventDTO" nillable="true" type="tns:TeamEventDTO" />
+  <xs:complexType name="ArrayOfAssociateDocumentDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AssociateDocumentDTO" nillable="true" type="tns:AssociateDocumentDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAssociateDocumentDTO" nillable="true" type="tns:ArrayOfAssociateDocumentDTO" />
+  <xs:complexType name="AssociateDocumentDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="appUserId" type="xs:int" />
+      <xs:element minOccurs="0" name="comment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="emergency" type="xs:boolean" />
+      <xs:element minOccurs="0" name="fileCabinetDocumentId" type="xs:int" />
+      <xs:element minOccurs="0" name="organizationId" type="xs:int" />
+      <xs:element minOccurs="0" name="remove" type="xs:boolean" />
+      <xs:element minOccurs="0" name="teamEventDocumentId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AssociateDocumentDTO" nillable="true" type="tns:AssociateDocumentDTO" />
+  <xs:complexType name="FileCabinetDocumentSingleDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FILECABINETDOCUMENTID" type="xs:int" />
+      <xs:element minOccurs="0" name="TEAMEVENTDOCUMENTID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="VerifiedAppUserId" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FileCabinetDocumentSingleDTO" nillable="true" type="tns:FileCabinetDocumentSingleDTO" />
+</xs:schema>

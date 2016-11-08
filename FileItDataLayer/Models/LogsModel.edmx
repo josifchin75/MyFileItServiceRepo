@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LogsModel.Store" Provider="FirebirdSql.Data.FirebirdClient" ProviderManifestToken="2.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="LOG_ARCS">
+          <Key>
+            <PropertyRef Name="LOGDATE" />
+          </Key>
+          <Property Name="LOGDATE" Type="timestamp" Nullable="false" />
+          <Property Name="CABINETID" Type="varchar" MaxLength="60" Unicode="true" />
+          <Property Name="SCANNERID" Type="varchar" MaxLength="60" Unicode="true" />
+          <Property Name="MSG" Type="varchar" MaxLength="255" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LOG_IDXS">
+          <Key>
+            <PropertyRef Name="LOGDATE" />
+          </Key>
+          <Property Name="LOGDATE" Type="timestamp" Nullable="false" />
+          <Property Name="CABINETID" Type="varchar" MaxLength="60" Unicode="true" />
+          <Property Name="SCANNERID" Type="varchar" MaxLength="60" Unicode="true" />
+          <Property Name="MSG" Type="varchar" MaxLength="255" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="LogsModelStoreContainer">
+          <EntitySet Name="LOG_ARCS" EntityType="Self.LOG_ARCS" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="LOG_IDXS" EntityType="Self.LOG_IDXS" Schema="Firebird" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LogsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="LOG_ARCS">
+          <Key>
+            <PropertyRef Name="LOGDATE" />
+          </Key>
+          <Property Name="LOGDATE" Type="DateTime" Nullable="false" />
+          <Property Name="CABINETID" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="SCANNERID" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="MSG" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LOG_IDXS">
+          <Key>
+            <PropertyRef Name="LOGDATE" />
+          </Key>
+          <Property Name="LOGDATE" Type="DateTime" Nullable="false" />
+          <Property Name="CABINETID" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="SCANNERID" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="MSG" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="LOG_ARCS" EntityType="Self.LOG_ARCS" />
+          <EntitySet Name="LOG_IDXS" EntityType="Self.LOG_IDXS" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LogsModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="LOG_ARCS">
+            <EntityTypeMapping TypeName="LogsModel.LOG_ARCS">
+              <MappingFragment StoreEntitySet="LOG_ARCS">
+                <ScalarProperty Name="LOGDATE" ColumnName="LOGDATE" />
+                <ScalarProperty Name="CABINETID" ColumnName="CABINETID" />
+                <ScalarProperty Name="SCANNERID" ColumnName="SCANNERID" />
+                <ScalarProperty Name="MSG" ColumnName="MSG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOG_IDXS">
+            <EntityTypeMapping TypeName="LogsModel.LOG_IDXS">
+              <MappingFragment StoreEntitySet="LOG_IDXS">
+                <ScalarProperty Name="LOGDATE" ColumnName="LOGDATE" />
+                <ScalarProperty Name="CABINETID" ColumnName="CABINETID" />
+                <ScalarProperty Name="SCANNERID" ColumnName="SCANNERID" />
+                <ScalarProperty Name="MSG" ColumnName="MSG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

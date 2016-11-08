@@ -1,0 +1,1760 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="FirebirdSql.Data.FirebirdClient" ProviderManifestToken="2.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ACCOUNTS">
+          <Key>
+            <PropertyRef Name="ACCOUNT" />
+          </Key>
+          <Property Name="ACCOUNT" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="100" Unicode="true" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'Firebird.Firebird.BILLFROM' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="BILLFROM">
+          <Property Name="BILLNAME" Type="varchar" MaxLength="60" Unicode="true" />
+          <Property Name="ADDRESS" Type="varchar" MaxLength="50" Unicode="true" />
+          <Property Name="CITY" Type="varchar" MaxLength="50" Unicode="true" />
+          <Property Name="STATE" Type="varchar" MaxLength="2" Unicode="true" />
+          <Property Name="ZIP" Type="varchar" MaxLength="10" Unicode="true" />
+          <Property Name="PHONE" Type="varchar" MaxLength="20" Unicode="true" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="100" Unicode="true" />
+          <Property Name="COMPANYLOGO" Type="varchar" MaxLength="40" Unicode="true" />
+          <Property Name="TRIALYEARLYMAX" Type="int" />
+        </EntityType>-->
+        <EntityType Name="CABINETS">
+          <Key>
+            <PropertyRef Name="CABINETNAME" />
+          </Key>
+          <Property Name="CABINETNAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="CABINETID" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="CABINETFULLPATH" Type="varchar" MaxLength="100" Unicode="true" Nullable="false" />
+          <Property Name="ACCOUNT" Type="varchar" MaxLength="60" Unicode="true" />
+          <Property Name="ROOTPATH" Type="varchar" MaxLength="100" Unicode="true" Nullable="false" />
+          <Property Name="OSTOREPATH" Type="varchar" MaxLength="100" Unicode="true" Nullable="false" />
+          <Property Name="WSTOREPATH" Type="varchar" MaxLength="100" Unicode="true" Nullable="false" />
+          <Property Name="TSTOREPATH" Type="varchar" MaxLength="100" Unicode="true" Nullable="false" />
+          <Property Name="ADMINISTRATOR" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="100" Unicode="true" />
+          <Property Name="TEMPLATENAME" Type="varchar" MaxLength="60" Unicode="true" />
+          <Property Name="SORTORDER" Type="int" />
+          <Property Name="LOOKUPFILEPATH" Type="varchar" MaxLength="255" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CABINETS_ACCESS">
+          <Key>
+            <PropertyRef Name="CABINETNAME" />
+            <PropertyRef Name="ACCESSNAME" />
+          </Key>
+          <Property Name="CABINETNAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="ACCESSNAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="ACCESSTYPE" Type="varchar" MaxLength="20" Unicode="true" />
+          <Property Name="FILTERINDEX" Type="varchar" MaxLength="40" Unicode="true" />
+          <Property Name="FILTERVALUE" Type="varchar" MaxLength="100" Unicode="true" />
+          <Property Name="UPDATEINDEX" Type="varchar" MaxLength="40" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CABINETS_LOOKUPFILE">
+          <Key>
+            <PropertyRef Name="CABINETID" />
+            <PropertyRef Name="COLUMNNAME" />
+          </Key>
+          <Property Name="CABINETID" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="COLUMNNAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="INDEXNO" Type="int" Nullable="false" />
+          <Property Name="INDEXNAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="SEARCHCOLUMN" Type="varchar" MaxLength="1" Unicode="true" />
+          <Property Name="VALIDATECOLUMN" Type="varchar" MaxLength="1" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CUSTOMERCABINETS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="CUSTID" Type="int" Nullable="false" />
+          <Property Name="CABINETID" Type="varchar" MaxLength="60" Unicode="true" />
+          <Property Name="CABINETNAME" Type="varchar" MaxLength="60" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CUSTOMEREMAILS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="CUSTID" Type="int" Nullable="false" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="100" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CUSTOMERRATES">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="BREAK" Type="int" />
+          <Property Name="DISCOUNT" Type="numeric" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="CUSTOMERS">
+          <Key>
+            <PropertyRef Name="CUSTID" />
+          </Key>
+          <Property Name="CUSTID" Type="int" Nullable="false" />
+          <Property Name="USERNAME" Type="varchar" MaxLength="60" Unicode="true" />
+          <Property Name="FIRSTNAME" Type="varchar" MaxLength="30" Unicode="true" />
+          <Property Name="LASTNAME" Type="varchar" MaxLength="30" Unicode="true" />
+          <Property Name="ADDRESS1" Type="varchar" MaxLength="50" Unicode="true" />
+          <Property Name="ADDRESS2" Type="varchar" MaxLength="50" Unicode="true" />
+          <Property Name="CITY" Type="varchar" MaxLength="50" Unicode="true" />
+          <Property Name="STATE" Type="varchar" MaxLength="2" Unicode="true" />
+          <Property Name="ZIP" Type="varchar" MaxLength="10" Unicode="true" />
+          <Property Name="COUNTRY" Type="varchar" MaxLength="3" Unicode="true" />
+          <Property Name="CC_NAME" Type="varchar" MaxLength="100" Unicode="true" />
+          <Property Name="CC_ADDRESS1" Type="varchar" MaxLength="50" Unicode="true" />
+          <Property Name="CC_ADDRESS2" Type="varchar" MaxLength="50" Unicode="true" />
+          <Property Name="CC_CITY" Type="varchar" MaxLength="50" Unicode="true" />
+          <Property Name="CC_STATE" Type="varchar" MaxLength="50" Unicode="true" />
+          <Property Name="CC_ZIP" Type="varchar" MaxLength="50" Unicode="true" />
+          <Property Name="CC_COUNTRY" Type="varchar" MaxLength="50" Unicode="true" />
+          <Property Name="CC_TYPE" Type="varchar" MaxLength="20" Unicode="true" />
+          <Property Name="CC_NUM" Type="varchar" MaxLength="16" Unicode="true" />
+          <Property Name="CC_MONTH" Type="int" />
+          <Property Name="CC_YEAR" Type="int" />
+          <Property Name="CC_CVN" Type="varchar" MaxLength="16" Unicode="true" />
+          <Property Name="PAYMENTTYPE" Type="varchar" MaxLength="20" Unicode="true" />
+          <Property Name="DATEADDED" Type="timestamp" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="100" Unicode="true" />
+          <Property Name="MONTHLYRATE" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="PERIMAGERATE" Type="numeric" Precision="10" Scale="4" />
+          <Property Name="BILLINGTYPE" Type="varchar" MaxLength="20" Unicode="true" />
+          <Property Name="MONTHLYSCANCAP" Type="int" />
+          <Property Name="DISCOUNTRATE" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="OVERAGERATE" Type="numeric" Precision="10" Scale="4" />
+          <Property Name="USE_RATES" Type="varchar" MaxLength="1" Unicode="true" />
+          <Property Name="OPEN_BALANCE" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="PREPAID_AMOUNT" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="LASTBILLDATE" Type="timestamp" />
+          <Property Name="COMPANY" Type="varchar" MaxLength="50" Unicode="true" />
+          <Property Name="PHONE" Type="varchar" MaxLength="20" Unicode="true" />
+          <Property Name="CONTACTBY" Type="varchar" MaxLength="20" Unicode="true" />
+          <Property Name="YEARLYBILLEDIMAGES" Type="int" />
+        </EntityType>
+        <EntityType Name="EMAIL_IN">
+          <Key>
+            <PropertyRef Name="EMAIL_ADDRESS" />
+          </Key>
+          <Property Name="EMAIL_SERVER" Type="varchar" MaxLength="100" Unicode="true" />
+          <Property Name="EMAIL_ADDRESS" Type="varchar" MaxLength="100" Unicode="true" Nullable="false" />
+          <Property Name="USER_NAME" Type="varchar" MaxLength="30" Unicode="true" />
+          <Property Name="USER_PASSWORD" Type="varchar" MaxLength="30" Unicode="true" />
+        </EntityType>
+        <EntityType Name="EMAIL_OUT">
+          <Key>
+            <PropertyRef Name="EMAIL_ADDRESS" />
+          </Key>
+          <Property Name="EMAIL_ADDRESS" Type="varchar" MaxLength="100" Unicode="true" Nullable="false" />
+          <Property Name="EMAIL_FROM" Type="varchar" MaxLength="100" Unicode="true" />
+          <Property Name="EMAIL_HOST" Type="varchar" MaxLength="100" Unicode="true" />
+          <Property Name="USER_NAME" Type="varchar" MaxLength="30" Unicode="true" />
+          <Property Name="USER_PASSWORD" Type="varchar" MaxLength="30" Unicode="true" />
+          <Property Name="IS_ACTIVE" Type="char" MaxLength="1" Unicode="false" />
+          <Property Name="IS_ADMIN" Type="char" MaxLength="1" Unicode="false" />
+          <Property Name="FAILURE_MAILBOX" Type="char" MaxLength="1" Unicode="false" />
+          <Property Name="ARCHIVE_MAILBOX" Type="char" MaxLength="1" Unicode="false" />
+        </EntityType>
+        <EntityType Name="GROUPS">
+          <Key>
+            <PropertyRef Name="GROUPNAME" />
+          </Key>
+          <Property Name="GROUPNAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="ADMINISTRATOR" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="ACCOUNT" Type="varchar" MaxLength="60" Unicode="true" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="100" Unicode="true" />
+          <Property Name="LOGO" Type="varchar" MaxLength="50" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GROUPS_USERS">
+          <Key>
+            <PropertyRef Name="GROUPNAME" />
+            <PropertyRef Name="USERNAME" />
+          </Key>
+          <Property Name="GROUPNAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="USERNAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="ACCOUNT" Type="varchar" MaxLength="60" Unicode="true" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Firebird.Firebird.LISTBOX_TEMPLATES' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="LISTBOX_TEMPLATES">
+          <Key>
+            <PropertyRef Name="TEMPLATENAME" />
+          </Key>
+          <Property Name="TEMPLATENAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="INDEXNAME" Type="varchar" MaxLength="40" Unicode="true" />
+          <Property Name="LISTBOXVALUE" Type="varchar" MaxLength="256" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LOG">
+          <Key>
+            <PropertyRef Name="LOGDATE" />
+          </Key>
+          <Property Name="LOGDATE" Type="timestamp" Nullable="false" />
+          <Property Name="CABINETID" Type="varchar" MaxLength="60" Unicode="true" />
+          <Property Name="SCANNERID" Type="varchar" MaxLength="60" Unicode="true" />
+          <Property Name="MSG" Type="varchar" MaxLength="255" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LOG_EMAIL">
+          <Key>
+            <PropertyRef Name="LOGDATE" />
+          </Key>
+          <Property Name="LOGDATE" Type="timestamp" Nullable="false" />
+          <Property Name="CABINETID" Type="varchar" MaxLength="60" Unicode="true" />
+          <Property Name="SCANNERID" Type="varchar" MaxLength="60" Unicode="true" />
+          <Property Name="MSG" Type="varchar" MaxLength="255" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MULTCABINETSEARCH">
+          <Key>
+            <PropertyRef Name="SEARCHNAME" />
+            <PropertyRef Name="CABINETID" />
+          </Key>
+          <Property Name="SEARCHNAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="CABINETID" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ORDERITEMS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ORDERNO" Type="int" Nullable="false" />
+          <Property Name="BILLSTART" Type="timestamp" />
+          <Property Name="BILLSTOP" Type="timestamp" />
+          <Property Name="IMAGECOUNT" Type="int" />
+          <Property Name="LINEDESC" Type="varchar" MaxLength="100" Unicode="true" />
+          <Property Name="LINETYPE" Type="varchar" MaxLength="20" Unicode="true" />
+          <Property Name="AMOUNT" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="AMT_PAID" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="LINEORDER" Type="int" />
+        </EntityType>
+        <EntityType Name="ORDERS">
+          <Key>
+            <PropertyRef Name="ORDERNO" />
+          </Key>
+          <Property Name="ORDERNO" Type="int" Nullable="false" />
+          <Property Name="CUSTID" Type="int" Nullable="false" />
+          <Property Name="BILLDATE" Type="timestamp" />
+          <Property Name="AMOUNT" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="PAID" Type="varchar" MaxLength="1" Unicode="true" />
+          <Property Name="AMT_PAID" Type="numeric" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="QUEUE_DEFINITIONS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="WORKFLOW" Type="varchar" MaxLength="60" Unicode="true" />
+          <Property Name="QUEUE_NAME" Type="varchar" MaxLength="60" Unicode="true" />
+          <Property Name="QTIME" Type="int" />
+          <Property Name="ONACCEPT" Type="int" />
+          <Property Name="ONREJECT" Type="int" />
+          <Property Name="ONCOMPLETE" Type="int" />
+          <Property Name="STARTINGQUEUE" Type="varchar" MaxLength="1" Unicode="true" />
+          <Property Name="ENDINGQUEUE" Type="varchar" MaxLength="1" Unicode="true" />
+        </EntityType>
+        <EntityType Name="QUEUE_HISTORY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="WORKFLOW" Type="varchar" MaxLength="60" Unicode="true" />
+          <Property Name="QUEUE_DEFID" Type="int" />
+          <Property Name="OLDQUEUE_DEFID" Type="int" />
+          <Property Name="CABINETID" Type="varchar" MaxLength="60" Unicode="true" />
+          <Property Name="FILENAME" Type="varchar" MaxLength="8" Unicode="true" />
+          <Property Name="DATECREATED" Type="timestamp" Nullable="false" />
+          <Property Name="USERNAME" Type="varchar" MaxLength="60" Unicode="true" />
+          <Property Name="ACTIONTAKEN" Type="varchar" MaxLength="20" Unicode="true" />
+        </EntityType>
+        <EntityType Name="QUEUE_NOTES">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="FILENAME" Type="varchar" MaxLength="8" Unicode="true" />
+          <Property Name="NOTEDATE" Type="timestamp" Nullable="false" />
+          <Property Name="USERNAME" Type="varchar" MaxLength="60" Unicode="true" />
+          <Property Name="NOTE" Type="varchar" MaxLength="500" Unicode="true" />
+        </EntityType>
+        <EntityType Name="QUEUE_SCANNER_ACCESS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="WORKFLOW" Type="varchar" MaxLength="60" Unicode="true" />
+          <Property Name="SCANNER" Type="varchar" MaxLength="60" Unicode="true" />
+        </EntityType>
+        <EntityType Name="QUEUE_USER_ACCESS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ACCESSNAME" Type="varchar" MaxLength="60" Unicode="true" />
+          <Property Name="ACCESSTYPE" Type="varchar" MaxLength="20" Unicode="true" />
+          <Property Name="QUEUE_DEFID" Type="int" />
+        </EntityType>
+        <EntityType Name="QUEUE_WORKING">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="FILENAME" Type="varchar" MaxLength="8" Unicode="true" />
+          <Property Name="WORKFLOW" Type="varchar" MaxLength="60" Unicode="true" />
+          <Property Name="QUEUE_DEFID" Type="int" />
+          <Property Name="CABINETID" Type="varchar" MaxLength="60" Unicode="true" />
+          <Property Name="DATECREATED" Type="timestamp" Nullable="false" />
+          <Property Name="LASTACCESSED" Type="timestamp" />
+          <Property Name="VIEWED" Type="varchar" MaxLength="1" Unicode="true" />
+          <Property Name="PRIORITY" Type="varchar" MaxLength="20" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ROLES">
+          <Key>
+            <PropertyRef Name="ROLENAME" />
+          </Key>
+          <Property Name="ROLENAME" Type="varchar" MaxLength="25" Unicode="true" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="100" Unicode="true" />
+          <Property Name="VIEW_SCANS" Type="char" MaxLength="1" Unicode="false" />
+          <Property Name="EDIT_SCANINDEX" Type="char" MaxLength="1" Unicode="false" />
+          <Property Name="ADD_USERS" Type="char" MaxLength="1" Unicode="false" />
+          <Property Name="EDIT_USERS" Type="char" MaxLength="1" Unicode="false" />
+          <Property Name="DELETE_USERS" Type="char" MaxLength="1" Unicode="false" />
+          <Property Name="MANAGE_PROFILES" Type="char" MaxLength="1" Unicode="false" />
+          <Property Name="ADD_GROUP" Type="char" MaxLength="1" Unicode="false" />
+          <Property Name="EDIT_GROUP" Type="char" MaxLength="1" Unicode="false" />
+          <Property Name="DELETE_GROUP" Type="char" MaxLength="1" Unicode="false" />
+          <Property Name="ADD_GROUP_USERS" Type="char" MaxLength="1" Unicode="false" />
+          <Property Name="ADD_CABINET" Type="char" MaxLength="1" Unicode="false" />
+          <Property Name="DELETE_CABINET" Type="char" MaxLength="1" Unicode="false" />
+          <Property Name="ADD_CABINET_ACCESS" Type="char" MaxLength="1" Unicode="false" />
+          <Property Name="ADD_TEMPLATE" Type="char" MaxLength="1" Unicode="false" />
+          <Property Name="DELETE_TEMPLATE" Type="char" MaxLength="1" Unicode="false" />
+          <Property Name="ADD_SCANNER" Type="char" MaxLength="1" Unicode="false" />
+          <Property Name="EDIT_SCANNER" Type="char" MaxLength="1" Unicode="false" />
+          <Property Name="DELETE_SCANNER" Type="char" MaxLength="1" Unicode="false" />
+          <Property Name="ADD_STORAGE" Type="char" MaxLength="1" Unicode="false" />
+          <Property Name="EDIT_STORAGE" Type="char" MaxLength="1" Unicode="false" />
+          <Property Name="DELETE_STORAGE" Type="char" MaxLength="1" Unicode="false" />
+          <Property Name="PRINT_SCAN" Type="char" MaxLength="1" Unicode="false" />
+          <Property Name="EMAIL_SCAN" Type="char" MaxLength="1" Unicode="false" />
+          <Property Name="DOWNLOAD_SCAN" Type="char" MaxLength="1" Unicode="false" />
+          <Property Name="EDIT_PUBLIC" Type="char" MaxLength="1" Unicode="false" />
+          <Property Name="VIEW_NON_PUBLIC" Type="char" MaxLength="1" Unicode="false" />
+          <Property Name="EDIT_CABINET_FILTERS" Type="char" MaxLength="1" Unicode="false" />
+          <Property Name="BILLING_ACCESS" Type="varchar" MaxLength="1" Unicode="true" />
+          <Property Name="VERSION_ACCESS" Type="varchar" MaxLength="1" Unicode="true" />
+          <Property Name="WEBUPLOAD" Type="varchar" MaxLength="1" Unicode="true" />
+          <Property Name="CHANGE_PASS" Type="varchar" MaxLength="1" Unicode="true" />
+          <Property Name="CREATE_CABINET" Type="varchar" MaxLength="1" Unicode="true" />
+          <Property Name="SHOWADMINLINK" Type="varchar" MaxLength="1" Unicode="true" />
+          <Property Name="SHOW_QUEUES" Type="varchar" MaxLength="1" Unicode="true" />
+          <Property Name="DELETEIMAGE" Type="varchar" MaxLength="1" Unicode="true" />
+          <Property Name="RESTOREIMAGE" Type="varchar" MaxLength="1" Unicode="true" />
+          <Property Name="MOVEIMAGE" Type="varchar" MaxLength="1" Unicode="true" />
+          <Property Name="FULLINDEXUPDATE" Type="varchar" MaxLength="1" Unicode="true" />
+          <Property Name="VIEWDOCUMENTHISTORY" Type="varchar" MaxLength="1" Unicode="true" />
+          <Property Name="MANDATORY_REVIEW_ADMIN" Type="varchar" MaxLength="1" Unicode="true" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Firebird.Firebird.SCANNER_CABINETS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SCANNER_CABINETS">
+          <Key>
+            <PropertyRef Name="SCANNER" />
+            <PropertyRef Name="CABINETID" />
+          </Key>
+          <Property Name="SCANNER" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="CABINETID" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SCANNERS">
+          <Key>
+            <PropertyRef Name="SCANNER" />
+          </Key>
+          <Property Name="SCANNER" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="STATUS" Type="varchar" MaxLength="10" Unicode="true" />
+          <Property Name="ACCOUNT" Type="varchar" MaxLength="60" Unicode="true" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="100" Unicode="true" />
+        </EntityType>
+        <EntityType Name="STDTEMPLATE_DEFINITION">
+          <Key>
+            <PropertyRef Name="TEMPLATENAME" />
+            <PropertyRef Name="INDEXNUM" />
+          </Key>
+          <Property Name="TEMPLATENAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="INDEXNAME" Type="varchar" MaxLength="40" Unicode="true" />
+          <Property Name="INDEXNUM" Type="smallint" Nullable="false" />
+          <Property Name="MAXLENGTH" Type="smallint" />
+          <Property Name="DATATYPE" Type="varchar" MaxLength="20" Unicode="true" />
+          <Property Name="MUSTFILL" Type="varchar" MaxLength="5" Unicode="true" />
+          <Property Name="MUSTENTER" Type="varchar" MaxLength="5" Unicode="true" />
+          <Property Name="VIEWINDEX" Type="varchar" MaxLength="5" Unicode="true" />
+          <Property Name="SEARCHINDEX" Type="varchar" MaxLength="5" Unicode="true" />
+          <Property Name="OCRACTIVE" Type="varchar" MaxLength="5" Unicode="true" />
+          <Property Name="XCOORDINATE" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="YCOORDINATE" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="ZONEHEIGHT" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="ZONEWIDTH" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="LINKEDFIELDID" Type="smallint" />
+          <Property Name="BARCODETYPE" Type="varchar" MaxLength="15" Unicode="true" />
+          <Property Name="LOOKUP" Type="varchar" MaxLength="50" Unicode="true" />
+        </EntityType>
+        <EntityType Name="STDTEMPLATES">
+          <Key>
+            <PropertyRef Name="TEMPLATENAME" />
+          </Key>
+          <Property Name="TEMPLATENAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="IDXCNT" Type="smallint" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="100" Unicode="true" />
+          <Property Name="ACCOUNT" Type="varchar" MaxLength="60" Unicode="true" />
+        </EntityType>
+        <EntityType Name="STORAGE_MAP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="1" Unicode="true" Nullable="false" />
+          <Property Name="LOCATION" Type="varchar" MaxLength="100" Unicode="true" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="200" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SYSTEM_LOG">
+          <Key>
+            <PropertyRef Name="LOGDATE" />
+          </Key>
+          <Property Name="LOGDATE" Type="timestamp" Nullable="false" />
+          <Property Name="LOGTYPE" Type="varchar" MaxLength="100" Unicode="true" />
+          <Property Name="SOURCE" Type="varchar" MaxLength="100" Unicode="true" />
+          <Property Name="CATEGORY" Type="varchar" MaxLength="100" Unicode="true" />
+          <Property Name="EVENT" Type="varchar" MaxLength="10" Unicode="true" />
+          <Property Name="LOGUSER" Type="varchar" MaxLength="60" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TEMPLATE_DEFINITION">
+          <Key>
+            <PropertyRef Name="TEMPLATENAME" />
+            <PropertyRef Name="INDEXNUM" />
+          </Key>
+          <Property Name="TEMPLATENAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="INDEXNAME" Type="varchar" MaxLength="40" Unicode="true" />
+          <Property Name="INDEXNUM" Type="smallint" Nullable="false" />
+          <Property Name="MAXLENGTH" Type="smallint" />
+          <Property Name="DATATYPE" Type="varchar" MaxLength="20" Unicode="true" />
+          <Property Name="MUSTFILL" Type="varchar" MaxLength="5" Unicode="true" />
+          <Property Name="MUSTENTER" Type="varchar" MaxLength="5" Unicode="true" />
+          <Property Name="VIEWINDEX" Type="varchar" MaxLength="5" Unicode="true" />
+          <Property Name="SEARCHINDEX" Type="varchar" MaxLength="5" Unicode="true" />
+          <Property Name="OCRACTIVE" Type="varchar" MaxLength="5" Unicode="true" />
+          <Property Name="XCOORDINATE" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="YCOORDINATE" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="ZONEHEIGHT" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="ZONEWIDTH" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="LINKEDFIELDID" Type="smallint" />
+          <Property Name="BARCODETYPE" Type="varchar" MaxLength="15" Unicode="true" />
+          <Property Name="LOOKUP" Type="varchar" MaxLength="50" Unicode="true" />
+          <Property Name="HIDECOLUMN" Type="varchar" MaxLength="5" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TEMPLATES">
+          <Key>
+            <PropertyRef Name="TEMPLATENAME" />
+          </Key>
+          <Property Name="TEMPLATENAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="IDXCNT" Type="smallint" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="100" Unicode="true" />
+          <Property Name="ACCOUNT" Type="varchar" MaxLength="60" Unicode="true" />
+        </EntityType>
+        <EntityType Name="USERS">
+          <Key>
+            <PropertyRef Name="USERNAME" />
+          </Key>
+          <Property Name="USERNAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="FULLNAME" Type="varchar" MaxLength="75" Unicode="true" Nullable="false" />
+          <Property Name="PASS" Type="varchar" MaxLength="10" Unicode="true" Nullable="false" />
+          <Property Name="ACCOUNT" Type="varchar" MaxLength="60" Unicode="true" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="100" Unicode="true" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="100" Unicode="true" />
+          <Property Name="PROFILE" Type="varchar" MaxLength="20" Unicode="true" />
+          <Property Name="ID" Type="int" />
+          <Property Name="CREATED" Type="timestamp" />
+          <Property Name="ACTIVEUSER" Type="varchar" MaxLength="1" Unicode="true" />
+          <Property Name="PRINTWIDTH" Type="int" />
+        </EntityType>
+        <EntityType Name="USERS_ROLES">
+          <Key>
+            <PropertyRef Name="USERNAME" />
+            <PropertyRef Name="ROLENAME" />
+          </Key>
+          <Property Name="USERNAME" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="ROLENAME" Type="varchar" MaxLength="25" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VERSIONTEMP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="FILENAME" Type="varchar" MaxLength="8" Unicode="true" />
+          <Property Name="VERSIONID" Type="varchar" MaxLength="30" Unicode="true" />
+          <Property Name="CABINETID" Type="varchar" MaxLength="60" Unicode="true" />
+          <Property Name="USERNAME" Type="varchar" MaxLength="40" Unicode="true" />
+          <Property Name="CHECKDATE" Type="timestamp" />
+        </EntityType>
+        <EntityType Name="WORKFLOWS">
+          <Key>
+            <PropertyRef Name="WORKFLOW" />
+          </Key>
+          <Property Name="WORKFLOW" Type="varchar" MaxLength="60" Unicode="true" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="100" Unicode="true" />
+          <Property Name="ADMINISTRATOR" Type="varchar" MaxLength="60" Unicode="true" />
+        </EntityType>
+        <Association Name="INTEG_10">
+          <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+          <End Role="USERS_ROLES" Type="Self.USERS_ROLES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERS">
+              <PropertyRef Name="USERNAME" />
+            </Principal>
+            <Dependent Role="USERS_ROLES">
+              <PropertyRef Name="USERNAME" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_12">
+          <End Role="ROLES" Type="Self.ROLES" Multiplicity="1" />
+          <End Role="USERS_ROLES" Type="Self.USERS_ROLES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROLES">
+              <PropertyRef Name="ROLENAME" />
+            </Principal>
+            <Dependent Role="USERS_ROLES">
+              <PropertyRef Name="ROLENAME" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_16">
+          <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+          <End Role="GROUPS" Type="Self.GROUPS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERS">
+              <PropertyRef Name="USERNAME" />
+            </Principal>
+            <Dependent Role="GROUPS">
+              <PropertyRef Name="ADMINISTRATOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_19">
+          <End Role="GROUPS" Type="Self.GROUPS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="GROUPS_USERS" Type="Self.GROUPS_USERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GROUPS">
+              <PropertyRef Name="GROUPNAME" />
+            </Principal>
+            <Dependent Role="GROUPS_USERS">
+              <PropertyRef Name="GROUPNAME" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_21">
+          <End Role="USERS" Type="Self.USERS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="GROUPS_USERS" Type="Self.GROUPS_USERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERS">
+              <PropertyRef Name="USERNAME" />
+            </Principal>
+            <Dependent Role="GROUPS_USERS">
+              <PropertyRef Name="USERNAME" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="ACCOUNTS" EntityType="Self.ACCOUNTS" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="CABINETS" EntityType="Self.CABINETS" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="CABINETS_ACCESS" EntityType="Self.CABINETS_ACCESS" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="CABINETS_LOOKUPFILE" EntityType="Self.CABINETS_LOOKUPFILE" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="CUSTOMERCABINETS" EntityType="Self.CUSTOMERCABINETS" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="CUSTOMEREMAILS" EntityType="Self.CUSTOMEREMAILS" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="CUSTOMERRATES" EntityType="Self.CUSTOMERRATES" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="CUSTOMERS" EntityType="Self.CUSTOMERS" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="EMAIL_IN" EntityType="Self.EMAIL_IN" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="EMAIL_OUT" EntityType="Self.EMAIL_OUT" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="GROUPS" EntityType="Self.GROUPS" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="GROUPS_USERS" EntityType="Self.GROUPS_USERS" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="LOG" EntityType="Self.LOG" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="LOG_EMAIL" EntityType="Self.LOG_EMAIL" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="MULTCABINETSEARCH" EntityType="Self.MULTCABINETSEARCH" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="ORDERITEMS" EntityType="Self.ORDERITEMS" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="ORDERS" EntityType="Self.ORDERS" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="QUEUE_DEFINITIONS" EntityType="Self.QUEUE_DEFINITIONS" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="QUEUE_HISTORY" EntityType="Self.QUEUE_HISTORY" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="QUEUE_NOTES" EntityType="Self.QUEUE_NOTES" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="QUEUE_SCANNER_ACCESS" EntityType="Self.QUEUE_SCANNER_ACCESS" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="QUEUE_USER_ACCESS" EntityType="Self.QUEUE_USER_ACCESS" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="QUEUE_WORKING" EntityType="Self.QUEUE_WORKING" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="ROLES" EntityType="Self.ROLES" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="SCANNERS" EntityType="Self.SCANNERS" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="STDTEMPLATE_DEFINITION" EntityType="Self.STDTEMPLATE_DEFINITION" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="STDTEMPLATES" EntityType="Self.STDTEMPLATES" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="STORAGE_MAP" EntityType="Self.STORAGE_MAP" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="SYSTEM_LOG" EntityType="Self.SYSTEM_LOG" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="TEMPLATE_DEFINITION" EntityType="Self.TEMPLATE_DEFINITION" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="TEMPLATES" EntityType="Self.TEMPLATES" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="USERS" EntityType="Self.USERS" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="USERS_ROLES" EntityType="Self.USERS_ROLES" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="VERSIONTEMP" EntityType="Self.VERSIONTEMP" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="WORKFLOWS" EntityType="Self.WORKFLOWS" Schema="Firebird" store:Type="Tables" />
+          <EntitySet Name="LISTBOX_TEMPLATES" EntityType="Self.LISTBOX_TEMPLATES" store:Type="Tables" store:Schema="Firebird">
+            <DefiningQuery>SELECT 
+"A"."TEMPLATENAME" AS "TEMPLATENAME", 
+"A"."INDEXNAME" AS "INDEXNAME", 
+"A"."LISTBOXVALUE" AS "LISTBOXVALUE"
+FROM "LISTBOX_TEMPLATES" AS "A"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SCANNER_CABINETS" EntityType="Self.SCANNER_CABINETS" store:Type="Tables" store:Schema="Firebird">
+            <DefiningQuery>SELECT 
+"A"."SCANNER" AS "SCANNER", 
+"A"."CABINETID" AS "CABINETID"
+FROM "SCANNER_CABINETS" AS "A"</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="INTEG_10" Association="Self.INTEG_10">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="USERS_ROLES" EntitySet="USERS_ROLES" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_12" Association="Self.INTEG_12">
+            <End Role="ROLES" EntitySet="ROLES" />
+            <End Role="USERS_ROLES" EntitySet="USERS_ROLES" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_16" Association="Self.INTEG_16">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="GROUPS" EntitySet="GROUPS" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_19" Association="Self.INTEG_19">
+            <End Role="GROUPS" EntitySet="GROUPS" />
+            <End Role="GROUPS_USERS" EntitySet="GROUPS_USERS" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_21" Association="Self.INTEG_21">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="GROUPS_USERS" EntitySet="GROUPS_USERS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ACCOUNT">
+          <Key>
+            <PropertyRef Name="ACCOUNT1" />
+          </Key>
+          <Property Name="ACCOUNT1" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CABINET">
+          <Key>
+            <PropertyRef Name="CABINETNAME" />
+          </Key>
+          <Property Name="CABINETNAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CABINETID" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CABINETFULLPATH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ACCOUNT" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="ROOTPATH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OSTOREPATH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WSTOREPATH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TSTOREPATH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ADMINISTRATOR" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TEMPLATENAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="SORTORDER" Type="Int32" />
+          <Property Name="LOOKUPFILEPATH" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CABINETS_ACCESS">
+          <Key>
+            <PropertyRef Name="CABINETNAME" />
+            <PropertyRef Name="ACCESSNAME" />
+          </Key>
+          <Property Name="CABINETNAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ACCESSNAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ACCESSTYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="FILTERINDEX" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="FILTERVALUE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UPDATEINDEX" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CABINETS_LOOKUPFILE">
+          <Key>
+            <PropertyRef Name="CABINETID" />
+            <PropertyRef Name="COLUMNNAME" />
+          </Key>
+          <Property Name="CABINETID" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="COLUMNNAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="INDEXNO" Type="Int32" Nullable="false" />
+          <Property Name="INDEXNAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SEARCHCOLUMN" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="VALIDATECOLUMN" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CUSTOMERCABINET">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="CUSTID" Type="Int32" Nullable="false" />
+          <Property Name="CABINETID" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="CABINETNAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CUSTOMEREMAIL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="CUSTID" Type="Int32" Nullable="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CUSTOMERRATE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="BREAK" Type="Int32" />
+          <Property Name="DISCOUNT" Type="Decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="CUSTOMER">
+          <Key>
+            <PropertyRef Name="CUSTID" />
+          </Key>
+          <Property Name="CUSTID" Type="Int32" Nullable="false" />
+          <Property Name="USERNAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="FIRSTNAME" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="LASTNAME" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ADDRESS1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ADDRESS2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CITY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="STATE" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="ZIP" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="COUNTRY" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="CC_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CC_ADDRESS1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CC_ADDRESS2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CC_CITY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CC_STATE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CC_ZIP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CC_COUNTRY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CC_TYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CC_NUM" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="CC_MONTH" Type="Int32" />
+          <Property Name="CC_YEAR" Type="Int32" />
+          <Property Name="CC_CVN" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="PAYMENTTYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DATEADDED" Type="DateTime" />
+          <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MONTHLYRATE" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="PERIMAGERATE" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="BILLINGTYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MONTHLYSCANCAP" Type="Int32" />
+          <Property Name="DISCOUNTRATE" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="OVERAGERATE" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="USE_RATES" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="OPEN_BALANCE" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="PREPAID_AMOUNT" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="LASTBILLDATE" Type="DateTime" />
+          <Property Name="COMPANY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PHONE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CONTACTBY" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="YEARLYBILLEDIMAGES" Type="Int32" />
+        </EntityType>
+        <EntityType Name="EMAIL_IN">
+          <Key>
+            <PropertyRef Name="EMAIL_ADDRESS" />
+          </Key>
+          <Property Name="EMAIL_SERVER" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EMAIL_ADDRESS" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="USER_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="USER_PASSWORD" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="EMAIL_OUT">
+          <Key>
+            <PropertyRef Name="EMAIL_ADDRESS" />
+          </Key>
+          <Property Name="EMAIL_ADDRESS" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EMAIL_FROM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EMAIL_HOST" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="USER_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="USER_PASSWORD" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="IS_ACTIVE" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="IS_ADMIN" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="FAILURE_MAILBOX" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="ARCHIVE_MAILBOX" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GROUP">
+          <Key>
+            <PropertyRef Name="GROUPNAME" />
+          </Key>
+          <Property Name="GROUPNAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ADMINISTRATOR" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ACCOUNT" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LOGO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="USER" Relationship="Self.INTEG_16" FromRole="GROUPS" ToRole="USERS" />
+          <NavigationProperty Name="GROUPS_USERS" Relationship="Self.INTEG_19" FromRole="GROUPS" ToRole="GROUPS_USERS" />
+        </EntityType>
+        <EntityType Name="GROUPS_USERS">
+          <Key>
+            <PropertyRef Name="GROUPNAME" />
+            <PropertyRef Name="USERNAME" />
+          </Key>
+          <Property Name="GROUPNAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="USERNAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ACCOUNT" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="GROUP" Relationship="Self.INTEG_19" FromRole="GROUPS_USERS" ToRole="GROUPS" />
+          <NavigationProperty Name="USER" Relationship="Self.INTEG_21" FromRole="GROUPS_USERS" ToRole="USERS" />
+        </EntityType>
+        <EntityType Name="LOG">
+          <Key>
+            <PropertyRef Name="LOGDATE" />
+          </Key>
+          <Property Name="LOGDATE" Type="DateTime" Nullable="false" />
+          <Property Name="CABINETID" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="SCANNERID" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="MSG" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LOG_EMAIL">
+          <Key>
+            <PropertyRef Name="LOGDATE" />
+          </Key>
+          <Property Name="LOGDATE" Type="DateTime" Nullable="false" />
+          <Property Name="CABINETID" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="SCANNERID" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="MSG" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MULTCABINETSEARCH">
+          <Key>
+            <PropertyRef Name="SEARCHNAME" />
+            <PropertyRef Name="CABINETID" />
+          </Key>
+          <Property Name="SEARCHNAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CABINETID" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ORDERITEM">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ORDERNO" Type="Int32" Nullable="false" />
+          <Property Name="BILLSTART" Type="DateTime" />
+          <Property Name="BILLSTOP" Type="DateTime" />
+          <Property Name="IMAGECOUNT" Type="Int32" />
+          <Property Name="LINEDESC" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LINETYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="AMOUNT" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="AMT_PAID" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="LINEORDER" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ORDER">
+          <Key>
+            <PropertyRef Name="ORDERNO" />
+          </Key>
+          <Property Name="ORDERNO" Type="Int32" Nullable="false" />
+          <Property Name="CUSTID" Type="Int32" Nullable="false" />
+          <Property Name="BILLDATE" Type="DateTime" />
+          <Property Name="AMOUNT" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="PAID" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="AMT_PAID" Type="Decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="QUEUE_DEFINITIONS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="WORKFLOW" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="QUEUE_NAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="QTIME" Type="Int32" />
+          <Property Name="ONACCEPT" Type="Int32" />
+          <Property Name="ONREJECT" Type="Int32" />
+          <Property Name="ONCOMPLETE" Type="Int32" />
+          <Property Name="STARTINGQUEUE" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="ENDINGQUEUE" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="QUEUE_HISTORY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="WORKFLOW" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="QUEUE_DEFID" Type="Int32" />
+          <Property Name="OLDQUEUE_DEFID" Type="Int32" />
+          <Property Name="CABINETID" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="FILENAME" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="DATECREATED" Type="DateTime" Nullable="false" />
+          <Property Name="USERNAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="ACTIONTAKEN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="QUEUE_NOTES">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="FILENAME" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="NOTEDATE" Type="DateTime" Nullable="false" />
+          <Property Name="USERNAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="NOTE" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="QUEUE_SCANNER_ACCESS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="WORKFLOW" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="SCANNER" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="QUEUE_USER_ACCESS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ACCESSNAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="ACCESSTYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="QUEUE_DEFID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="QUEUE_WORKING">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="FILENAME" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="WORKFLOW" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="QUEUE_DEFID" Type="Int32" />
+          <Property Name="CABINETID" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="DATECREATED" Type="DateTime" Nullable="false" />
+          <Property Name="LASTACCESSED" Type="DateTime" />
+          <Property Name="VIEWED" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="PRIORITY" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ROLE">
+          <Key>
+            <PropertyRef Name="ROLENAME" />
+          </Key>
+          <Property Name="ROLENAME" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="VIEW_SCANS" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="EDIT_SCANINDEX" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="ADD_USERS" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="EDIT_USERS" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="DELETE_USERS" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="MANAGE_PROFILES" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="ADD_GROUP" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="EDIT_GROUP" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="DELETE_GROUP" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="ADD_GROUP_USERS" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="ADD_CABINET" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="DELETE_CABINET" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="ADD_CABINET_ACCESS" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="ADD_TEMPLATE" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="DELETE_TEMPLATE" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="ADD_SCANNER" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="EDIT_SCANNER" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="DELETE_SCANNER" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="ADD_STORAGE" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="EDIT_STORAGE" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="DELETE_STORAGE" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="PRINT_SCAN" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="EMAIL_SCAN" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="DOWNLOAD_SCAN" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="EDIT_PUBLIC" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="VIEW_NON_PUBLIC" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="EDIT_CABINET_FILTERS" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="BILLING_ACCESS" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="VERSION_ACCESS" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="WEBUPLOAD" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="CHANGE_PASS" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="CREATE_CABINET" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="SHOWADMINLINK" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="SHOW_QUEUES" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="DELETEIMAGE" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="RESTOREIMAGE" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="MOVEIMAGE" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="FULLINDEXUPDATE" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="VIEWDOCUMENTHISTORY" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="MANDATORY_REVIEW_ADMIN" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="USERS" Relationship="Self.USERS_ROLES" FromRole="ROLES" ToRole="USERS" />
+        </EntityType>
+        <EntityType Name="SCANNER">
+          <Key>
+            <PropertyRef Name="SCANNER1" />
+          </Key>
+          <Property Name="SCANNER1" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="STATUS" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ACCOUNT" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="STDTEMPLATE_DEFINITION">
+          <Key>
+            <PropertyRef Name="TEMPLATENAME" />
+            <PropertyRef Name="INDEXNUM" />
+          </Key>
+          <Property Name="TEMPLATENAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="INDEXNAME" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="INDEXNUM" Type="Int16" Nullable="false" />
+          <Property Name="MAXLENGTH" Type="Int16" />
+          <Property Name="DATATYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MUSTFILL" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="MUSTENTER" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="VIEWINDEX" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="SEARCHINDEX" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="OCRACTIVE" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="XCOORDINATE" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="YCOORDINATE" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="ZONEHEIGHT" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="ZONEWIDTH" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="LINKEDFIELDID" Type="Int16" />
+          <Property Name="BARCODETYPE" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="LOOKUP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="STDTEMPLATE">
+          <Key>
+            <PropertyRef Name="TEMPLATENAME" />
+          </Key>
+          <Property Name="TEMPLATENAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IDXCNT" Type="Int16" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ACCOUNT" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="STORAGE_MAP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LOCATION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SYSTEM_LOG">
+          <Key>
+            <PropertyRef Name="LOGDATE" />
+          </Key>
+          <Property Name="LOGDATE" Type="DateTime" Nullable="false" />
+          <Property Name="LOGTYPE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SOURCE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CATEGORY" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EVENT" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="LOGUSER" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TEMPLATE_DEFINITION">
+          <Key>
+            <PropertyRef Name="TEMPLATENAME" />
+            <PropertyRef Name="INDEXNUM" />
+          </Key>
+          <Property Name="TEMPLATENAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="INDEXNAME" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="INDEXNUM" Type="Int16" Nullable="false" />
+          <Property Name="MAXLENGTH" Type="Int16" />
+          <Property Name="DATATYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MUSTFILL" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="MUSTENTER" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="VIEWINDEX" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="SEARCHINDEX" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="OCRACTIVE" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="XCOORDINATE" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="YCOORDINATE" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="ZONEHEIGHT" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="ZONEWIDTH" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="LINKEDFIELDID" Type="Int16" />
+          <Property Name="BARCODETYPE" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="LOOKUP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HIDECOLUMN" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TEMPLATE">
+          <Key>
+            <PropertyRef Name="TEMPLATENAME" />
+          </Key>
+          <Property Name="TEMPLATENAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IDXCNT" Type="Int16" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ACCOUNT" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="USER">
+          <Key>
+            <PropertyRef Name="USERNAME" />
+          </Key>
+          <Property Name="USERNAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FULLNAME" Type="String" MaxLength="75" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PASS" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ACCOUNT" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PROFILE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ID" Type="Int32" />
+          <Property Name="CREATED" Type="DateTime" />
+          <Property Name="ACTIVEUSER" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="PRINTWIDTH" Type="Int32" />
+          <NavigationProperty Name="GROUPS" Relationship="Self.INTEG_16" FromRole="USERS" ToRole="GROUPS" />
+          <NavigationProperty Name="GROUPS_USERS" Relationship="Self.INTEG_21" FromRole="USERS" ToRole="GROUPS_USERS" />
+          <NavigationProperty Name="ROLES" Relationship="Self.USERS_ROLES" FromRole="USERS" ToRole="ROLES" />
+        </EntityType>
+        <EntityType Name="VERSIONTEMP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="FILENAME" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="VERSIONID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CABINETID" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="USERNAME" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="CHECKDATE" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="WORKFLOW">
+          <Key>
+            <PropertyRef Name="WORKFLOW1" />
+          </Key>
+          <Property Name="WORKFLOW1" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ADMINISTRATOR" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LISTBOX_TEMPLATES">
+          <Key>
+            <PropertyRef Name="TEMPLATENAME" />
+          </Key>
+          <Property Name="TEMPLATENAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="INDEXNAME" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="LISTBOXVALUE" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SCANNER_CABINETS">
+          <Key>
+            <PropertyRef Name="SCANNER" />
+            <PropertyRef Name="CABINETID" />
+          </Key>
+          <Property Name="SCANNER" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CABINETID" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <Association Name="INTEG_16">
+          <End Role="USERS" Type="Self.USER" Multiplicity="1" />
+          <End Role="GROUPS" Type="Self.GROUP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERS">
+              <PropertyRef Name="USERNAME" />
+            </Principal>
+            <Dependent Role="GROUPS">
+              <PropertyRef Name="ADMINISTRATOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_19">
+          <End Role="GROUPS" Type="Self.GROUP" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="GROUPS_USERS" Type="Self.GROUPS_USERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GROUPS">
+              <PropertyRef Name="GROUPNAME" />
+            </Principal>
+            <Dependent Role="GROUPS_USERS">
+              <PropertyRef Name="GROUPNAME" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INTEG_21">
+          <End Role="USERS" Type="Self.USER" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="GROUPS_USERS" Type="Self.GROUPS_USERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERS">
+              <PropertyRef Name="USERNAME" />
+            </Principal>
+            <Dependent Role="GROUPS_USERS">
+              <PropertyRef Name="USERNAME" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="USERS_ROLES">
+          <End Role="USERS" Type="Self.USER" Multiplicity="*" />
+          <End Role="ROLES" Type="Self.ROLE" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="SystemFileitEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ACCOUNTS" EntityType="Self.ACCOUNT" />
+          <EntitySet Name="CABINETS" EntityType="Self.CABINET" />
+          <EntitySet Name="CABINETS_ACCESS" EntityType="Self.CABINETS_ACCESS" />
+          <EntitySet Name="CABINETS_LOOKUPFILE" EntityType="Self.CABINETS_LOOKUPFILE" />
+          <EntitySet Name="CUSTOMERCABINETS" EntityType="Self.CUSTOMERCABINET" />
+          <EntitySet Name="CUSTOMEREMAILS" EntityType="Self.CUSTOMEREMAIL" />
+          <EntitySet Name="CUSTOMERRATES" EntityType="Self.CUSTOMERRATE" />
+          <EntitySet Name="CUSTOMERS" EntityType="Self.CUSTOMER" />
+          <EntitySet Name="EMAIL_IN" EntityType="Self.EMAIL_IN" />
+          <EntitySet Name="EMAIL_OUT" EntityType="Self.EMAIL_OUT" />
+          <EntitySet Name="GROUPS" EntityType="Self.GROUP" />
+          <EntitySet Name="GROUPS_USERS" EntityType="Self.GROUPS_USERS" />
+          <EntitySet Name="LOGs" EntityType="Self.LOG" />
+          <EntitySet Name="LOG_EMAIL" EntityType="Self.LOG_EMAIL" />
+          <EntitySet Name="MULTCABINETSEARCHes" EntityType="Self.MULTCABINETSEARCH" />
+          <EntitySet Name="ORDERITEMS" EntityType="Self.ORDERITEM" />
+          <EntitySet Name="ORDERS" EntityType="Self.ORDER" />
+          <EntitySet Name="QUEUE_DEFINITIONS" EntityType="Self.QUEUE_DEFINITIONS" />
+          <EntitySet Name="QUEUE_HISTORY" EntityType="Self.QUEUE_HISTORY" />
+          <EntitySet Name="QUEUE_NOTES" EntityType="Self.QUEUE_NOTES" />
+          <EntitySet Name="QUEUE_SCANNER_ACCESS" EntityType="Self.QUEUE_SCANNER_ACCESS" />
+          <EntitySet Name="QUEUE_USER_ACCESS" EntityType="Self.QUEUE_USER_ACCESS" />
+          <EntitySet Name="QUEUE_WORKING" EntityType="Self.QUEUE_WORKING" />
+          <EntitySet Name="ROLES" EntityType="Self.ROLE" />
+          <EntitySet Name="SCANNERS" EntityType="Self.SCANNER" />
+          <EntitySet Name="STDTEMPLATE_DEFINITION" EntityType="Self.STDTEMPLATE_DEFINITION" />
+          <EntitySet Name="STDTEMPLATES" EntityType="Self.STDTEMPLATE" />
+          <EntitySet Name="STORAGE_MAP" EntityType="Self.STORAGE_MAP" />
+          <EntitySet Name="SYSTEM_LOG" EntityType="Self.SYSTEM_LOG" />
+          <EntitySet Name="TEMPLATE_DEFINITION" EntityType="Self.TEMPLATE_DEFINITION" />
+          <EntitySet Name="TEMPLATES" EntityType="Self.TEMPLATE" />
+          <EntitySet Name="USERS" EntityType="Self.USER" />
+          <EntitySet Name="VERSIONTEMPs" EntityType="Self.VERSIONTEMP" />
+          <EntitySet Name="WORKFLOWS" EntityType="Self.WORKFLOW" />
+          <EntitySet Name="LISTBOX_TEMPLATES" EntityType="Self.LISTBOX_TEMPLATES" />
+          <EntitySet Name="SCANNER_CABINETS" EntityType="Self.SCANNER_CABINETS" />
+          <AssociationSet Name="INTEG_16" Association="Self.INTEG_16">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="GROUPS" EntitySet="GROUPS" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_19" Association="Self.INTEG_19">
+            <End Role="GROUPS" EntitySet="GROUPS" />
+            <End Role="GROUPS_USERS" EntitySet="GROUPS_USERS" />
+          </AssociationSet>
+          <AssociationSet Name="INTEG_21" Association="Self.INTEG_21">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="GROUPS_USERS" EntitySet="GROUPS_USERS" />
+          </AssociationSet>
+          <AssociationSet Name="USERS_ROLES" Association="Self.USERS_ROLES">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="ROLES" EntitySet="ROLES" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="SystemFileitEntities">
+          <EntitySetMapping Name="ACCOUNTS">
+            <EntityTypeMapping TypeName="Model.ACCOUNT">
+              <MappingFragment StoreEntitySet="ACCOUNTS">
+                <ScalarProperty Name="ACCOUNT1" ColumnName="ACCOUNT" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CABINETS">
+            <EntityTypeMapping TypeName="Model.CABINET">
+              <MappingFragment StoreEntitySet="CABINETS">
+                <ScalarProperty Name="CABINETNAME" ColumnName="CABINETNAME" />
+                <ScalarProperty Name="CABINETID" ColumnName="CABINETID" />
+                <ScalarProperty Name="CABINETFULLPATH" ColumnName="CABINETFULLPATH" />
+                <ScalarProperty Name="ACCOUNT" ColumnName="ACCOUNT" />
+                <ScalarProperty Name="ROOTPATH" ColumnName="ROOTPATH" />
+                <ScalarProperty Name="OSTOREPATH" ColumnName="OSTOREPATH" />
+                <ScalarProperty Name="WSTOREPATH" ColumnName="WSTOREPATH" />
+                <ScalarProperty Name="TSTOREPATH" ColumnName="TSTOREPATH" />
+                <ScalarProperty Name="ADMINISTRATOR" ColumnName="ADMINISTRATOR" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="TEMPLATENAME" ColumnName="TEMPLATENAME" />
+                <ScalarProperty Name="SORTORDER" ColumnName="SORTORDER" />
+                <ScalarProperty Name="LOOKUPFILEPATH" ColumnName="LOOKUPFILEPATH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CABINETS_ACCESS">
+            <EntityTypeMapping TypeName="Model.CABINETS_ACCESS">
+              <MappingFragment StoreEntitySet="CABINETS_ACCESS">
+                <ScalarProperty Name="CABINETNAME" ColumnName="CABINETNAME" />
+                <ScalarProperty Name="ACCESSNAME" ColumnName="ACCESSNAME" />
+                <ScalarProperty Name="ACCESSTYPE" ColumnName="ACCESSTYPE" />
+                <ScalarProperty Name="FILTERINDEX" ColumnName="FILTERINDEX" />
+                <ScalarProperty Name="FILTERVALUE" ColumnName="FILTERVALUE" />
+                <ScalarProperty Name="UPDATEINDEX" ColumnName="UPDATEINDEX" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CABINETS_LOOKUPFILE">
+            <EntityTypeMapping TypeName="Model.CABINETS_LOOKUPFILE">
+              <MappingFragment StoreEntitySet="CABINETS_LOOKUPFILE">
+                <ScalarProperty Name="CABINETID" ColumnName="CABINETID" />
+                <ScalarProperty Name="COLUMNNAME" ColumnName="COLUMNNAME" />
+                <ScalarProperty Name="INDEXNO" ColumnName="INDEXNO" />
+                <ScalarProperty Name="INDEXNAME" ColumnName="INDEXNAME" />
+                <ScalarProperty Name="SEARCHCOLUMN" ColumnName="SEARCHCOLUMN" />
+                <ScalarProperty Name="VALIDATECOLUMN" ColumnName="VALIDATECOLUMN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMERCABINETS">
+            <EntityTypeMapping TypeName="Model.CUSTOMERCABINET">
+              <MappingFragment StoreEntitySet="CUSTOMERCABINETS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CUSTID" ColumnName="CUSTID" />
+                <ScalarProperty Name="CABINETID" ColumnName="CABINETID" />
+                <ScalarProperty Name="CABINETNAME" ColumnName="CABINETNAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMEREMAILS">
+            <EntityTypeMapping TypeName="Model.CUSTOMEREMAIL">
+              <MappingFragment StoreEntitySet="CUSTOMEREMAILS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CUSTID" ColumnName="CUSTID" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMERRATES">
+            <EntityTypeMapping TypeName="Model.CUSTOMERRATE">
+              <MappingFragment StoreEntitySet="CUSTOMERRATES">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BREAK" ColumnName="BREAK" />
+                <ScalarProperty Name="DISCOUNT" ColumnName="DISCOUNT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMERS">
+            <EntityTypeMapping TypeName="Model.CUSTOMER">
+              <MappingFragment StoreEntitySet="CUSTOMERS">
+                <ScalarProperty Name="CUSTID" ColumnName="CUSTID" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="FIRSTNAME" ColumnName="FIRSTNAME" />
+                <ScalarProperty Name="LASTNAME" ColumnName="LASTNAME" />
+                <ScalarProperty Name="ADDRESS1" ColumnName="ADDRESS1" />
+                <ScalarProperty Name="ADDRESS2" ColumnName="ADDRESS2" />
+                <ScalarProperty Name="CITY" ColumnName="CITY" />
+                <ScalarProperty Name="STATE" ColumnName="STATE" />
+                <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+                <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+                <ScalarProperty Name="CC_NAME" ColumnName="CC_NAME" />
+                <ScalarProperty Name="CC_ADDRESS1" ColumnName="CC_ADDRESS1" />
+                <ScalarProperty Name="CC_ADDRESS2" ColumnName="CC_ADDRESS2" />
+                <ScalarProperty Name="CC_CITY" ColumnName="CC_CITY" />
+                <ScalarProperty Name="CC_STATE" ColumnName="CC_STATE" />
+                <ScalarProperty Name="CC_ZIP" ColumnName="CC_ZIP" />
+                <ScalarProperty Name="CC_COUNTRY" ColumnName="CC_COUNTRY" />
+                <ScalarProperty Name="CC_TYPE" ColumnName="CC_TYPE" />
+                <ScalarProperty Name="CC_NUM" ColumnName="CC_NUM" />
+                <ScalarProperty Name="CC_MONTH" ColumnName="CC_MONTH" />
+                <ScalarProperty Name="CC_YEAR" ColumnName="CC_YEAR" />
+                <ScalarProperty Name="CC_CVN" ColumnName="CC_CVN" />
+                <ScalarProperty Name="PAYMENTTYPE" ColumnName="PAYMENTTYPE" />
+                <ScalarProperty Name="DATEADDED" ColumnName="DATEADDED" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="MONTHLYRATE" ColumnName="MONTHLYRATE" />
+                <ScalarProperty Name="PERIMAGERATE" ColumnName="PERIMAGERATE" />
+                <ScalarProperty Name="BILLINGTYPE" ColumnName="BILLINGTYPE" />
+                <ScalarProperty Name="MONTHLYSCANCAP" ColumnName="MONTHLYSCANCAP" />
+                <ScalarProperty Name="DISCOUNTRATE" ColumnName="DISCOUNTRATE" />
+                <ScalarProperty Name="OVERAGERATE" ColumnName="OVERAGERATE" />
+                <ScalarProperty Name="USE_RATES" ColumnName="USE_RATES" />
+                <ScalarProperty Name="OPEN_BALANCE" ColumnName="OPEN_BALANCE" />
+                <ScalarProperty Name="PREPAID_AMOUNT" ColumnName="PREPAID_AMOUNT" />
+                <ScalarProperty Name="LASTBILLDATE" ColumnName="LASTBILLDATE" />
+                <ScalarProperty Name="COMPANY" ColumnName="COMPANY" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="CONTACTBY" ColumnName="CONTACTBY" />
+                <ScalarProperty Name="YEARLYBILLEDIMAGES" ColumnName="YEARLYBILLEDIMAGES" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMAIL_IN">
+            <EntityTypeMapping TypeName="Model.EMAIL_IN">
+              <MappingFragment StoreEntitySet="EMAIL_IN">
+                <ScalarProperty Name="EMAIL_SERVER" ColumnName="EMAIL_SERVER" />
+                <ScalarProperty Name="EMAIL_ADDRESS" ColumnName="EMAIL_ADDRESS" />
+                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+                <ScalarProperty Name="USER_PASSWORD" ColumnName="USER_PASSWORD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMAIL_OUT">
+            <EntityTypeMapping TypeName="Model.EMAIL_OUT">
+              <MappingFragment StoreEntitySet="EMAIL_OUT">
+                <ScalarProperty Name="EMAIL_ADDRESS" ColumnName="EMAIL_ADDRESS" />
+                <ScalarProperty Name="EMAIL_FROM" ColumnName="EMAIL_FROM" />
+                <ScalarProperty Name="EMAIL_HOST" ColumnName="EMAIL_HOST" />
+                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+                <ScalarProperty Name="USER_PASSWORD" ColumnName="USER_PASSWORD" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+                <ScalarProperty Name="IS_ADMIN" ColumnName="IS_ADMIN" />
+                <ScalarProperty Name="FAILURE_MAILBOX" ColumnName="FAILURE_MAILBOX" />
+                <ScalarProperty Name="ARCHIVE_MAILBOX" ColumnName="ARCHIVE_MAILBOX" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GROUPS">
+            <EntityTypeMapping TypeName="Model.GROUP">
+              <MappingFragment StoreEntitySet="GROUPS">
+                <ScalarProperty Name="GROUPNAME" ColumnName="GROUPNAME" />
+                <ScalarProperty Name="ADMINISTRATOR" ColumnName="ADMINISTRATOR" />
+                <ScalarProperty Name="ACCOUNT" ColumnName="ACCOUNT" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="LOGO" ColumnName="LOGO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GROUPS_USERS">
+            <EntityTypeMapping TypeName="Model.GROUPS_USERS">
+              <MappingFragment StoreEntitySet="GROUPS_USERS">
+                <ScalarProperty Name="GROUPNAME" ColumnName="GROUPNAME" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="ACCOUNT" ColumnName="ACCOUNT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOGs">
+            <EntityTypeMapping TypeName="Model.LOG">
+              <MappingFragment StoreEntitySet="LOG">
+                <ScalarProperty Name="LOGDATE" ColumnName="LOGDATE" />
+                <ScalarProperty Name="CABINETID" ColumnName="CABINETID" />
+                <ScalarProperty Name="SCANNERID" ColumnName="SCANNERID" />
+                <ScalarProperty Name="MSG" ColumnName="MSG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOG_EMAIL">
+            <EntityTypeMapping TypeName="Model.LOG_EMAIL">
+              <MappingFragment StoreEntitySet="LOG_EMAIL">
+                <ScalarProperty Name="LOGDATE" ColumnName="LOGDATE" />
+                <ScalarProperty Name="CABINETID" ColumnName="CABINETID" />
+                <ScalarProperty Name="SCANNERID" ColumnName="SCANNERID" />
+                <ScalarProperty Name="MSG" ColumnName="MSG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MULTCABINETSEARCHes">
+            <EntityTypeMapping TypeName="Model.MULTCABINETSEARCH">
+              <MappingFragment StoreEntitySet="MULTCABINETSEARCH">
+                <ScalarProperty Name="SEARCHNAME" ColumnName="SEARCHNAME" />
+                <ScalarProperty Name="CABINETID" ColumnName="CABINETID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORDERITEMS">
+            <EntityTypeMapping TypeName="Model.ORDERITEM">
+              <MappingFragment StoreEntitySet="ORDERITEMS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ORDERNO" ColumnName="ORDERNO" />
+                <ScalarProperty Name="BILLSTART" ColumnName="BILLSTART" />
+                <ScalarProperty Name="BILLSTOP" ColumnName="BILLSTOP" />
+                <ScalarProperty Name="IMAGECOUNT" ColumnName="IMAGECOUNT" />
+                <ScalarProperty Name="LINEDESC" ColumnName="LINEDESC" />
+                <ScalarProperty Name="LINETYPE" ColumnName="LINETYPE" />
+                <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+                <ScalarProperty Name="AMT_PAID" ColumnName="AMT_PAID" />
+                <ScalarProperty Name="LINEORDER" ColumnName="LINEORDER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORDERS">
+            <EntityTypeMapping TypeName="Model.ORDER">
+              <MappingFragment StoreEntitySet="ORDERS">
+                <ScalarProperty Name="ORDERNO" ColumnName="ORDERNO" />
+                <ScalarProperty Name="CUSTID" ColumnName="CUSTID" />
+                <ScalarProperty Name="BILLDATE" ColumnName="BILLDATE" />
+                <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+                <ScalarProperty Name="PAID" ColumnName="PAID" />
+                <ScalarProperty Name="AMT_PAID" ColumnName="AMT_PAID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QUEUE_DEFINITIONS">
+            <EntityTypeMapping TypeName="Model.QUEUE_DEFINITIONS">
+              <MappingFragment StoreEntitySet="QUEUE_DEFINITIONS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="WORKFLOW" ColumnName="WORKFLOW" />
+                <ScalarProperty Name="QUEUE_NAME" ColumnName="QUEUE_NAME" />
+                <ScalarProperty Name="QTIME" ColumnName="QTIME" />
+                <ScalarProperty Name="ONACCEPT" ColumnName="ONACCEPT" />
+                <ScalarProperty Name="ONREJECT" ColumnName="ONREJECT" />
+                <ScalarProperty Name="ONCOMPLETE" ColumnName="ONCOMPLETE" />
+                <ScalarProperty Name="STARTINGQUEUE" ColumnName="STARTINGQUEUE" />
+                <ScalarProperty Name="ENDINGQUEUE" ColumnName="ENDINGQUEUE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QUEUE_HISTORY">
+            <EntityTypeMapping TypeName="Model.QUEUE_HISTORY">
+              <MappingFragment StoreEntitySet="QUEUE_HISTORY">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="WORKFLOW" ColumnName="WORKFLOW" />
+                <ScalarProperty Name="QUEUE_DEFID" ColumnName="QUEUE_DEFID" />
+                <ScalarProperty Name="OLDQUEUE_DEFID" ColumnName="OLDQUEUE_DEFID" />
+                <ScalarProperty Name="CABINETID" ColumnName="CABINETID" />
+                <ScalarProperty Name="FILENAME" ColumnName="FILENAME" />
+                <ScalarProperty Name="DATECREATED" ColumnName="DATECREATED" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="ACTIONTAKEN" ColumnName="ACTIONTAKEN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QUEUE_NOTES">
+            <EntityTypeMapping TypeName="Model.QUEUE_NOTES">
+              <MappingFragment StoreEntitySet="QUEUE_NOTES">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FILENAME" ColumnName="FILENAME" />
+                <ScalarProperty Name="NOTEDATE" ColumnName="NOTEDATE" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QUEUE_SCANNER_ACCESS">
+            <EntityTypeMapping TypeName="Model.QUEUE_SCANNER_ACCESS">
+              <MappingFragment StoreEntitySet="QUEUE_SCANNER_ACCESS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="WORKFLOW" ColumnName="WORKFLOW" />
+                <ScalarProperty Name="SCANNER" ColumnName="SCANNER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QUEUE_USER_ACCESS">
+            <EntityTypeMapping TypeName="Model.QUEUE_USER_ACCESS">
+              <MappingFragment StoreEntitySet="QUEUE_USER_ACCESS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ACCESSNAME" ColumnName="ACCESSNAME" />
+                <ScalarProperty Name="ACCESSTYPE" ColumnName="ACCESSTYPE" />
+                <ScalarProperty Name="QUEUE_DEFID" ColumnName="QUEUE_DEFID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QUEUE_WORKING">
+            <EntityTypeMapping TypeName="Model.QUEUE_WORKING">
+              <MappingFragment StoreEntitySet="QUEUE_WORKING">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FILENAME" ColumnName="FILENAME" />
+                <ScalarProperty Name="WORKFLOW" ColumnName="WORKFLOW" />
+                <ScalarProperty Name="QUEUE_DEFID" ColumnName="QUEUE_DEFID" />
+                <ScalarProperty Name="CABINETID" ColumnName="CABINETID" />
+                <ScalarProperty Name="DATECREATED" ColumnName="DATECREATED" />
+                <ScalarProperty Name="LASTACCESSED" ColumnName="LASTACCESSED" />
+                <ScalarProperty Name="VIEWED" ColumnName="VIEWED" />
+                <ScalarProperty Name="PRIORITY" ColumnName="PRIORITY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ROLES">
+            <EntityTypeMapping TypeName="Model.ROLE">
+              <MappingFragment StoreEntitySet="ROLES">
+                <ScalarProperty Name="ROLENAME" ColumnName="ROLENAME" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="VIEW_SCANS" ColumnName="VIEW_SCANS" />
+                <ScalarProperty Name="EDIT_SCANINDEX" ColumnName="EDIT_SCANINDEX" />
+                <ScalarProperty Name="ADD_USERS" ColumnName="ADD_USERS" />
+                <ScalarProperty Name="EDIT_USERS" ColumnName="EDIT_USERS" />
+                <ScalarProperty Name="DELETE_USERS" ColumnName="DELETE_USERS" />
+                <ScalarProperty Name="MANAGE_PROFILES" ColumnName="MANAGE_PROFILES" />
+                <ScalarProperty Name="ADD_GROUP" ColumnName="ADD_GROUP" />
+                <ScalarProperty Name="EDIT_GROUP" ColumnName="EDIT_GROUP" />
+                <ScalarProperty Name="DELETE_GROUP" ColumnName="DELETE_GROUP" />
+                <ScalarProperty Name="ADD_GROUP_USERS" ColumnName="ADD_GROUP_USERS" />
+                <ScalarProperty Name="ADD_CABINET" ColumnName="ADD_CABINET" />
+                <ScalarProperty Name="DELETE_CABINET" ColumnName="DELETE_CABINET" />
+                <ScalarProperty Name="ADD_CABINET_ACCESS" ColumnName="ADD_CABINET_ACCESS" />
+                <ScalarProperty Name="ADD_TEMPLATE" ColumnName="ADD_TEMPLATE" />
+                <ScalarProperty Name="DELETE_TEMPLATE" ColumnName="DELETE_TEMPLATE" />
+                <ScalarProperty Name="ADD_SCANNER" ColumnName="ADD_SCANNER" />
+                <ScalarProperty Name="EDIT_SCANNER" ColumnName="EDIT_SCANNER" />
+                <ScalarProperty Name="DELETE_SCANNER" ColumnName="DELETE_SCANNER" />
+                <ScalarProperty Name="ADD_STORAGE" ColumnName="ADD_STORAGE" />
+                <ScalarProperty Name="EDIT_STORAGE" ColumnName="EDIT_STORAGE" />
+                <ScalarProperty Name="DELETE_STORAGE" ColumnName="DELETE_STORAGE" />
+                <ScalarProperty Name="PRINT_SCAN" ColumnName="PRINT_SCAN" />
+                <ScalarProperty Name="EMAIL_SCAN" ColumnName="EMAIL_SCAN" />
+                <ScalarProperty Name="DOWNLOAD_SCAN" ColumnName="DOWNLOAD_SCAN" />
+                <ScalarProperty Name="EDIT_PUBLIC" ColumnName="EDIT_PUBLIC" />
+                <ScalarProperty Name="VIEW_NON_PUBLIC" ColumnName="VIEW_NON_PUBLIC" />
+                <ScalarProperty Name="EDIT_CABINET_FILTERS" ColumnName="EDIT_CABINET_FILTERS" />
+                <ScalarProperty Name="BILLING_ACCESS" ColumnName="BILLING_ACCESS" />
+                <ScalarProperty Name="VERSION_ACCESS" ColumnName="VERSION_ACCESS" />
+                <ScalarProperty Name="WEBUPLOAD" ColumnName="WEBUPLOAD" />
+                <ScalarProperty Name="CHANGE_PASS" ColumnName="CHANGE_PASS" />
+                <ScalarProperty Name="CREATE_CABINET" ColumnName="CREATE_CABINET" />
+                <ScalarProperty Name="SHOWADMINLINK" ColumnName="SHOWADMINLINK" />
+                <ScalarProperty Name="SHOW_QUEUES" ColumnName="SHOW_QUEUES" />
+                <ScalarProperty Name="DELETEIMAGE" ColumnName="DELETEIMAGE" />
+                <ScalarProperty Name="RESTOREIMAGE" ColumnName="RESTOREIMAGE" />
+                <ScalarProperty Name="MOVEIMAGE" ColumnName="MOVEIMAGE" />
+                <ScalarProperty Name="FULLINDEXUPDATE" ColumnName="FULLINDEXUPDATE" />
+                <ScalarProperty Name="VIEWDOCUMENTHISTORY" ColumnName="VIEWDOCUMENTHISTORY" />
+                <ScalarProperty Name="MANDATORY_REVIEW_ADMIN" ColumnName="MANDATORY_REVIEW_ADMIN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SCANNERS">
+            <EntityTypeMapping TypeName="Model.SCANNER">
+              <MappingFragment StoreEntitySet="SCANNERS">
+                <ScalarProperty Name="SCANNER1" ColumnName="SCANNER" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="ACCOUNT" ColumnName="ACCOUNT" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STDTEMPLATE_DEFINITION">
+            <EntityTypeMapping TypeName="Model.STDTEMPLATE_DEFINITION">
+              <MappingFragment StoreEntitySet="STDTEMPLATE_DEFINITION">
+                <ScalarProperty Name="TEMPLATENAME" ColumnName="TEMPLATENAME" />
+                <ScalarProperty Name="INDEXNAME" ColumnName="INDEXNAME" />
+                <ScalarProperty Name="INDEXNUM" ColumnName="INDEXNUM" />
+                <ScalarProperty Name="MAXLENGTH" ColumnName="MAXLENGTH" />
+                <ScalarProperty Name="DATATYPE" ColumnName="DATATYPE" />
+                <ScalarProperty Name="MUSTFILL" ColumnName="MUSTFILL" />
+                <ScalarProperty Name="MUSTENTER" ColumnName="MUSTENTER" />
+                <ScalarProperty Name="VIEWINDEX" ColumnName="VIEWINDEX" />
+                <ScalarProperty Name="SEARCHINDEX" ColumnName="SEARCHINDEX" />
+                <ScalarProperty Name="OCRACTIVE" ColumnName="OCRACTIVE" />
+                <ScalarProperty Name="XCOORDINATE" ColumnName="XCOORDINATE" />
+                <ScalarProperty Name="YCOORDINATE" ColumnName="YCOORDINATE" />
+                <ScalarProperty Name="ZONEHEIGHT" ColumnName="ZONEHEIGHT" />
+                <ScalarProperty Name="ZONEWIDTH" ColumnName="ZONEWIDTH" />
+                <ScalarProperty Name="LINKEDFIELDID" ColumnName="LINKEDFIELDID" />
+                <ScalarProperty Name="BARCODETYPE" ColumnName="BARCODETYPE" />
+                <ScalarProperty Name="LOOKUP" ColumnName="LOOKUP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STDTEMPLATES">
+            <EntityTypeMapping TypeName="Model.STDTEMPLATE">
+              <MappingFragment StoreEntitySet="STDTEMPLATES">
+                <ScalarProperty Name="TEMPLATENAME" ColumnName="TEMPLATENAME" />
+                <ScalarProperty Name="IDXCNT" ColumnName="IDXCNT" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="ACCOUNT" ColumnName="ACCOUNT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STORAGE_MAP">
+            <EntityTypeMapping TypeName="Model.STORAGE_MAP">
+              <MappingFragment StoreEntitySet="STORAGE_MAP">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="LOCATION" ColumnName="LOCATION" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SYSTEM_LOG">
+            <EntityTypeMapping TypeName="Model.SYSTEM_LOG">
+              <MappingFragment StoreEntitySet="SYSTEM_LOG">
+                <ScalarProperty Name="LOGDATE" ColumnName="LOGDATE" />
+                <ScalarProperty Name="LOGTYPE" ColumnName="LOGTYPE" />
+                <ScalarProperty Name="SOURCE" ColumnName="SOURCE" />
+                <ScalarProperty Name="CATEGORY" ColumnName="CATEGORY" />
+                <ScalarProperty Name="EVENT" ColumnName="EVENT" />
+                <ScalarProperty Name="LOGUSER" ColumnName="LOGUSER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TEMPLATE_DEFINITION">
+            <EntityTypeMapping TypeName="Model.TEMPLATE_DEFINITION">
+              <MappingFragment StoreEntitySet="TEMPLATE_DEFINITION">
+                <ScalarProperty Name="TEMPLATENAME" ColumnName="TEMPLATENAME" />
+                <ScalarProperty Name="INDEXNAME" ColumnName="INDEXNAME" />
+                <ScalarProperty Name="INDEXNUM" ColumnName="INDEXNUM" />
+                <ScalarProperty Name="MAXLENGTH" ColumnName="MAXLENGTH" />
+                <ScalarProperty Name="DATATYPE" ColumnName="DATATYPE" />
+                <ScalarProperty Name="MUSTFILL" ColumnName="MUSTFILL" />
+                <ScalarProperty Name="MUSTENTER" ColumnName="MUSTENTER" />
+                <ScalarProperty Name="VIEWINDEX" ColumnName="VIEWINDEX" />
+                <ScalarProperty Name="SEARCHINDEX" ColumnName="SEARCHINDEX" />
+                <ScalarProperty Name="OCRACTIVE" ColumnName="OCRACTIVE" />
+                <ScalarProperty Name="XCOORDINATE" ColumnName="XCOORDINATE" />
+                <ScalarProperty Name="YCOORDINATE" ColumnName="YCOORDINATE" />
+                <ScalarProperty Name="ZONEHEIGHT" ColumnName="ZONEHEIGHT" />
+                <ScalarProperty Name="ZONEWIDTH" ColumnName="ZONEWIDTH" />
+                <ScalarProperty Name="LINKEDFIELDID" ColumnName="LINKEDFIELDID" />
+                <ScalarProperty Name="BARCODETYPE" ColumnName="BARCODETYPE" />
+                <ScalarProperty Name="LOOKUP" ColumnName="LOOKUP" />
+                <ScalarProperty Name="HIDECOLUMN" ColumnName="HIDECOLUMN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TEMPLATES">
+            <EntityTypeMapping TypeName="Model.TEMPLATE">
+              <MappingFragment StoreEntitySet="TEMPLATES">
+                <ScalarProperty Name="TEMPLATENAME" ColumnName="TEMPLATENAME" />
+                <ScalarProperty Name="IDXCNT" ColumnName="IDXCNT" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="ACCOUNT" ColumnName="ACCOUNT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USERS">
+            <EntityTypeMapping TypeName="Model.USER">
+              <MappingFragment StoreEntitySet="USERS">
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="FULLNAME" ColumnName="FULLNAME" />
+                <ScalarProperty Name="PASS" ColumnName="PASS" />
+                <ScalarProperty Name="ACCOUNT" ColumnName="ACCOUNT" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="PROFILE" ColumnName="PROFILE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CREATED" ColumnName="CREATED" />
+                <ScalarProperty Name="ACTIVEUSER" ColumnName="ACTIVEUSER" />
+                <ScalarProperty Name="PRINTWIDTH" ColumnName="PRINTWIDTH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VERSIONTEMPs">
+            <EntityTypeMapping TypeName="Model.VERSIONTEMP">
+              <MappingFragment StoreEntitySet="VERSIONTEMP">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FILENAME" ColumnName="FILENAME" />
+                <ScalarProperty Name="VERSIONID" ColumnName="VERSIONID" />
+                <ScalarProperty Name="CABINETID" ColumnName="CABINETID" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="CHECKDATE" ColumnName="CHECKDATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WORKFLOWS">
+            <EntityTypeMapping TypeName="Model.WORKFLOW">
+              <MappingFragment StoreEntitySet="WORKFLOWS">
+                <ScalarProperty Name="WORKFLOW1" ColumnName="WORKFLOW" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="ADMINISTRATOR" ColumnName="ADMINISTRATOR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LISTBOX_TEMPLATES">
+            <EntityTypeMapping TypeName="Model.LISTBOX_TEMPLATES">
+              <MappingFragment StoreEntitySet="LISTBOX_TEMPLATES">
+                <ScalarProperty Name="TEMPLATENAME" ColumnName="TEMPLATENAME" />
+                <ScalarProperty Name="INDEXNAME" ColumnName="INDEXNAME" />
+                <ScalarProperty Name="LISTBOXVALUE" ColumnName="LISTBOXVALUE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SCANNER_CABINETS">
+            <EntityTypeMapping TypeName="Model.SCANNER_CABINETS">
+              <MappingFragment StoreEntitySet="SCANNER_CABINETS">
+                <ScalarProperty Name="SCANNER" ColumnName="SCANNER" />
+                <ScalarProperty Name="CABINETID" ColumnName="CABINETID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="USERS_ROLES" TypeName="Model.USERS_ROLES" StoreEntitySet="USERS_ROLES">
+            <EndProperty Name="USERS">
+              <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+            </EndProperty>
+            <EndProperty Name="ROLES">
+              <ScalarProperty Name="ROLENAME" ColumnName="ROLENAME" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

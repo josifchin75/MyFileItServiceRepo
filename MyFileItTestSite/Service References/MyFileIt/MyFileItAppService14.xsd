@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/FileItService.DTOs" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/FileItService.DTOs" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://fileit.cloudapp.net/MyFileItService-TESTING/MyFileItAppService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="FileItResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cabinet" nillable="true" type="tns:FileItCabinet" />
+      <xs:element minOccurs="0" name="Documents" nillable="true" type="tns:ArrayOfFileItDocument" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="FileNameFileItID" nillable="true" type="q1:ArrayOfKeyValueOfstringstring" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FileItResponse" nillable="true" type="tns:FileItResponse" />
+  <xs:complexType name="FileItCabinet">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CabinetId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CabinetName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Template" nillable="true" type="tns:FileItTemplate" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FileItCabinet" nillable="true" type="tns:FileItCabinet" />
+  <xs:complexType name="FileItTemplate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TemplateDefinitions" nillable="true" type="tns:ArrayOfFileItTemplateDefinition" />
+      <xs:element minOccurs="0" name="TemplateName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FileItTemplate" nillable="true" type="tns:FileItTemplate" />
+  <xs:complexType name="ArrayOfFileItTemplateDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FileItTemplateDefinition" nillable="true" type="tns:FileItTemplateDefinition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFileItTemplateDefinition" nillable="true" type="tns:ArrayOfFileItTemplateDefinition" />
+  <xs:complexType name="FileItTemplateDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BARCODETYPE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DATATYPE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HIDECOLUMN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="INDEXNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="INDEXNUM" type="xs:short" />
+      <xs:element minOccurs="0" name="LINKEDFIELDID" nillable="true" type="xs:short" />
+      <xs:element minOccurs="0" name="LOOKUP" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MAXLENGTH" nillable="true" type="xs:short" />
+      <xs:element minOccurs="0" name="MUSTENTER" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MUSTFILL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OCRACTIVE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SEARCHINDEX" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TEMPLATENAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VIEWINDEX" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="XCOORDINATE" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="YCOORDINATE" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ZONEHEIGHT" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ZONEWIDTH" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FileItTemplateDefinition" nillable="true" type="tns:FileItTemplateDefinition" />
+  <xs:complexType name="ArrayOfFileItDocument">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FileItDocument" nillable="true" type="tns:FileItDocument" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFileItDocument" nillable="true" type="tns:ArrayOfFileItDocument" />
+  <xs:complexType name="FileItDocument">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CabinetID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ImageBase64" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="IndexInformation" nillable="true" type="q2:ArrayOfKeyValueOfintstring" />
+      <xs:element minOccurs="0" name="WebImageBase64" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WebImageBase64Src" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WebImageThumbBase64" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WebImageThumbBase64Src" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FileItDocument" nillable="true" type="tns:FileItDocument" />
+  <xs:complexType name="ArrayOfFileItDocumentLookup">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FileItDocumentLookup" nillable="true" type="tns:FileItDocumentLookup" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFileItDocumentLookup" nillable="true" type="tns:ArrayOfFileItDocumentLookup" />
+  <xs:complexType name="FileItDocumentLookup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IndexNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="LookupValue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Operator" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FileItDocumentLookup" nillable="true" type="tns:FileItDocumentLookup" />
+</xs:schema>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="735e551c-7958-4b54-8c74-2ea4d0357640" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:31427/FileItService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="FileItService.xsd" MetadataType="Schema" ID="cb4f9bee-c1b9-4600-80cc-5228bd508162" SourceId="1" SourceUrl="http://localhost:31427/FileItService.svc?xsd=xsd2" />
+    <MetadataFile FileName="FileItService1.xsd" MetadataType="Schema" ID="5b4f18f3-cfc5-4d92-bb4f-e0e42264af87" SourceId="1" SourceUrl="http://localhost:31427/FileItService.svc?xsd=xsd3" />
+    <MetadataFile FileName="FileItService2.xsd" MetadataType="Schema" ID="07f8a526-92a6-4b7c-89c6-5a3070a9ee55" SourceId="1" SourceUrl="http://localhost:31427/FileItService.svc?xsd=xsd0" />
+    <MetadataFile FileName="FileItService.disco" MetadataType="Disco" ID="81ffc97c-12da-4419-abee-a330d6976047" SourceId="1" SourceUrl="http://localhost:31427/FileItService.svc?disco" />
+    <MetadataFile FileName="FileItService.wsdl" MetadataType="Wsdl" ID="1b80f8b6-1ada-4bbf-9050-a02bbc455afd" SourceId="1" SourceUrl="http://localhost:31427/FileItService.svc?wsdl" />
+    <MetadataFile FileName="FileItService3.xsd" MetadataType="Schema" ID="44d830a2-481a-40c1-b37a-4af60fc0e4f6" SourceId="1" SourceUrl="http://localhost:31427/FileItService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

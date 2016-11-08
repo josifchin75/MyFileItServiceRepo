@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F6AB2C45-9075-4B20-9D26-14EC377B8DF3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MyFileItDataLayer</RootNamespace>
+    <AssemblyName>MyFileItDataLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Testing|AnyCPU'">
+    <OutputPath>bin\Testing\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.Firebird">
+      <HintPath>..\packages\EntityFramework.Firebird.4.6.1.0\lib\net45\EntityFramework.Firebird.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FirebirdSql.Data.FirebirdClient, Version=4.6.4.0, Culture=neutral, PublicKeyToken=3750abcc3150b00c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\FirebirdSql.Data.FirebirdClient.4.6.4.0\lib\net45\FirebirdSql.Data.FirebirdClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\Extensions.cs" />
+    <Compile Include="Models\APPUSER.cs">
+      <DependentUpon>MyFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\APPUSERORGANIZATION.cs">
+      <DependentUpon>MyFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\APPUSERSTATU.cs">
+      <DependentUpon>MyFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\APPUSERTYPE.cs">
+      <DependentUpon>MyFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\COACH.cs">
+      <DependentUpon>MyFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\COACHSTATU.cs">
+      <DependentUpon>MyFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DOCUMENTSTATU.cs">
+      <DependentUpon>MyFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DOCUMENTTYPE.cs">
+      <DependentUpon>MyFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EMAILLOG.cs">
+      <DependentUpon>MyFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FILECABINETDOCUMENT.cs">
+      <DependentUpon>MyFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MyFileItModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyFileItModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MyFileItModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MyFileItModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyFileItModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ORGANIZATION.cs">
+      <DependentUpon>MyFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ORGANIZATIONSTATU.cs">
+      <DependentUpon>MyFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ORGANIZATIONTYPE.cs">
+      <DependentUpon>MyFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PAYMENTHISTORY.cs">
+      <DependentUpon>MyFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PAYMENTTYPE.cs">
+      <DependentUpon>MyFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RELATIONSHIPTYPE.cs">
+      <DependentUpon>MyFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SALESREP.cs">
+      <DependentUpon>MyFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SALESREPLEADAREA.cs">
+      <DependentUpon>MyFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SALESREPSTATU.cs">
+      <DependentUpon>MyFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SHAREDOCUMENT.cs">
+      <DependentUpon>MyFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SHAREKEY.cs">
+      <DependentUpon>MyFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SPORTTYPE.cs">
+      <DependentUpon>MyFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEAMEVENT.cs">
+      <DependentUpon>MyFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEAMEVENTDOCUMENT.cs">
+      <DependentUpon>MyFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEAMEVENTDOCUMENTSTATU.cs">
+      <DependentUpon>MyFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEAMEVENTPLAYERROSTER.cs">
+      <DependentUpon>MyFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\USERSTAGETYPE.cs">
+      <DependentUpon>MyFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartialClasses\APPUSER.cs" />
+    <Compile Include="PartialClasses\COACH.cs" />
+    <Compile Include="PartialClasses\DbExtensions.cs" />
+    <Compile Include="PartialClasses\EMAILLOG.cs" />
+    <Compile Include="PartialClasses\FILECABINETDOCUMENT.cs" />
+    <Compile Include="PartialClasses\ORGANIZATION.cs" />
+    <Compile Include="PartialClasses\PAYMENTHISTORY.cs" />
+    <Compile Include="PartialClasses\SALESREP.cs" />
+    <Compile Include="PartialClasses\SHAREDOCUMENT.cs" />
+    <Compile Include="PartialClasses\SHAREKEY.cs" />
+    <Compile Include="PartialClasses\TEAMEVENT.cs" />
+    <Compile Include="PartialClasses\TEAMEVENTDOCUMENT.cs" />
+    <Compile Include="PartialClasses\TEAMEVENTPLAYERROSTER.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="Models\MyFileItModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MyFileItModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\MyFileItModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MyFileItModel.edmx</DependentUpon>
+      <LastGenOutput>MyFileItModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Models\MyFileItModel.edmx.diagram">
+      <DependentUpon>MyFileItModel.edmx</DependentUpon>
+    </None>
+    <None Include="Models\MyFileItModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MyFileItModel.edmx</DependentUpon>
+      <LastGenOutput>MyFileItModel.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

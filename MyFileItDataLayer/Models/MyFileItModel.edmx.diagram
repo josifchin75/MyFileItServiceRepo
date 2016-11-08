@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="efc4f138951c4226ae64e6ca7957f2c7" Name="Diagram1" ZoomLevel="77">
+        <EntityTypeShape EntityType="MyFileItModel.APPUSERSTATU" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyFileItModel.DOCUMENTSTATU" Width="1.5" PointX="6" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyFileItModel.DOCUMENTTYPE" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyFileItModel.ORGANIZATIONSTATU" Width="1.5" PointX="1.5" PointY="25.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyFileItModel.ORGANIZATIONTYPE" Width="1.5" PointX="1.5" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyFileItModel.RELATIONSHIPTYPE" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyFileItModel.SALESREPSTATU" Width="1.5" PointX="1.5" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyFileItModel.SPORTTYPE" Width="1.5" PointX="6" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyFileItModel.TEAMEVENTDOCUMENTSTATU" Width="1.5" PointX="3.75" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyFileItModel.PAYMENTTYPE" Width="1.5" PointX="3.75" PointY="17.875" />
+        <EntityTypeShape EntityType="MyFileItModel.SALESREPLEADAREA" Width="1.5" PointX="6" PointY="27.625" />
+        <EntityTypeShape EntityType="MyFileItModel.SHAREKEY" Width="1.5" PointX="6" PointY="19.125" />
+        <AssociationConnector Association="MyFileItModel.INTEG_251" />
+        <EntityTypeShape EntityType="MyFileItModel.TEAMEVENTPLAYERROSTER" Width="1.5" PointX="5.625" PointY="9.125" />
+        <EntityTypeShape EntityType="MyFileItModel.USERSTAGETYPE" Width="1.5" PointX="3.375" PointY="0.75" />
+        <AssociationConnector Association="MyFileItModel.INTEG_265" />
+        <EntityTypeShape EntityType="MyFileItModel.APPUSERORGANIZATION" Width="1.5" PointX="11.25" PointY="6" />
+        <AssociationConnector Association="MyFileItModel.INTEG_192" />
+        <EntityTypeShape EntityType="MyFileItModel.PAYMENTHISTORY" Width="1.5" PointX="5.25" PointY="32.375" />
+        <EntityTypeShape EntityType="MyFileItModel.ORGANIZATION" Width="1.5" PointX="8.75" PointY="23.875" />
+        <AssociationConnector Association="MyFileItModel.INTEG_190" />
+        <AssociationConnector Association="MyFileItModel.INTEG_188" />
+        <AssociationConnector Association="MyFileItModel.INTEG_189" />
+        <EntityTypeShape EntityType="MyFileItModel.APPUSER" Width="1.5" PointX="3" PointY="8.75" />
+        <AssociationConnector Association="MyFileItModel.INTEG_138" />
+        <AssociationConnector Association="MyFileItModel.INTEG_140" />
+        <AssociationConnector Association="MyFileItModel.INTEG_191" />
+        <AssociationConnector Association="MyFileItModel.INTEG_231" />
+        <AssociationConnector Association="MyFileItModel.INTEG_256" />
+        <AssociationConnector Association="MyFileItModel.INTEG_266" />
+        <AssociationConnector Association="MyFileItModel.INTEG_271" />
+        <EntityTypeShape EntityType="MyFileItModel.COACH" Width="1.5" PointX="11" PointY="18.75" />
+        <AssociationConnector Association="MyFileItModel.INTEG_119" />
+        <AssociationConnector Association="MyFileItModel.INTEG_120" />
+        <AssociationConnector Association="MyFileItModel.INTEG_255" />
+        <EntityTypeShape EntityType="MyFileItModel.COACHSTATU" Width="1.5" PointX="8.75" PointY="20.625" />
+        <AssociationConnector Association="MyFileItModel.INTEG_121" />
+        <AssociationConnector Association="MyFileItModel.INTEG_272" />
+        <AssociationConnector Association="MyFileItModel.INTEG_273" />
+        <EntityTypeShape EntityType="MyFileItModel.FILECABINETDOCUMENT" Width="1.5" PointX="8.25" PointY="6.5" />
+        <AssociationConnector Association="MyFileItModel.INTEG_208" />
+        <AssociationConnector Association="MyFileItModel.INTEG_207" />
+        <AssociationConnector Association="MyFileItModel.INTEG_206" />
+        <EntityTypeShape EntityType="MyFileItModel.SHAREDOCUMENT" Width="1.5" PointX="13.5" PointY="5.625" />
+        <AssociationConnector Association="MyFileItModel.INTEG_242" />
+        <AssociationConnector Association="MyFileItModel.INTEG_274" />
+        <AssociationConnector Association="MyFileItModel.INTEG_243" />
+        <AssociationConnector Association="MyFileItModel.INTEG_244" />
+        <AssociationConnector Association="MyFileItModel.INTEG_261" />
+        <EntityTypeShape EntityType="MyFileItModel.EMAILLOG" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="MyFileItModel.APPUSERTYPE" Width="1.5" PointX="1.125" PointY="0.75" />
+        <AssociationConnector Association="MyFileItModel.INTEG_139" />
+        <EntityTypeShape EntityType="MyFileItModel.TEAMEVENTDOCUMENT" Width="1.5" PointX="8" PointY="11.625" />
+        <AssociationConnector Association="MyFileItModel.INTEG_241" />
+        <AssociationConnector Association="MyFileItModel.INTEG_284" />
+        <EntityTypeShape EntityType="MyFileItModel.SALESREP" Width="1.5" PointX="3.75" PointY="23.375" />
+        <EntityTypeShape EntityType="MyFileItModel.TEAMEVENT" Width="1.5" PointX="11" PointY="25.75" />
+        <AssociationConnector Association="MyFileItModel.INTEG_283" />
+        <AssociationConnector Association="MyFileItModel.INTEG_225" />
+        <AssociationConnector Association="MyFileItModel.INTEG_152" />
+        <AssociationConnector Association="MyFileItModel.INTEG_160" />
+        <AssociationConnector Association="MyFileItModel.INTEG_252" />
+        <AssociationConnector Association="MyFileItModel.INTEG_230" />
+        <AssociationConnector Association="MyFileItModel.INTEG_285" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

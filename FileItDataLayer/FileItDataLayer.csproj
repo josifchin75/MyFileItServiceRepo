@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{099F0E92-B9D9-4132-A613-143CDC783BBE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FileItDataLayer</RootNamespace>
+    <AssemblyName>FileItDataLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Testing|AnyCPU'">
+    <OutputPath>bin\Testing\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.Firebird">
+      <HintPath>..\packages\EntityFramework.Firebird.4.6.1.0\lib\net45\EntityFramework.Firebird.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FirebirdSql.Data.FirebirdClient">
+      <HintPath>..\packages\FirebirdSql.Data.FirebirdClient.4.6.1.0\lib\net45\FirebirdSql.Data.FirebirdClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\CommandLine.cs" />
+    <Compile Include="Helpers\ExceptionHelper.cs" />
+    <Compile Include="Helpers\FileHelper.cs" />
+    <Compile Include="Helpers\ImageMagickHelper.cs" />
+    <Compile Include="Models\ACCOUNT.cs">
+      <DependentUpon>SystemFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CABINET.cs">
+      <DependentUpon>SystemFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CABINETS_ACCESS.cs">
+      <DependentUpon>SystemFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CABINETS_LOOKUPFILE.cs">
+      <DependentUpon>SystemFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ConfigModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConfigModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ConfigModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConfigModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ConfigModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConfigModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CUSTOMER.cs">
+      <DependentUpon>SystemFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CUSTOMERCABINET.cs">
+      <DependentUpon>SystemFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CUSTOMEREMAIL.cs">
+      <DependentUpon>SystemFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CUSTOMERRATE.cs">
+      <DependentUpon>SystemFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EMAIL_IN.cs">
+      <DependentUpon>SystemFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EMAIL_OUT.cs">
+      <DependentUpon>SystemFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GROUP.cs">
+      <DependentUpon>SystemFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GROUPS_USERS.cs">
+      <DependentUpon>SystemFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LISTBOX_TEMPLATES.cs">
+      <DependentUpon>SystemFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LOG.cs">
+      <DependentUpon>SystemFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LogsModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LogsModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LogsModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LogsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LogsModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LogsModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LOG_ARCS.cs">
+      <DependentUpon>LogsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LOG_EMAIL.cs">
+      <DependentUpon>SystemFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LOG_IDXS.cs">
+      <DependentUpon>LogsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\METADATA.cs">
+      <DependentUpon>ConfigModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MULTCABINETSEARCH.cs">
+      <DependentUpon>SystemFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ORDER.cs">
+      <DependentUpon>SystemFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ORDERITEM.cs">
+      <DependentUpon>SystemFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QUEUE_DEFINITIONS.cs">
+      <DependentUpon>SystemFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QUEUE_HISTORY.cs">
+      <DependentUpon>SystemFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QUEUE_NOTES.cs">
+      <DependentUpon>SystemFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QUEUE_SCANNER_ACCESS.cs">
+      <DependentUpon>SystemFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QUEUE_USER_ACCESS.cs">
+      <DependentUpon>SystemFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QUEUE_WORKING.cs">
+      <DependentUpon>SystemFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ROLE.cs">
+      <DependentUpon>SystemFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SCANNER.cs">
+      <DependentUpon>SystemFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SCANNER_CABINETS.cs">
+      <DependentUpon>SystemFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\STDTEMPLATE.cs">
+      <DependentUpon>SystemFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\STDTEMPLATE_DEFINITION.cs">
+      <DependentUpon>SystemFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\STORAGE_MAP.cs">
+      <DependentUpon>SystemFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SystemFileItModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SystemFileItModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SystemFileItModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SystemFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SystemFileItModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SystemFileItModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SYSTEM_LOG.cs">
+      <DependentUpon>SystemFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEMPLATE.cs">
+      <DependentUpon>SystemFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TEMPLATE_DEFINITION.cs">
+      <DependentUpon>SystemFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\USER.cs">
+      <DependentUpon>SystemFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VERSIONTEMP.cs">
+      <DependentUpon>SystemFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WORKFLOW.cs">
+      <DependentUpon>SystemFileItModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartialClasses\Cabinet.cs" />
+    <Compile Include="PartialClasses\FileItDocumentLookup.cs" />
+    <Compile Include="PartialClasses\FileItDocument.cs" />
+    <Compile Include="Helpers\FireBirdHelper.cs" />
+    <Compile Include="PartialClasses\Template.cs" />
+    <Compile Include="PartialClasses\User.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="Models\SystemFileItModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SystemFileItModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="Models\ConfigModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ConfigModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\ConfigModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ConfigModel.edmx</DependentUpon>
+      <LastGenOutput>ConfigModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Models\ConfigModel.edmx.diagram">
+      <DependentUpon>ConfigModel.edmx</DependentUpon>
+    </None>
+    <None Include="Models\ConfigModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ConfigModel.edmx</DependentUpon>
+      <LastGenOutput>ConfigModel.cs</LastGenOutput>
+    </None>
+    <EntityDeploy Include="Models\LogsModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LogsModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\LogsModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LogsModel.edmx</DependentUpon>
+      <LastGenOutput>LogsModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Models\LogsModel.edmx.diagram">
+      <DependentUpon>LogsModel.edmx</DependentUpon>
+    </None>
+    <None Include="Models\LogsModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LogsModel.edmx</DependentUpon>
+      <LastGenOutput>LogsModel.cs</LastGenOutput>
+    </None>
+    <None Include="Models\SystemFileItModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SystemFileItModel.edmx</DependentUpon>
+      <LastGenOutput>SystemFileItModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Models\SystemFileItModel.edmx.diagram">
+      <DependentUpon>SystemFileItModel.edmx</DependentUpon>
+    </None>
+    <None Include="Models\SystemFileItModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SystemFileItModel.edmx</DependentUpon>
+      <LastGenOutput>SystemFileItModel.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

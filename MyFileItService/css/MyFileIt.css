@@ -1,0 +1,41 @@
+﻿body {
+    font-family: Arial;
+    margin: 0px;
+    padding: 0px;
+    background-color: #dddddd;
+}
+
+#wrapper {
+    width: 1260px;
+    margin: 0px auto;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+#header {
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 22px;
+    padding: 20px;
+    position: relative;
+}
+
+    #header .logo {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        width: 150px;
+    }
+
+#content {
+    min-height: 400px;
+    padding: 20px;
+}
+
+    #content img {
+        width: 100%;
+    }
+
+#footer {
+ padding: 40px;   
+}

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f3f73764-c212-45d6-a6cb-c71510bb8c1e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://fileit.cloudapp.net/MyFileItService-TESTING/MyFileItAppService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MyFileItAppService1.xsd" MetadataType="Schema" ID="2ce72990-ae43-43f2-afbd-f9d0c9da9f7d" SourceId="1" SourceUrl="http://fileit.cloudapp.net/MyFileItService-TESTING/MyFileItAppService.svc?xsd=xsd1" />
+    <MetadataFile FileName="MyFileItAppService.wsdl" MetadataType="Wsdl" ID="cf746b89-acf0-4502-bee3-7a952a0add4b" SourceId="1" SourceUrl="http://fileit.cloudapp.net/MyFileItService-TESTING/MyFileItAppService.svc?wsdl" />
+    <MetadataFile FileName="MyFileItAppService.disco" MetadataType="Disco" ID="bf0c873e-9b55-4a14-a509-6a20f2261107" SourceId="1" SourceUrl="http://fileit.cloudapp.net/MyFileItService-TESTING/MyFileItAppService.svc?disco" />
+    <MetadataFile FileName="MyFileItAppService11.xsd" MetadataType="Schema" ID="7450d7b9-21bd-4a47-960c-73f8344a35ad" SourceId="1" SourceUrl="http://fileit.cloudapp.net/MyFileItService-TESTING/MyFileItAppService.svc?xsd=xsd0" />
+    <MetadataFile FileName="MyFileItAppService12.xsd" MetadataType="Schema" ID="d46f8b1c-b9bf-4c45-a319-f7ea7885a472" SourceId="1" SourceUrl="http://fileit.cloudapp.net/MyFileItService-TESTING/MyFileItAppService.svc?xsd=xsd3" />
+    <MetadataFile FileName="MyFileItAppService13.xsd" MetadataType="Schema" ID="01c7bf25-055a-4c25-a47a-c3b08468415c" SourceId="1" SourceUrl="http://fileit.cloudapp.net/MyFileItService-TESTING/MyFileItAppService.svc?xsd=xsd2" />
+    <MetadataFile FileName="MyFileItAppService14.xsd" MetadataType="Schema" ID="b951fb07-5e1b-4d3b-b9fe-c0da76f925ce" SourceId="1" SourceUrl="http://fileit.cloudapp.net/MyFileItService-TESTING/MyFileItAppService.svc?xsd=xsd5" />
+    <MetadataFile FileName="MyFileItAppService15.xsd" MetadataType="Schema" ID="4d9f8798-2119-473f-997a-4f65282c4afd" SourceId="1" SourceUrl="http://fileit.cloudapp.net/MyFileItService-TESTING/MyFileItAppService.svc?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
