@@ -25,11 +25,23 @@ namespace WarmUpIIS
             //call url:
             //https://myfileit.net/MyFileItService/MyFileItAppService.svc/rest/InitService
             var URL = "https://myfileit.net/MyFileItService/MyFileItAppService.svc/rest/InitService";
+            DoWebRequest(URL);
+
+            URL = "https://myfileit.net/MyFileItPEService/MyFileItPEMainService.svc/rest/InitService";
+            DoWebRequest(URL);
+             //Console.ReadLine();
+
             
+            GC.Collect();
+        }
+
+        private static void DoWebRequest(string URL)
+        {
+            Console.WriteLine("Calling: " + URL);
             WebRequest wrGETURL;
             wrGETURL = WebRequest.Create(URL);
 
-           // WebProxy myProxy = new WebProxy("myproxy", 80);
+            // WebProxy myProxy = new WebProxy("myproxy", 80);
             //myProxy.BypassProxyOnLocal = true;
 
             //wrGETURL.Proxy = WebProxy.GetDefaultProxy();
@@ -39,20 +51,16 @@ namespace WarmUpIIS
 
             StreamReader objReader = new StreamReader(objStream);
 
-			string sLine = "";
-			int i = 0;
+            string sLine = "";
+            int i = 0;
 
-			while (sLine!=null)
-			{
-				i++;
-				sLine = objReader.ReadLine();
-				if (sLine!=null)
-					Console.WriteLine("{0}:{1}",i,sLine);
-			}
-             //Console.ReadLine();
-
-            
-            GC.Collect();
+            while (sLine != null)
+            {
+                i++;
+                sLine = objReader.ReadLine();
+                if (sLine != null)
+                    Console.WriteLine("{0}:{1}", i, sLine);
+            }
         }
     }
 }
