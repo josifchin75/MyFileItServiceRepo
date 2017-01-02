@@ -14,24 +14,30 @@ namespace WarmUpIIS
         static void Main(string[] args)
         {
             long interval = 1000 * 60 * 3;
-            Timer t = new Timer(TimerCallback,null,0, interval) ;
+            Timer t = new Timer(TimerCallback, null, 0, interval);
             // Wait for the user to hit <Enter>
             Console.ReadLine();
         }
 
         private static void TimerCallback(Object o)
         {
-            Console.WriteLine("In TimerCallback: " + DateTime.Now);
-            //call url:
-            //https://myfileit.net/MyFileItService/MyFileItAppService.svc/rest/InitService
-            var URL = "https://myfileit.net/MyFileItService/MyFileItAppService.svc/rest/InitService";
-            DoWebRequest(URL);
+            try
+            {
+                Console.WriteLine("In TimerCallback: " + DateTime.Now);
+                //call url:
+                //https://myfileit.net/MyFileItService/MyFileItAppService.svc/rest/InitService
+                var URL = "https://myfileit.net/MyFileItService/MyFileItAppService.svc/rest/InitService";
+                DoWebRequest(URL);
 
-            URL = "https://myfileit.net/MyFileItPEService/MyFileItPEMainService.svc/rest/InitService";
-            DoWebRequest(URL);
-             //Console.ReadLine();
+                URL = "https://myfileit.net/MyFileItPEService/MyFileItPEMainService.svc/rest/InitService";
+                DoWebRequest(URL);
+                //Console.ReadLine();
 
-            
+            }
+            catch (Exception ex)
+            {
+
+            }
             GC.Collect();
         }
 

@@ -39,7 +39,7 @@ namespace MyFileItDataLayer.Models
             result += PRIMARYAPPUSERID.ToString().PadLeft(6,'0');
 
             var curCnt = 1; 
-            var testResult = result + curCnt.ToString().PadLeft(6);
+            var testResult = result + curCnt.ToString().PadLeft(6, '0');
             using (var db = new MyFileItEntities())
             {
                 while (db.SHAREKEYs.Any(sk => sk.SHAREKEYCODE.Equals(testResult, StringComparison.CurrentCultureIgnoreCase))) {
