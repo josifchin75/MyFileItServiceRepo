@@ -45,6 +45,7 @@ namespace MyFileItService
                 if (lastReminderCheck == null || ((DateTime)lastReminderCheck).Date < DateTime.Now.Date)
                 {
                     var result = SendMissingDocumentShares();
+                    ConfigurationSettings.LastReminderCheck = DateTime.Now;
                 }
             }
         }
@@ -1129,9 +1130,9 @@ namespace MyFileItService
                 });
                 cnt++;
             }
-            result.Message = "Sent " + cnt.ToString() + " emails.";
+            result.Message = "Sent " + cnt.ToString() + " reminder emails.";
 
-            ConfigurationSettings.LastReminderCheck = DateTime.Now;
+
             return result;
         }
 
